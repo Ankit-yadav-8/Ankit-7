@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+  --bg-color: #050511;
+  --text-primary: #ffffff;
+  --accent-cyan: #00f3ff;
+  --accent-purple: #9d4edd;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Horizontal Scroll Snap */
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-cyan) var(--bg-color);
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--accent-cyan);
+  border-radius: 4px;
+}
+
+.scroll-card {
+  scroll-snap-align: center;
+  min-width: 300px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+}
