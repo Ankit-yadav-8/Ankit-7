@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import campusImg from './iit-roorkee.jpg'; // Make sure this file is in your src folder
 
-const Hero = () => {
+const Hero = ({ setView, user, handleLogout }) => {
   return (
     <div style={styles.heroContainer}>
       {/* LEFT SIDE: Text and Buttons */}
@@ -12,48 +11,75 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         style={styles.leftContent}
       >
-        <h1 style={styles.welcomeText}>
-          Think India <br/> 
-          <span style={{color: '#00f3ff'}}>Welcomes You</span>
+        <h1 style={styles.title}>
+          Empowering the <br />
+          <span style={styles.highlight}>Youth of India</span>
         </h1>
-        
-        <p style={styles.description}>
-          A pan-India initiative to bind the students with the "Nation First" attitude. 
-          Join the vibrant community at <b>IIT Roorkee</b> where we blend modern 
-          innovation with our rich Indian values to build a stronger tomorrow.
+        <p style={styles.subtitle}>
+          Join Think India to connect, learn, and grow with the brightest minds across the nation.
         </p>
 
         <div style={styles.authContainer}>
-          <motion.button 
-            whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 243, 255, 0.4)' }}
-            style={styles.loginBtn}
-          >
-            Login
-          </motion.button>
-          <motion.button 
-            whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 243, 255, 0.6)' }}
-            style={styles.signUpBtn}
-          >
-            Sign Up
-          </motion.button>
+          {user ? (
+            // WHAT USERS SEE AFTER LOGGING IN
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
+            >
+              <p style={{ color: '#00f3ff', fontSize: '16px', margin: 0 }}>
+                Logged in as: <b>{user.email}</b>
+              </p>
+              <div style={{ display: 'flex', gap: '15px' }}>
+                <motion.button 
+                  whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 243, 255, 0.4)' }}
+                  style={styles.dashboardBtn}
+                  onClick={() => setView('Dashboard')}
+                >
+                  Go to Dashboard
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  style={styles.logoutBtn}
+                  onClick={handleLogout}
+                >
+                  Logout
+                </motion.button>
+              </div>
+            </motion.div>
+          ) : (
+            // WHAT USERS SEE BEFORE LOGGING IN
+            <div style={{ display: 'flex', gap: '20px' }}>
+              <motion.button 
+                whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 243, 255, 0.4)' }}
+                style={styles.loginBtn}
+                onClick={() => setView('Auth')}
+              >
+                Login
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 243, 255, 0.6)' }}
+                style={styles.signUpBtn}
+                onClick={() => setView('Auth')}
+              >
+                Sign Up
+              </motion.button>
+            </div>
+          )}
         </div>
       </motion.div>
 
-      {/* RIGHT SIDE: Animated IIT Roorkee Image */}
+      {/* RIGHT SIDE: Image or Graphic */}
       <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
         style={styles.rightContent}
       >
-        <motion.img 
-          animate={{ y: [0, -15, 0] }} // Floating animation
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          src={campusImg} 
-          alt="IIT Roorkee Campus" 
-          style={styles.campusImage} 
-        />
-        <div style={styles.imageGlow}></div>
+        <div style={styles.imagePlaceholder}>
+          {/* If you have a specific image, replace this div with an <img /> tag */}
+          <h2 style={{ color: '#333' }}>Think India Graphic</h2>
+        </div>
       </motion.div>
     </div>
   );
@@ -61,76 +87,92 @@ const Hero = () => {
 
 const styles = {
   heroContainer: {
-    height: '100vh',
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '0 8%',
-    background: 'radial-gradient(circle at center, #0a0a20 0%, #050511 100%)',
-    color: '#fff',
-    overflow: 'hidden'
+    padding: '80px 10%',
+    minHeight: '70vh',
+    backgroundColor: '#050511',
   },
   leftContent: {
+    flex: 1,
     maxWidth: '500px',
-    zIndex: 2
   },
-  welcomeText: {
-    fontSize: '4.5rem',
-    fontWeight: '800',
-    lineHeight: '1.1',
-    marginBottom: '20px'
+  title: {
+    fontSize: '3.5rem',
+    color: '#fff',
+    lineHeight: '1.2',
+    marginBottom: '20px',
   },
-  description: {
-    fontSize: '1.1rem',
+  highlight: {
+    color: '#00f3ff',
+    textShadow: '0 0 10px rgba(0, 243, 255, 0.5)',
+  },
+  subtitle: {
+    fontSize: '1.2rem',
+    color: '#aaa',
+    marginBottom: '40px',
     lineHeight: '1.6',
-    color: '#ccc',
-    marginBottom: '40px'
   },
   authContainer: {
     display: 'flex',
-    gap: '20px'
+    gap: '20px',
   },
   loginBtn: {
-    padding: '12px 35px',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    background: 'transparent',
+    padding: '12px 30px',
+    backgroundColor: 'transparent',
     color: '#00f3ff',
     border: '2px solid #00f3ff',
-    borderRadius: '50px',
-    cursor: 'pointer'
+    borderRadius: '8px',
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    cursor: 'pointer',
   },
   signUpBtn: {
-    padding: '12px 35px',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    background: '#00f3ff',
-    color: '#050511',
+    padding: '12px 30px',
+    backgroundColor: '#00f3ff',
+    color: '#000',
     border: 'none',
-    borderRadius: '50px',
-    cursor: 'pointer'
+    borderRadius: '8px',
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+  },
+  dashboardBtn: {
+    padding: '12px 30px',
+    backgroundColor: '#00f3ff',
+    color: '#000',
+    border: 'none',
+    borderRadius: '8px',
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+  },
+  logoutBtn: {
+    padding: '12px 30px',
+    backgroundColor: 'transparent',
+    color: '#ff4444',
+    border: '2px solid #ff4444',
+    borderRadius: '8px',
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    cursor: 'pointer',
   },
   rightContent: {
-    position: 'relative',
+    flex: 1,
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'flex-end',
   },
-  campusImage: {
-    width: '550px',
-    borderRadius: '20px',
-    boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
-    zIndex: 2,
-    border: '1px solid rgba(0, 243, 255, 0.2)'
-  },
-  imageGlow: {
-    position: 'absolute',
+  imagePlaceholder: {
     width: '400px',
     height: '400px',
-    background: '#00f3ff',
-    filter: 'blur(100px)',
-    opacity: 0.15,
-    zIndex: 1
+    backgroundColor: '#111',
+    border: '1px solid #333',
+    borderRadius: '50%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    boxShadow: '0 0 50px rgba(0, 243, 255, 0.1)',
   }
 };
 
