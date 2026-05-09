@@ -22,7 +22,7 @@ const blogData: BlogPost[] = [
     author: 'Amit Sharma',
     date: 'April 20, 2026',
     readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80&auto=format&fit=crop',
     excerpt: 'Think India members are increasingly finding their voices in national policy discussions, contributing to real change.',
     content: 'Over the past year, Think India IIT Roorkee members have been actively participating in national policy forums, submitting white papers, and collaborating with government bodies to shape the future of India.',
     category: 'Policy',
@@ -35,7 +35,7 @@ const blogData: BlogPost[] = [
     author: 'Priya Patel',
     date: 'April 12, 2026',
     readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80&auto=format&fit=crop',
     excerpt: 'A look at how IIT campuses are becoming the epicentre of India\'s deep tech revolution and startup culture.',
     content: 'From AI-powered agriculture solutions to quantum computing startups, IIT campuses are producing some of India\'s most innovative companies. We explore the ecosystem that makes this possible.',
     category: 'Startups',
@@ -48,7 +48,7 @@ const blogData: BlogPost[] = [
     author: 'Rahul Kumar',
     date: 'March 30, 2026',
     readTime: '4 min read',
-    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80&auto=format&fit=crop',
     excerpt: 'Our volunteers share what they learned spending time in rural Uttarakhand — lessons no classroom could teach.',
     content: 'The Think India village outreach program has touched thousands of lives. But what did our volunteers learn? We spoke to 10 participants about their transformative experiences.',
     category: 'Social',
@@ -61,7 +61,7 @@ const blogData: BlogPost[] = [
     author: 'Sneha Gupta',
     date: 'March 18, 2026',
     readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&auto=format&fit=crop',
     excerpt: 'How should student leaders adapt their skills and thinking to lead effectively in an AI-driven world?',
     content: 'AI is reshaping every industry. Student leaders must develop new competencies — not just technical skills, but the ability to think critically about technology\'s role in society.',
     category: 'Leadership',
@@ -74,7 +74,7 @@ const blogData: BlogPost[] = [
     author: 'Dev Team',
     date: 'March 5, 2026',
     readTime: '3 min read',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80&auto=format&fit=crop',
     excerpt: 'A behind-the-scenes look at how 500+ students came together to solve India\'s biggest challenges in 48 hours.',
     content: 'The Innovation Hackathon 2026 was our biggest yet. Over 500 participants, 120 teams, and 48 hours of non-stop building. Here\'s how the winning teams approached their solutions.',
     category: 'Events',
@@ -87,7 +87,7 @@ const blogData: BlogPost[] = [
     author: 'Design Team',
     date: 'February 22, 2026',
     readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80&auto=format&fit=crop',
     excerpt: 'IIT Roorkee is on a mission to become India\'s greenest campus. Here is how Think India is contributing.',
     content: 'From tree-planting drives to solar energy adoption, Think India IIT Roorkee is leading campus sustainability initiatives. Our Green Campus Drive planted 1,000+ trees this year alone.',
     category: 'Environment',
@@ -128,7 +128,7 @@ export default function Blog() {
     let pos = container.scrollWidth / 2;
 
     const tick = () => {
-      pos -= speed; /* ← opposite to Events */
+      pos -= speed;
       if (pos <= 0) pos = container.scrollWidth / 2;
       container.scrollLeft = pos;
       animId = requestAnimationFrame(tick);
@@ -171,7 +171,7 @@ export default function Blog() {
           </p>
         </div>
 
-        {/* Carousel — scrolls RIGHT to LEFT (reverse of Events) */}
+        {/* Carousel */}
         <div
           ref={scrollRef}
           className="flex gap-5 overflow-x-auto px-6 sm:px-10 pb-4 scrollbar-hide"
@@ -185,7 +185,12 @@ export default function Blog() {
             >
               {/* Image */}
               <div className="relative h-44 overflow-hidden">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                  crossOrigin="anonymous"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
                 <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold ${post.categoryColor} text-white`}>
                   {post.category}
@@ -236,7 +241,12 @@ export default function Blog() {
             </button>
 
             <div className="relative h-52 sm:h-64">
-              <img src={selected.image} alt={selected.title} className="w-full h-full object-cover rounded-t-3xl" />
+              <img
+                src={selected.image}
+                alt={selected.title}
+                className="w-full h-full object-cover rounded-t-3xl"
+                crossOrigin="anonymous"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent rounded-t-3xl" />
               <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${selected.categoryColor} text-white`}>
                 {selected.category}
@@ -252,7 +262,6 @@ export default function Blog() {
               </div>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{selected.content}</p>
 
-              {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-5">
                 {selected.tags.map(tag => (
                   <span key={tag} className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium bg-purple-500/10 text-purple-600 border border-purple-500/20">
