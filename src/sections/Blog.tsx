@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { BookOpen, Clock, User, ExternalLink, X, Tag, Calendar } from 'lucide-react';
-
+import thinkIndiaLogo from '../assets/think-india1.png';
 interface BlogPost {
   id: number;
   title: string;
@@ -22,8 +22,8 @@ const blogData: BlogPost[] = [
     author: 'Amit Sharma',
     date: 'April 20, 2026',
     readTime: '5 min read',
-    // Notice the dot (.) before the slash! This makes it relative.
-    image: './think-india.png',
+    // CHANGE THIS LINE: Remove quotes and use the imported variable
+    image: thinkIndiaLogo, 
     excerpt: 'Think India members are increasingly finding their voices in national policy discussions, contributing to real change.',
     content: 'Over the past year, Think India IIT Roorkee members have been actively participating in national policy forums, submitting white papers, and collaborating with government bodies to shape the future of India.',
     category: 'Policy',
