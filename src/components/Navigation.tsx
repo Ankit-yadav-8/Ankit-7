@@ -64,7 +64,7 @@ export default function Navigation() {
             className="flex items-center gap-2 logo-hover shrink-0"
           >
             <img
-              src="/images/think-india.png"
+              src="/Ankit-7/images/think-india.png"
               alt="Think India"
               className="h-7 w-auto animate-logo-glow"
             />
