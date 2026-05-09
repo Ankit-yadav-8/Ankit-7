@@ -22,7 +22,8 @@ const blogData: BlogPost[] = [
     author: 'Amit Sharma',
     date: 'April 20, 2026',
     readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80&auto=format&fit=crop',
+    // Notice the dot (.) before the slash! This makes it relative.
+    image: './think-india.png',
     excerpt: 'Think India members are increasingly finding their voices in national policy discussions, contributing to real change.',
     content: 'Over the past year, Think India IIT Roorkee members have been actively participating in national policy forums, submitting white papers, and collaborating with government bodies to shape the future of India.',
     category: 'Policy',
