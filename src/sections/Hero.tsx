@@ -136,7 +136,7 @@ export default function Hero() {
               style={{ background: 'linear-gradient(90deg, transparent, hsla(24, 95%, 53%, 0.6), transparent)' }}
             />
             <img
-              src="/images/iit-roorkee.jpg"
+              src="/Ankit-7/images/iit-roorkee.jpg"  // ✅ fixed
               alt="IIT Roorkee"
               className="w-full h-48 sm:h-64 object-cover"
               style={{ filter: 'brightness(0.82) saturate(1.1)' }}

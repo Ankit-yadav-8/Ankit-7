@@ -22,7 +22,7 @@ const eventsData: Event[] = [
     date: 'March 15–16, 2026',
     time: '48 Hours',
     location: 'MAC Auditorium, IIT Roorkee',
-    image: '/images/event-hackathon.jpg',
+    image: '/Ankit-7/images/event-hackathon.jpg',  // ✅ fixed
     description: 'A 48-hour coding marathon where participants build innovative solutions to real-world problems. Prizes worth Rs. 5 lakhs.',
     participants: '500+',
     formLink: '#register',
@@ -35,7 +35,7 @@ const eventsData: Event[] = [
     date: 'April 5, 2026',
     time: '10:00 AM – 5:00 PM',
     location: 'Senate Hall, IIT Roorkee',
-    image: '/images/event-seminar.jpg',
+    image: '/Ankit-7/images/event-seminar.jpg',  // ✅ fixed
     description: 'Learn from industry leaders and entrepreneurs about building successful careers and businesses.',
     participants: '1,000+',
     formLink: '#register',
@@ -48,7 +48,7 @@ const eventsData: Event[] = [
     date: 'February 20, 2026',
     time: '9:00 AM – 4:00 PM',
     location: 'Nearby Villages, Roorkee',
-    image: '/images/event-outreach.jpg',
+    image: '/Ankit-7/images/event-outreach.jpg',  // ✅ fixed
     description: 'Teaching digital literacy and basic education to underprivileged children in nearby villages.',
     participants: '200+',
     formLink: '#register',
@@ -61,7 +61,7 @@ const eventsData: Event[] = [
     date: 'May 10, 2026',
     time: '11:00 AM – 6:00 PM',
     location: 'LHC Complex, IIT Roorkee',
-    image: '/images/event-research.jpg',
+    image: '/Ankit-7/images/event-research.jpg',  // ✅ fixed
     description: 'Showcase your research projects to faculty, industry experts, and fellow students.',
     participants: '300+',
     formLink: '#register',
@@ -74,7 +74,7 @@ const eventsData: Event[] = [
     date: 'March 28–30, 2026',
     time: '3 Days',
     location: 'Convocation Ground, IIT Roorkee',
-    image: '/images/memory-cultural.jpg',
+    image: '/Ankit-7/images/memory-cultural.jpg',  // ✅ fixed
     description: 'Three days of cultural celebrations featuring music, dance, drama, art exhibitions, and food festivals.',
     participants: '10,000+',
     formLink: '#register',
@@ -87,7 +87,7 @@ const eventsData: Event[] = [
     date: 'April 22, 2026',
     time: '8:00 AM – 12:00 PM',
     location: 'IIT Roorkee Campus',
-    image: '/images/memory-tree.jpg',
+    image: '/Ankit-7/images/memory-tree.jpg',  // ✅ fixed
     description: 'Join us in planting 1,000+ trees across the campus. Contribute to making our campus greener.',
     participants: '800+',
     formLink: '#register',
@@ -152,7 +152,6 @@ export default function Events() {
   return (
     <section id="events" className="relative py-24 overflow-hidden" ref={ref}>
 
-      {/* Background orbs */}
       <div className="bg-orb bg-orb-2" style={{ opacity: 0.7 }} />
 
       <div className="relative">

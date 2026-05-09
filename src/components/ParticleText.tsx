@@ -17,7 +17,6 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
     const container = containerRef.current;
     if (!container) return;
  
-    /* ── Scene ─────────────────────────────────────────────────────────── */
     const scene  = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 2000);
     camera.position.z = 90;
@@ -29,7 +28,6 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
  
-    /* ── Sample text into particle positions ───────────────────────────── */
     const offCanvas = document.createElement('canvas');
     const offCtx    = offCanvas.getContext('2d')!;
     const fontSize  = 22;
@@ -55,7 +53,6 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
         if (px[((y * offCanvas.width + x) * 4) + 3] > 128)
           ppos.push({ ox: (x - offCanvas.width / 2) * 0.46, oy: -(y - offCanvas.height / 2) * 0.46 });
  
-    /* ── Text-particle buffers ─────────────────────────────────────────── */
     const N        = ppos.length;
     const tPos     = new Float32Array(N * 3);
     const tCol     = new Float32Array(N * 3);
@@ -63,7 +60,6 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
     const tVel     = new Float32Array(N * 3);
     const tTarget  = new Float32Array(N * 3);
  
-    // Five-colour palette: orange → amber → sky → violet → rose
     const palette = [
       new THREE.Color('#ff6b00'),
       new THREE.Color('#ffb830'),
@@ -73,7 +69,6 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
     ];
  
     for (let i = 0; i < N; i++) {
-      // start scattered far away
       tPos[i*3]   = (Math.random() - .5) * 300;
       tPos[i*3+1] = (Math.random() - .5) * 200;
       tPos[i*3+2] = (Math.random() - .5) * 150;
@@ -95,7 +90,7 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
  
     const tGeo = new THREE.BufferGeometry();
     tGeo.setAttribute('position', new THREE.BufferAttribute(tPos, 3));
-    tGeo.setAttribute('color',    new THREE.BufferAttribute(tCol, 3));
+    tGeo.setAttribute('aColor',   new THREE.BufferAttribute(tCol, 3)); // ✅ renamed
     tGeo.setAttribute('size',     new THREE.BufferAttribute(tSz,  1));
  
     const tMat = new THREE.ShaderMaterial({
@@ -108,7 +103,7 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
       },
       vertexShader: `
         attribute float size;
-        attribute vec3  color;
+        attribute vec3  aColor;
         varying   vec3  vColor;
         varying   float vAlpha;
         uniform   float uTime;
@@ -118,22 +113,19 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
         uniform   float uAssembled;
  
         void main(){
-          vColor = color;
+          vColor = aColor;
           vec3 p = position;
           float id = float(gl_VertexID);
- 
-          /* ── breathing pulse ── */
+
           float pulse = sin(uTime*1.8 + p.x*.12 + p.y*.1) * .45 * uAssembled;
           p.x += pulse * cos(uTime*.6 + id*.003);
           p.y += pulse * sin(uTime*.5 + id*.004);
- 
-          /* ── scroll explosion ── */
+
           float ex = uScroll * 160.0;
           p.x += sin(p.y*.18 + uTime*1.1 + id*.015) * ex * .7;
           p.y += cos(p.x*.18 + uTime*.9  + id*.018) * ex * .5;
           p.z += sin(uTime*.5 + id*.022)             * ex * 1.1;
- 
-          /* ── mouse repulsion + swirl ── */
+
           vec4  wp   = modelMatrix * vec4(p, 1.0);
           vec2  toM  = wp.xy - uMouse * 95.0;
           float dist = length(toM);
@@ -144,14 +136,12 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
             p.xy += rep + swrl;
             p.z  += f * 10.0;
           }
- 
-          /* ── organic wave ── */
+
           p.y += sin(uTime*.7  + id*.045) * .7 * uAssembled;
           p.x += cos(uTime*.55 + id*.033) * .4 * uAssembled;
- 
-          /* ── twinkle ── */
+
           vAlpha = .7 + sin(uTime*2.5 + id*.13) * .3;
- 
+
           vec4 mv = modelViewMatrix * vec4(p, 1.0);
           gl_PointSize = size * uPR * (95.0 / -mv.z);
           gl_Position  = projectionMatrix * mv;
@@ -176,13 +166,13 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
       transparent: true,
       depthWrite:  false,
       blending:    THREE.AdditiveBlending,
-      vertexColors: true,
+      vertexColors: false, // ✅ must be false when using custom aColor attribute
     });
  
     const tPoints = new THREE.Points(tGeo, tMat);
     scene.add(tPoints);
  
-    /* ── Layer 1 – Deep ambient cloud (600 pts) ────────────────────────── */
+    /* ── Layer 1 – Deep ambient cloud ──────────────────────────────────── */
     const A  = 600;
     const aP = new Float32Array(A * 3);
     const aC = new Float32Array(A * 3);
@@ -195,17 +185,17 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
     }
     const aGeo = new THREE.BufferGeometry();
     aGeo.setAttribute('position', new THREE.BufferAttribute(aP, 3));
-    aGeo.setAttribute('color',    new THREE.BufferAttribute(aC, 3));
+    aGeo.setAttribute('aColor',   new THREE.BufferAttribute(aC, 3)); // ✅ renamed
     const aMat = new THREE.ShaderMaterial({
       uniforms: { uTime: { value: 0 }, uPR: { value: renderer.getPixelRatio() } },
       vertexShader: `
-        attribute vec3  color;
+        attribute vec3  aColor;
         varying   vec3  vColor;
         varying   float vA;
         uniform   float uTime;
         uniform   float uPR;
         void main(){
-          vColor = color;
+          vColor = aColor;
           vec3 p  = position;
           float id = float(gl_VertexID);
           p.x += sin(uTime*.28 + id*.08) * 5.0;
@@ -229,11 +219,11 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
         }
       `,
       transparent: true, depthWrite: false,
-      blending: THREE.AdditiveBlending, vertexColors: true,
+      blending: THREE.AdditiveBlending, vertexColors: false, // ✅
     });
     scene.add(new THREE.Points(aGeo, aMat));
  
-    /* ── Layer 2 – Orbiting ellipse ring (200 pts) ─────────────────────── */
+    /* ── Layer 2 – Orbiting ellipse ring ───────────────────────────────── */
     const R  = 200;
     const rP = new Float32Array(R * 3);
     const rC = new Float32Array(R * 3);
@@ -248,17 +238,17 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
     }
     const rGeo = new THREE.BufferGeometry();
     rGeo.setAttribute('position', new THREE.BufferAttribute(rP, 3));
-    rGeo.setAttribute('color',    new THREE.BufferAttribute(rC, 3));
+    rGeo.setAttribute('aColor',   new THREE.BufferAttribute(rC, 3)); // ✅ renamed
     const rMat = new THREE.ShaderMaterial({
       uniforms: { uTime: { value: 0 }, uPR: { value: renderer.getPixelRatio() } },
       vertexShader: `
-        attribute vec3  color;
+        attribute vec3  aColor;
         varying   vec3  vColor;
         varying   float vA;
         uniform   float uTime;
         uniform   float uPR;
         void main(){
-          vColor = color;
+          vColor = aColor;
           vec3  p   = position;
           float id  = float(gl_VertexID);
           float spd = .12 + mod(id, 7.0) * .018;
@@ -284,12 +274,12 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
         }
       `,
       transparent: true, depthWrite: false,
-      blending: THREE.AdditiveBlending, vertexColors: true,
+      blending: THREE.AdditiveBlending, vertexColors: false, // ✅
     });
     const rPoints = new THREE.Points(rGeo, rMat);
     scene.add(rPoints);
  
-    /* ── Layer 3 – Shooting-star streaks (80 pts) ──────────────────────── */
+    /* ── Layer 3 – Shooting-star streaks ───────────────────────────────── */
     const SS  = 80;
     const ssP = new Float32Array(SS * 3);
     const ssC = new Float32Array(SS * 3);
@@ -304,21 +294,20 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
     }
     const ssGeo = new THREE.BufferGeometry();
     ssGeo.setAttribute('position', new THREE.BufferAttribute(ssP, 3));
-    ssGeo.setAttribute('color',    new THREE.BufferAttribute(ssC, 3));
+    ssGeo.setAttribute('aColor',   new THREE.BufferAttribute(ssC, 3)); // ✅ renamed
     const ssMat = new THREE.ShaderMaterial({
       uniforms: { uTime: { value: 0 }, uPR: { value: renderer.getPixelRatio() } },
       vertexShader: `
-        attribute vec3  color;
+        attribute vec3  aColor;
         varying   vec3  vColor;
         varying   float vA;
         uniform   float uTime;
         uniform   float uPR;
         void main(){
-          vColor = color;
+          vColor = aColor;
           vec3  p  = position;
           float id = float(gl_VertexID);
           float spd = .3 + mod(id, 5.0) * .16;
-          // drift across screen, wrap around
           float t  = mod(uTime * spd + id * .13, 1.0);
           p.x = mix(-150.0, 150.0, t);
           p.y = position.y + sin(id * .7) * 20.0;
@@ -333,7 +322,6 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
         varying float vA;
         void main(){
           vec2  uv = gl_PointCoord - .5;
-          // elongated streak shape
           float d  = length(vec2(uv.x * .4, uv.y));
           if(d > .5) discard;
           float a  = (1.0 - smoothstep(.0, .5, d)) * vA;
@@ -341,11 +329,11 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
         }
       `,
       transparent: true, depthWrite: false,
-      blending: THREE.AdditiveBlending, vertexColors: true,
+      blending: THREE.AdditiveBlending, vertexColors: false, // ✅
     });
     scene.add(new THREE.Points(ssGeo, ssMat));
  
-    /* ── Layer 4 – DNA-helix spine (120 pts) ───────────────────────────── */
+    /* ── Layer 4 – DNA-helix spine ─────────────────────────────────────── */
     const DNA  = 120;
     const dnaP = new Float32Array(DNA * 3);
     const dnaC = new Float32Array(DNA * 3);
@@ -359,21 +347,20 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
     }
     const dnaGeo = new THREE.BufferGeometry();
     dnaGeo.setAttribute('position', new THREE.BufferAttribute(dnaP, 3));
-    dnaGeo.setAttribute('color',    new THREE.BufferAttribute(dnaC, 3));
+    dnaGeo.setAttribute('aColor',   new THREE.BufferAttribute(dnaC, 3)); // ✅ renamed
     const dnaMat = new THREE.ShaderMaterial({
       uniforms: { uTime: { value: 0 }, uPR: { value: renderer.getPixelRatio() } },
       vertexShader: `
-        attribute vec3  color;
+        attribute vec3  aColor;
         varying   vec3  vColor;
         varying   float vA;
         uniform   float uTime;
         uniform   float uPR;
         void main(){
-          vColor = color;
+          vColor = aColor;
           vec3  p  = position;
           float id = float(gl_VertexID);
           float t  = id / 120.0 * 3.14159 * 6.0;
-          // slowly rotate helix
           float ang = t + uTime * .3;
           p.x = cos(ang) * 45.0;
           p.z = sin(ang) * 15.0;
@@ -396,11 +383,10 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
         }
       `,
       transparent: true, depthWrite: false,
-      blending: THREE.AdditiveBlending, vertexColors: true,
+      blending: THREE.AdditiveBlending, vertexColors: false, // ✅
     });
     scene.add(new THREE.Points(dnaGeo, dnaMat));
  
-    /* ── Events ─────────────────────────────────────────────────────────── */
     const onScroll    = () => { scrollRef.current = Math.min(window.scrollY / window.innerHeight, 1); };
     const onMouseMove = (e: MouseEvent) => {
       mouseRef.current.x =  (e.clientX / window.innerWidth)  * 2 - 1;
@@ -409,10 +395,8 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
     window.addEventListener('scroll',    onScroll,    { passive: true });
     window.addEventListener('mousemove', onMouseMove);
  
-    /* ── Animate ─────────────────────────────────────────────────────────── */
     const clock = new THREE.Clock();
     let assembled = 0;
- 
     const allUniforms = [tMat, aMat, rMat, ssMat, dnaMat];
  
     const animate = () => {
@@ -428,7 +412,6 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
       tMat.uniforms.uMouse.value.set(mouseRef.current.x, mouseRef.current.y);
       tMat.uniforms.uAssembled.value = asmF;
  
-      /* lerp text particles */
       const posAttr  = tGeo.attributes.position as THREE.BufferAttribute;
       const posArr   = posAttr.array as Float32Array;
       const lr       = .022;
@@ -444,12 +427,10 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
       }
       posAttr.needsUpdate = true;
  
-      /* camera bob */
       camera.position.x = Math.sin(t * .07) * 4;
       camera.position.y = Math.cos(t * .10) * 2.5;
       camera.lookAt(0, 0, 0);
  
-      /* ring tilt */
       rPoints.rotation.x = Math.sin(t * .04) * .25;
       rPoints.rotation.z = t * .008;
  
@@ -457,7 +438,6 @@ export default function ParticleText({ text = 'THINK INDIA', subText = 'IIT ROOR
     };
     animate();
  
-    /* ── Resize ──────────────────────────────────────────────────────────── */
     const onResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
