@@ -189,7 +189,6 @@ export default function Blog() {
                   src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover"
-                  crossOrigin="anonymous"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
                 <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold ${post.categoryColor} text-white`}>
@@ -245,7 +244,6 @@ export default function Blog() {
                 src={selected.image}
                 alt={selected.title}
                 className="w-full h-full object-cover rounded-t-3xl"
-                crossOrigin="anonymous"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent rounded-t-3xl" />
               <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${selected.categoryColor} text-white`}>
