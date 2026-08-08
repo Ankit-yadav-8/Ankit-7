@@ -69,6 +69,7 @@ const messages = [
 export default function DeskMessages() {
   const { ref, revealed } = useReveal();
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   /* Auto-scroll */
   useEffect(() => {
@@ -138,7 +139,8 @@ export default function DeskMessages() {
             {allMessages.map((msg, i) => (
               <div
                 key={`${msg.name}-${i}`}
-                className={`event-card flex-shrink-0 w-[300px] sm:w-[380px] group transition-all duration-700 flex flex-col text-center rounded-[2rem] overflow-hidden border border-orange-200/50 bg-card shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_8px_30px_rgba(249,115,22,0.12)] hover:-translate-y-1 ${
+                onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
+                className={`event-card cursor-pointer flex-shrink-0 w-[300px] sm:w-[380px] group transition-all duration-700 flex flex-col text-center rounded-[2rem] overflow-hidden border border-orange-200/50 bg-card shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_8px_30px_rgba(249,115,22,0.12)] hover:-translate-y-1 ${
                   revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${0.05 + (i % messages.length) * 0.08}s` }}
@@ -146,12 +148,27 @@ export default function DeskMessages() {
                 <div className="w-full aspect-[4/3] sm:aspect-square overflow-hidden flex-shrink-0 bg-secondary/10 relative">
                   <img src={msg.image} alt={msg.name} className="w-full h-full object-cover object-top" />
                 </div>
-                <div className="p-6 sm:p-8 flex flex-col items-center">
+                <div className="p-6 sm:p-8 flex flex-col items-center flex-grow">
                   <h3 className="text-xl font-bold text-foreground mb-1">{msg.name}</h3>
                   <p className="text-sm font-semibold text-orange-500 mb-4">{msg.role}</p>
-                  <p className="text-sm text-muted-foreground italic leading-relaxed overflow-y-auto scrollbar-hide max-h-[160px]">
-                    "{msg.message}"
-                  </p>
+                  
+                  <div className={`transition-all duration-500 overflow-hidden w-full text-left ${expandedIndex === i ? 'max-h-[800px]' : 'max-h-[140px] relative'}`}>
+                    <p className="text-sm text-muted-foreground italic leading-relaxed">
+                      "{msg.message}"
+                    </p>
+                    {expandedIndex !== i && (
+                      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-card to-transparent" />
+                    )}
+                  </div>
+                  
+                  <button 
+                    className="mt-6 flex items-center gap-2 text-primary font-semibold text-sm hover:text-orange-700 transition-colors"
+                  >
+                    {expandedIndex === i ? 'Show Less' : 'Read Full Message'}
+                    <span className={`transition-transform duration-300 ${expandedIndex === i ? '-rotate-90' : 'translate-x-1'}`}>
+                      →
+                    </span>
+                  </button>
                 </div>
               </div>
             ))}
