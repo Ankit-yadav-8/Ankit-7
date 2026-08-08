@@ -638,31 +638,29 @@
 ───────────────────────────────────────── */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
- / *    % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-       M O B I L E   P E R F O R M A N C E   O P T I M I Z A T I O N S 
-  % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %  * / 
- @ m e d i a   ( m a x - w i d t h :   7 6 8 p x )   { 
-     . b g - o r b   { 
-         f i l t e r :   b l u r ( 4 0 p x )   ! i m p o r t a n t ; 
-         o p a c i t y :   0 . 2   ! i m p o r t a n t ; 
-         a n i m a t i o n :   n o n e   ! i m p o r t a n t ; 
-         w i l l - c h a n g e :   a u t o   ! i m p o r t a n t ; 
-     } 
-     . b g - o r b - 1 ,   . b g - o r b - 2 ,   . b g - o r b - 3   { 
-         a n i m a t i o n :   n o n e   ! i m p o r t a n t ; 
-     } 
-     . g l a s s   { 
-         b a c k d r o p - f i l t e r :   b l u r ( 8 p x )   ! i m p o r t a n t ; 
-         - w e b k i t - b a c k d r o p - f i l t e r :   b l u r ( 8 p x )   ! i m p o r t a n t ; 
-     } 
-     . g l a s s - s t r o n g   { 
-         b a c k d r o p - f i l t e r :   b l u r ( 1 2 p x )   ! i m p o r t a n t ; 
-         - w e b k i t - b a c k d r o p - f i l t e r :   b l u r ( 1 2 p x )   ! i m p o r t a n t ; 
-     } 
-     *   { 
-         / *   P r e v e n t   h o r i z o n t a l   s c r o l l   i s s u e s   * / 
-         m a x - w i d t h :   1 0 0 v w ; 
-     } 
- } 
-  
- 
+/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      MOBILE PERFORMANCE OPTIMIZATIONS 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+@media (max-width: 768px) {
+    .bg-orb {
+        filter: blur(40px) !important;
+        opacity: 0.2 !important;
+        animation: none !important;
+        will-change: auto !important;
+    }
+    .bg-orb-1, .bg-orb-2, .bg-orb-3 {
+        animation: none !important;
+    }
+    .glass {
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+    }
+    .glass-strong {
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+    }
+    * {
+        /* Prevent horizontal scroll issues */
+        max-width: 100vw;
+    }
+}
