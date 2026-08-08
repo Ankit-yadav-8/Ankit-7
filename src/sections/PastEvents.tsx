@@ -3,6 +3,7 @@ import { Calendar, MapPin, Users, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 import { pastEventsData } from '@/data/pastEvents';
+import { useAutoScroll } from '@/Hooks/useAutoScroll';
 
 function useReveal(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,40 +23,8 @@ function useReveal(threshold = 0.1) {
 
 export default function PastEvents() {
   const { ref, revealed } = useReveal();
-  const scrollRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
-  /* Auto-scroll — REVERSE direction */
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-    let animId: number;
-    const speed = 0.45;
-
-    container.scrollLeft = container.scrollWidth / 2;
-    let pos = container.scrollWidth / 2;
-
-    const tick = () => {
-      pos -= speed;
-      if (pos <= 0) pos = container.scrollWidth / 2;
-      container.scrollLeft = pos;
-      animId = requestAnimationFrame(tick);
-    };
-
-    const timer = setTimeout(() => { animId = requestAnimationFrame(tick); }, 1500);
-    const pause  = () => cancelAnimationFrame(animId);
-    const resume = () => { animId = requestAnimationFrame(tick); };
-
-    container.addEventListener('mouseenter', pause);
-    container.addEventListener('mouseleave', resume);
-
-    return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(animId);
-      container.removeEventListener('mouseenter', pause);
-      container.removeEventListener('mouseleave', resume);
-    };
-  }, []);
+  const scrollRef = useAutoScroll('left');
 
   const allEvents = [...pastEventsData, ...pastEventsData];
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Briefcase, MapPin, ExternalLink, X, Clock, DollarSign, Building2 } from 'lucide-react';
+import { useAutoScroll } from '@/Hooks/useAutoScroll';
 
 interface Internship {
   id: number;
@@ -122,40 +123,7 @@ function useReveal(threshold = 0.1) {
 export default function Internship() {
   const { ref, revealed } = useReveal();
   const [selected, setSelected] = useState<Internship | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  /* Auto-scroll — REVERSE direction */
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-    let animId: number;
-    const speed = 0.45;
-
-    /* Start from the middle (duplicated list) */
-    container.scrollLeft = container.scrollWidth / 2;
-    let pos = container.scrollWidth / 2;
-
-    const tick = () => {
-      pos -= speed; /* ← opposite to Events */
-      if (pos <= 0) pos = container.scrollWidth / 2;
-      container.scrollLeft = pos;
-      animId = requestAnimationFrame(tick);
-    };
-
-    const timer = setTimeout(() => { animId = requestAnimationFrame(tick); }, 1500);
-    const pause  = () => cancelAnimationFrame(animId);
-    const resume = () => { animId = requestAnimationFrame(tick); };
-
-    container.addEventListener('mouseenter', pause);
-    container.addEventListener('mouseleave', resume);
-
-    return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(animId);
-      container.removeEventListener('mouseenter', pause);
-      container.removeEventListener('mouseleave', resume);
-    };
-  }, []);
+  const scrollRef = useAutoScroll('left');
 
   const allInternships = [...internshipsData, ...internshipsData];
 

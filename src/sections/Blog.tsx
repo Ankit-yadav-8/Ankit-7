@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { BookOpen, Clock, User, ExternalLink, X, Tag, Calendar } from 'lucide-react';
+import { useAutoScroll } from '@/Hooks/useAutoScroll';
 import thinkIndiaLogo from '../assets/think-india1.png';
 interface BlogPost {
   id: number;
@@ -22,7 +23,6 @@ const blogData: BlogPost[] = [
     author: 'Amit Sharma',
     date: 'April 20, 2026',
     readTime: '5 min read',
-    // CHANGE THIS LINE: Remove quotes and use the imported variable
     image: thinkIndiaLogo, 
     excerpt: 'Think India members are increasingly finding their voices in national policy discussions, contributing to real change.',
     content: 'Over the past year, Think India IIT Roorkee members have been actively participating in national policy forums, submitting white papers, and collaborating with government bodies to shape the future of India.',
@@ -116,39 +116,7 @@ function useReveal(threshold = 0.1) {
 export default function Blog() {
   const { ref, revealed } = useReveal();
   const [selected, setSelected] = useState<BlogPost | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  /* Auto-scroll — REVERSE direction */
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-    let animId: number;
-    const speed = 0.45;
-
-    container.scrollLeft = container.scrollWidth / 2;
-    let pos = container.scrollWidth / 2;
-
-    const tick = () => {
-      pos -= speed;
-      if (pos <= 0) pos = container.scrollWidth / 2;
-      container.scrollLeft = pos;
-      animId = requestAnimationFrame(tick);
-    };
-
-    const timer = setTimeout(() => { animId = requestAnimationFrame(tick); }, 1500);
-    const pause  = () => cancelAnimationFrame(animId);
-    const resume = () => { animId = requestAnimationFrame(tick); };
-
-    container.addEventListener('mouseenter', pause);
-    container.addEventListener('mouseleave', resume);
-
-    return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(animId);
-      container.removeEventListener('mouseenter', pause);
-      container.removeEventListener('mouseleave', resume);
-    };
-  }, []);
+  const scrollRef = useAutoScroll('left');
 
   const allPosts = [...blogData, ...blogData];
 

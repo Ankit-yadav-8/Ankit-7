@@ -20,6 +20,7 @@ function useReveal(threshold = 0.1) {
 import kkPantImg from '@/assets/desk/kkpant.jpg';
 import upSinghImg from '@/assets/desk/upsingh.jpg';
 import barjeevImg from '@/assets/desk/barjiv.jpg';
+import { useAutoScroll } from '@/Hooks/useAutoScroll';
 import sonaliImg from '@/assets/desk/sonali.jpg';
 import bhaveshImg from '@/assets/desk/bhavesh.jpg';
 import sumitImg from '@/assets/desk/sumit.jpg';
@@ -71,38 +72,8 @@ const messages = [
 
 export default function DeskMessages() {
   const { ref, revealed } = useReveal();
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedMessage, setSelectedMessage] = useState<typeof messages[0] | null>(null);
-
-  /* Auto-scroll */
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-    let animId: number;
-    let pos = 0;
-    const speed = 0.45;
-
-    const tick = () => {
-      pos += speed;
-      if (pos >= container.scrollWidth / 2) pos = 0;
-      container.scrollLeft = pos;
-      animId = requestAnimationFrame(tick);
-    };
-
-    const timer = setTimeout(() => { animId = requestAnimationFrame(tick); }, 1500);
-    const pause  = () => cancelAnimationFrame(animId);
-    const resume = () => { animId = requestAnimationFrame(tick); };
-
-    container.addEventListener('mouseenter', pause);
-    container.addEventListener('mouseleave', resume);
-
-    return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(animId);
-      container.removeEventListener('mouseenter', pause);
-      container.removeEventListener('mouseleave', resume);
-    };
-  }, []);
+  const scrollRef = useAutoScroll('right');
 
   const allMessages = [...messages, ...messages];
 

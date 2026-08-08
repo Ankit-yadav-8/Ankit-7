@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Calendar, MapPin, ExternalLink, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { eventsData } from '@/data/events';
+import { useAutoScroll } from '@/Hooks/useAutoScroll';
 
 function useReveal(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,37 +23,7 @@ function useReveal(threshold = 0.1) {
 export default function Events() {
   const { ref, revealed } = useReveal();
   const navigate = useNavigate();
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  /* Auto-scroll */
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-    let animId: number;
-    let pos = 0;
-    const speed = 0.45;
-
-    const tick = () => {
-      pos += speed;
-      if (pos >= container.scrollWidth / 2) pos = 0;
-      container.scrollLeft = pos;
-      animId = requestAnimationFrame(tick);
-    };
-
-    const timer = setTimeout(() => { animId = requestAnimationFrame(tick); }, 1500);
-    const pause  = () => cancelAnimationFrame(animId);
-    const resume = () => { animId = requestAnimationFrame(tick); };
-
-    container.addEventListener('mouseenter', pause);
-    container.addEventListener('mouseleave', resume);
-
-    return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(animId);
-      container.removeEventListener('mouseenter', pause);
-      container.removeEventListener('mouseleave', resume);
-    };
-  }, []);
+  const scrollRef = useAutoScroll('right');
 
   const allEvents = [...eventsData, ...eventsData];
 
