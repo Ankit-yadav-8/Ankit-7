@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Home, BookOpen, Calendar, Info, Phone, Moon, Sun, Menu, X, Heart, History, ChevronDown } from 'lucide-react';
+import { Home, BookOpen, Calendar, Info, Phone, Moon, Sun, Menu, X, History, ChevronDown } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const navItems = [
