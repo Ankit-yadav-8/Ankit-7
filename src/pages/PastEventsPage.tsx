@@ -61,7 +61,7 @@ export default function PastEventsPage() {
                   description={event.description}
                   metadata={[
                     { label: 'Date', icon: <Calendar className="w-4 h-4" />, text: event.date },
-                    { label: 'Time', icon: <Clock className="w-4 h-4" />, text: event.time },
+                    { label: 'Time', icon: <Clock className="w-4 h-4" />, text: event.time || 'TBD' },
                     { label: 'Location', icon: <MapPin className="w-4 h-4" />, text: event.location },
                     { label: 'Participants', icon: <Users className="w-4 h-4" />, text: event.attendees },
                   ]}
