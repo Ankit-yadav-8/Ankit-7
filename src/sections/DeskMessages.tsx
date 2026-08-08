@@ -171,7 +171,7 @@ export default function DeskMessages() {
               </div>
               
               <div className="p-6 sm:p-10">
-                <p className="text-foreground text-sm sm:text-base leading-relaxed whitespace-pre-wrap italic">
+                <p className="text-slate-800 dark:text-slate-200 text-sm sm:text-base leading-relaxed whitespace-pre-wrap italic">
                   "{selectedMessage.message}"
                 </p>
               </div>
