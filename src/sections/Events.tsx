@@ -191,11 +191,11 @@ export default function Events() {
               onClick={() => setSelectedEvent(eventsData.find(e => e.id === event.id) ?? null)}
             >
               {/* Image */}
-              <div className="relative h-44 overflow-hidden">
+              <div className="relative h-56 sm:h-60 overflow-hidden bg-secondary/10 flex items-center justify-center p-2">
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
                 <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold ${event.categoryColor} text-white`}>
@@ -257,11 +257,11 @@ export default function Events() {
             </button>
 
             {/* Image */}
-            <div className="relative h-52 sm:h-64">
+            <div className="relative h-64 sm:h-80 bg-secondary/10 rounded-t-3xl p-4 flex items-center justify-center">
               <img
                 src={selectedEvent.image}
                 alt={selectedEvent.title}
-                className="w-full h-full object-cover rounded-t-3xl"
+                className="w-full h-full object-contain"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent rounded-t-3xl" />
               <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${selectedEvent.categoryColor} text-white`}>

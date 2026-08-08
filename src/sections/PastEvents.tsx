@@ -61,7 +61,7 @@ export default function PastEvents() {
   const allEvents = [...pastEventsData, ...pastEventsData];
 
   return (
-    <section id="past-events" className="relative py-24 overflow-hidden section-alt" ref={ref}>
+    <section id="past-events" className="relative py-24 overflow-hidden bg-background" ref={ref}>
 
       <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
 
@@ -96,8 +96,8 @@ export default function PastEvents() {
               onClick={() => setSelected(pastEventsData.find(e => e.id === event.id) ?? null)}
             >
               {/* Image */}
-              <div className="relative h-44 overflow-hidden">
-                <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
+              <div className="relative h-56 sm:h-60 overflow-hidden bg-secondary/10 flex items-center justify-center p-2">
+                <img src={event.image} alt={event.title} className="w-full h-full object-contain" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
                 <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold ${event.categoryColor} text-white`}>
                   {event.category}
@@ -156,8 +156,8 @@ export default function PastEvents() {
               <X className="w-4 h-4" />
             </button>
 
-            <div className="relative h-52 sm:h-64">
-              <img src={selected.image} alt={selected.title} className="w-full h-full object-cover rounded-t-3xl" />
+            <div className="relative h-64 sm:h-80 bg-secondary/10 rounded-t-3xl p-4 flex items-center justify-center">
+              <img src={selected.image} alt={selected.title} className="w-full h-full object-contain" />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent rounded-t-3xl" />
               <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${selected.categoryColor} text-white`}>
                 {selected.category}
