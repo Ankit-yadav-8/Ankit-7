@@ -174,10 +174,15 @@ export default function Events() {
         </div>
 
         {/* Carousel */}
-        <div
-          ref={scrollRef}
-          className="flex gap-5 overflow-x-auto px-6 sm:px-10 pb-4 scrollbar-hide"
-        >
+        <div className="relative">
+          {/* Left fade */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, hsl(var(--background)), transparent)' }} />
+          {/* Right fade */}
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, hsl(var(--background)), transparent)' }} />
+          <div
+            ref={scrollRef}
+            className="flex gap-5 overflow-x-auto px-6 sm:px-10 pb-4 scrollbar-hide"
+          >
           {allEvents.map((event, i) => (
             <div
               key={`${event.id}-${i}`}
@@ -227,6 +232,7 @@ export default function Events() {
               </div>
             </div>
           ))}
+          </div>
         </div>
 
         <div className={`text-center mt-4 transition-opacity duration-1000 ${revealed ? 'opacity-100' : 'opacity-0'}`}>
