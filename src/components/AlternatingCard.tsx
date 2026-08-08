@@ -42,12 +42,14 @@ export default function AlternatingCard({
     >
       {/* Image Section (48%) */}
       <div className="w-full md:w-[48%] relative h-64 md:h-auto overflow-hidden shrink-0">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
-        />
-        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+        <div className="w-full h-full md:absolute md:inset-0">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+          />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+        </div>
       </div>
 
       {/* Content Section (52%) */}

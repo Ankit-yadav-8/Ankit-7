@@ -36,7 +36,7 @@
      Soft blue palette — matches Image 1
   ════════════════════════════════════════════ */
   :root {
-    --background:             214 60% 96%;   /* #EDF3FD soft blue-white */
+    --background:               0  0% 100%;   /* #FFFFFF pure white */
     --foreground:             213 60% 18%;   /* #12284A deep navy */
     --card:                     0  0% 100%; /* pure white cards */
     --card-foreground:        213 60% 18%;
