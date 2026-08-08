@@ -143,7 +143,7 @@ export default function DeskMessages() {
                 }`}
                 style={{ transitionDelay: `${0.05 + (i % messages.length) * 0.08}s` }}
               >
-                <div className="w-full h-56 sm:h-64 overflow-hidden flex-shrink-0 bg-secondary/30 relative">
+                <div className="w-full aspect-[4/3] sm:aspect-square overflow-hidden flex-shrink-0 bg-secondary/10 relative">
                   <img src={msg.image} alt={msg.name} className="w-full h-full object-cover object-top" />
                 </div>
                 <div className="p-6 sm:p-8 flex flex-col items-center">

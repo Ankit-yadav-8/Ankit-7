@@ -49,11 +49,6 @@ export default function About() {
   return (
     <section id="about" className="relative py-24 overflow-hidden" ref={ref}>
 
-      {/* Background orbs */}
-      <div className="bg-orb bg-orb-1" />
-      <div className="bg-orb bg-orb-2" />
-      <div className="bg-orb bg-orb-3" />
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section header */}

@@ -7,57 +7,6 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
     >
-      {/* ── Particle engine ── */}
-      <ParticleText />
-
-      {/* ── Animated background orbs ── */}
-      <div
-        className="absolute w-[600px] h-[600px] rounded-full pointer-events-none z-[1]"
-        style={{
-          background: 'radial-gradient(circle, hsla(24, 95%, 53%, 0.1) 0%, transparent 70%)',
-          top: '-15%', left: '-10%',
-          animation: 'orbFloat1 20s ease-in-out infinite',
-          filter: 'blur(60px)',
-        }}
-      />
-      <div
-        className="absolute w-[450px] h-[450px] rounded-full pointer-events-none z-[1]"
-        style={{
-          background: 'radial-gradient(circle, hsla(220, 70%, 55%, 0.09) 0%, transparent 70%)',
-          bottom: '5%', right: '-8%',
-          animation: 'orbFloat2 25s ease-in-out infinite',
-          filter: 'blur(60px)',
-        }}
-      />
-      <div
-        className="absolute w-[350px] h-[350px] rounded-full pointer-events-none z-[1]"
-        style={{
-          background: 'radial-gradient(circle, hsla(142, 76%, 36%, 0.07) 0%, transparent 70%)',
-          top: '40%', left: '45%',
-          animation: 'orbFloat3 30s ease-in-out infinite',
-          filter: 'blur(50px)',
-        }}
-      />
-
-      {/* ── Deep radial vignette ── */}
-      <div
-        className="absolute inset-0 z-[2] pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 70% at 50% 50%, transparent 30%, hsla(var(--background), 0.55) 70%, hsla(var(--background), 0.92) 100%)',
-        }}
-      />
-
-      {/* ── Top + bottom gradient fades ── */}
-      <div
-        className="absolute inset-0 z-[2] pointer-events-none"
-        style={{
-          background:
-            'linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 15%, transparent 80%, hsl(var(--background)) 100%)',
-        }}
-      />
-
-
       {/* ── Main content ── */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto w-full pt-16">
 
@@ -85,10 +34,10 @@ export default function Hero() {
             animationDelay: '0.1s',
           }}
         >
-          <span className="block text-foreground" style={{ textShadow: '0 0 60px hsla(24, 95%, 53%, 0.2)' }}>
+          <span className="block text-foreground">
             THINK
           </span>
-          <span className="block mt-1 animate-text-shine" style={{ animationDelay: '0.15s' }}>
+          <span className="block mt-1 text-orange-500" style={{ animationDelay: '0.15s' }}>
             INDIA
           </span>
         </h1>
@@ -110,17 +59,13 @@ export default function Hero() {
 
         {/* IIT Roorkee image card */}
         <div
-          className="relative max-w-2xl mx-auto mb-10 animate-slide-up iit-image-glow"
+          className="relative max-w-2xl mx-auto mb-10 animate-slide-up"
           style={{ animationDelay: '0.4s' }}
         >
           <div
-            className="relative rounded-2xl overflow-hidden animate-border-glow"
-            style={{ border: '1px solid hsla(24, 95%, 53%, 0.25)' }}
+            className="relative rounded-2xl overflow-hidden"
+            style={{ border: '1px solid hsla(24, 95%, 53%, 0.15)' }}
           >
-            <div
-              className="absolute top-0 left-0 right-0 h-px z-10"
-              style={{ background: 'linear-gradient(90deg, transparent, hsla(24, 95%, 53%, 0.6), transparent)' }}
-            />
             <img
               src="/Ankit-7/images/iit-roorkee.jpg"  // ✅ fixed
               alt="IIT Roorkee"
