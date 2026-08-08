@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Home, BookOpen, Calendar, Info, Phone, Moon, Sun, Menu, X, History, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const navItems = [
-  { id: 'home',    label: 'Home',       icon: Home,     path: '/' },
-  { id: 'blog',    label: 'Blog',       icon: BookOpen, path: '/blog' },
-  { id: 'about',   label: 'About Us',   icon: Info,     path: '/#about' },
-  { id: 'contact', label: 'Contact Us', icon: Phone,    path: '/#contact' },
+  { id: 'home',    label: 'Home',       path: '/' },
+  { id: 'blog',    label: 'Blog',       path: '/blog' },
+  { id: 'about',   label: 'About Us',   path: '/#about' },
+  { id: 'contact', label: 'Contact Us', path: '/#contact' },
 ];
 
 export default function Navigation() {
@@ -90,8 +90,7 @@ export default function Navigation() {
               onClick={() => handleNavClick(navItems[0].path)}
               className={`nav-link flex items-center gap-1.5 ${isActive(navItems[0].path) ? 'nav-link-active' : ''}`}
             >
-              <Home className="w-3.5 h-3.5 shrink-0" />
-              <span>{navItems[0].label}</span>
+              <span className="font-semibold">{navItems[0].label}</span>
             </button>
 
             {/* Events Dropdown */}
@@ -99,8 +98,7 @@ export default function Navigation() {
               <button 
                 className={`nav-link flex items-center gap-1.5 ${isActive('/past-events') ? 'nav-link-active' : ''}`}
               >
-                <Calendar className="w-3.5 h-3.5 shrink-0" />
-                <span>Events</span>
+                <span className="font-semibold">Events</span>
                 <ChevronDown className="w-3 h-3 group-hover/events:rotate-180 transition-transform duration-200" />
               </button>
               
@@ -117,33 +115,28 @@ export default function Navigation() {
             </div>
 
             {/* Rest of the items */}
-            {navItems.slice(1).map(({ id, label, icon: Icon, path }) => (
+            {navItems.slice(1).map(({ id, label, path }) => (
               <button
                 key={id}
                 onClick={() => handleNavClick(path)}
                 className={`nav-link flex items-center gap-1.5 ${isActive(path) ? 'nav-link-active' : ''}`}
               >
-                <Icon className="w-3.5 h-3.5 shrink-0" />
-                <span>{label}</span>
+                <span className="font-semibold">{label}</span>
               </button>
             ))}
           </div>
 
           {/* ── Right buttons (desktop) ── */}
-          <div className="hidden lg:flex items-center gap-2 shrink-0">
+          <div className="hidden lg:flex items-center gap-4 shrink-0 ml-4">
             <button
               onClick={() => handleNavClick('/#history')}
-              className="btn-action flex items-center gap-1.5"
+              className="btn-action flex items-center gap-1.5 font-semibold"
             >
-              <History className="w-3.5 h-3.5 shrink-0" />
               History
             </button>
 
-            <button onClick={toggleTheme} className="btn-theme flex items-center gap-1.5">
-              <span className="theme-icon-wrapper">
-                {theme === 'dark' ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
-              </span>
-              <span className="w-9 text-left">{theme === 'dark' ? 'Light' : 'Dark'}</span>
+            <button onClick={toggleTheme} className="btn-theme flex items-center gap-1.5 font-semibold">
+              <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
             </button>
           </div>
 
@@ -166,11 +159,10 @@ export default function Navigation() {
           <div className="px-4 py-4 flex flex-col gap-1">
             <button
               onClick={() => handleNavClick(navItems[0].path)}
-              className={`mobile-nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium animate-stagger-up ${
+              className={`mobile-nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold animate-stagger-up ${
                 isActive(navItems[0].path) ? 'mobile-nav-link-active' : ''
               }`}
             >
-              <Home className="w-5 h-5 shrink-0" />
               {navItems[0].label}
             </button>
 
@@ -178,12 +170,11 @@ export default function Navigation() {
             <div className="w-full flex flex-col animate-stagger-up" style={{ animationDelay: '0.05s' }}>
               <button
                 onClick={() => setMobileEventsOpen(!mobileEventsOpen)}
-                className={`mobile-nav-link w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium ${
+                className={`mobile-nav-link w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold ${
                   isActive('/past-events') ? 'mobile-nav-link-active' : ''
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <Calendar className="w-5 h-5 shrink-0" />
                   Events
                 </div>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileEventsOpen ? 'rotate-180' : ''}`} />
@@ -208,16 +199,15 @@ export default function Navigation() {
             </div>
 
             {/* Rest of items */}
-            {navItems.slice(1).map(({ id, label, icon: Icon, path }, i) => (
+            {navItems.slice(1).map(({ id, label, path }, i) => (
               <button
                 key={id}
                 onClick={() => handleNavClick(path)}
-                className={`mobile-nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium animate-stagger-up ${
+                className={`mobile-nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold animate-stagger-up ${
                   isActive(path) ? 'mobile-nav-link-active' : ''
                 }`}
                 style={{ animationDelay: `${(i + 2) * 0.05}s` }}
               >
-                <Icon className="w-5 h-5 shrink-0" />
                 {label}
               </button>
             ))}
@@ -226,18 +216,15 @@ export default function Navigation() {
             <div className="flex flex-col gap-3 pt-4 border-t border-border mt-2">
               <button
                 onClick={() => handleNavClick('/#history')}
-                className="btn-action w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl"
+                className="btn-action w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl font-semibold"
               >
-                <History className="w-4 h-4" /> History
+                History
               </button>
               
               <button
                 onClick={toggleTheme}
-                className="btn-theme w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl"
+                className="btn-theme w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl font-semibold"
               >
-                <span className="theme-icon-wrapper">
-                  {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-                </span>
                 {theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
               </button>
             </div>

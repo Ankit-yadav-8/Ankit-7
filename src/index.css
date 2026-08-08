@@ -472,10 +472,10 @@
 .nav-link {
   position: relative;
   padding: 0.4rem 0.875rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 600;
   border-radius: 0;
-  color: hsl(213, 25%, 40%);
+  color: hsl(215, 20%, 45%);
   transition: color 0.3s;
   white-space: nowrap;
   cursor: pointer;
@@ -571,12 +571,12 @@
   position: relative;
   padding: 0.45rem 0.875rem;
   border-radius: 0;
-  font-weight: 500;
-  font-size: 0.8rem;
+  font-weight: 600;
+  font-size: 0.875rem;
   cursor: pointer;
   background: transparent;
   border: none;
-  color: hsl(213, 50%, 25%);
+  color: hsl(215, 20%, 45%);
   transition: color 0.3s;
 }
 .btn-action::after {
@@ -597,12 +597,12 @@
   position: relative;
   padding: 0.45rem 0.875rem;
   border-radius: 0;
-  font-weight: 500;
-  font-size: 0.8rem;
+  font-weight: 600;
+  font-size: 0.875rem;
   cursor: pointer;
   background: transparent;
   border: none;
-  color: hsl(213, 50%, 25%);
+  color: hsl(215, 20%, 45%);
   transition: color 0.3s;
 }
 .btn-theme::after {
