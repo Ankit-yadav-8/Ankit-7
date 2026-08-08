@@ -16,23 +16,28 @@ function useReveal(threshold = 0.1) {
   return { ref, revealed };
 }
 
+import kkPantImg from '@/assets/desk/kkpant.jpg';
+import upSinghImg from '@/assets/desk/upsingh.jpg';
+import barjeevImg from '@/assets/desk/barjiv.jpg';
+import sonaliImg from '@/assets/desk/sonali.jpg';
+
 const messages = [
   {
     name: "Prof. K. K. Pant",
     role: "Director, IIT Roorkee",
-    image: "https://ui-avatars.com/api/?name=K+K+Pant&background=random",
+    image: kkPantImg,
     message: "Think India IIT Roorkee represents the enthusiasm, creativity and sense of social responsibility that define student life at the Institute. Through its diverse initiatives, discussions and programmes, the chapter provides students with meaningful opportunities to learn, collaborate and contribute beyond the classroom. The publication Ritam reflects this same spirit by documenting the ideas, experiences and efforts of the student community. Such platforms play an important role in nurturing thoughtful and responsible young minds. I congratulate the entire Think India team for their commitment and dedication. May their initiatives continue to encourage constructive dialogue, responsible leadership and meaningful service to society and the nation."
   },
   {
     name: "Prof. U. P. Singh",
     role: "Deputy Director, IIT Roorkee",
-    image: "https://ui-avatars.com/api/?name=U+P+Singh&background=random",
+    image: upSinghImg,
     message: "Institutions of higher education have a responsibility not only to develop academic excellence but also to nurture socially aware and intellectually engaged citizens. Think India IIT Roorkee contributes to this objective by providing students with opportunities to participate in discussions, workshops, cultural programmes and awareness initiatives. These activities encourage students to explore ideas beyond their academic disciplines and engage with questions that matter to society and the nation. Ritam captures this vibrant spirit of participation and provides a meaningful record of the chapter's activities. I appreciate the efforts of everyone associated with this initiative and hope Think India continues to encourage thoughtful participation and positive contribution within the IIT Roorkee community."
   },
   {
     name: "Prof. Barjeev Tyagi",
     role: "Dean of Student Welfare, IIT Roorkee",
-    image: "https://ui-avatars.com/api/?name=Barjeev+Tyagi&background=random",
+    image: barjeevImg,
     message: "Student life at IIT Roorkee is shaped not only by academics but also by the experiences, interactions and collective initiatives that take place beyond the classroom. Think India IIT Roorkee contributes to this dynamic environment through cultural programmes, social-awareness campaigns, volunteering initiatives and intellectually engaging activities. These efforts demonstrate the enthusiasm, creativity and commitment of the student community. Through platforms such as Ritam, these experiences are documented and shared with a wider audience. I appreciate the dedication of the Think India team and everyone who has contributed to its programmes. I hope students continue to participate actively, express themselves meaningfully and use their knowledge and abilities to make a positive contribution to society."
   },
   {
@@ -56,7 +61,7 @@ const messages = [
   {
     name: "Sonali Soni",
     role: "Convener, Think India IIT Roorkee",
-    image: "https://ui-avatars.com/api/?name=Sonali+Soni&background=random",
+    image: sonaliImg,
     message: "Think India IIT Roorkee is built upon the ideas, experiences and collective efforts of students who believe in learning, dialogue and meaningful contribution. Throughout the year, the chapter has brought together students through lectures, discussions, cultural programmes, workshops, awareness initiatives and community activities. These experiences have shaped the identity and journey of the Think India family at IIT Roorkee. Ritam was created to document these memories, initiatives and perspectives and share them with a wider audience. The chapter's journey would not be possible without the dedication of its volunteers, writers, designers, organisers and faculty mentors. We hope our initiatives continue to inspire students to think deeply, stay connected with their roots and contribute positively to society and Bharat."
   }
 ];
@@ -133,19 +138,21 @@ export default function DeskMessages() {
             {allMessages.map((msg, i) => (
               <div
                 key={`${msg.name}-${i}`}
-                className={`event-card flex-shrink-0 w-[300px] sm:w-[380px] group transition-all duration-700 flex flex-col items-center text-center p-8 rounded-[2rem] border border-orange-200/50 bg-card shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_8px_30px_rgba(249,115,22,0.12)] hover:-translate-y-1 ${
+                className={`event-card flex-shrink-0 w-[300px] sm:w-[380px] group transition-all duration-700 flex flex-col text-center rounded-[2rem] overflow-hidden border border-orange-200/50 bg-card shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_8px_30px_rgba(249,115,22,0.12)] hover:-translate-y-1 ${
                   revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${0.05 + (i % messages.length) * 0.08}s` }}
               >
-                <div className="w-24 h-24 rounded-full overflow-hidden mb-6 shadow-sm border border-orange-100 flex-shrink-0">
-                  <img src={msg.image} alt={msg.name} className="w-full h-full object-cover" />
+                <div className="w-full h-56 sm:h-64 overflow-hidden flex-shrink-0 bg-secondary/30 relative">
+                  <img src={msg.image} alt={msg.name} className="w-full h-full object-cover object-top" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-1">{msg.name}</h3>
-                <p className="text-sm font-semibold text-orange-500 mb-4">{msg.role}</p>
-                <p className="text-sm text-muted-foreground italic leading-relaxed overflow-y-auto scrollbar-hide max-h-[160px]">
-                  "{msg.message}"
-                </p>
+                <div className="p-6 sm:p-8 flex flex-col items-center">
+                  <h3 className="text-xl font-bold text-foreground mb-1">{msg.name}</h3>
+                  <p className="text-sm font-semibold text-orange-500 mb-4">{msg.role}</p>
+                  <p className="text-sm text-muted-foreground italic leading-relaxed overflow-y-auto scrollbar-hide max-h-[160px]">
+                    "{msg.message}"
+                  </p>
+                </div>
               </div>
             ))}
           </div>
