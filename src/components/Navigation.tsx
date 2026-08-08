@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Home, Briefcase, BookOpen, Calendar, History, Moon, Sun, Menu, X } from 'lucide-react';
+import { Home, BookOpen, Calendar, History, Moon, Sun, Menu, X } from 'lucide-react';
 
 const navItems = [
   { id: 'home',        label: 'Home',        icon: Home      },
