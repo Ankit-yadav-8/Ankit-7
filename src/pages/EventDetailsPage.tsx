@@ -11,12 +11,10 @@ export default function EventDetailsPage() {
 
   // Find the event based on the ID prefix
   let event: any = null;
-  let isUpcoming = false;
 
   if (id?.startsWith('upcoming-')) {
     const eventId = parseInt(id.replace('upcoming-', ''));
     event = eventsData.find((e) => e.id === eventId);
-    isUpcoming = true;
   } else if (id?.startsWith('past-')) {
     const eventId = parseInt(id.replace('past-', ''));
     event = pastEventsData.find((e) => e.id === eventId);
@@ -75,32 +73,13 @@ export default function EventDetailsPage() {
         </div>
 
         {/* Newspaper Style Content Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            
-            {/* Left Sidebar / Meta Details */}
-            <div className="lg:col-span-3 space-y-8">
-              <div className="bg-secondary/20 p-6 rounded-2xl border border-border/50">
-                <h3 className="text-xl font-serif font-bold mb-4 border-b border-border pb-2">Event Brief</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {event.summary || "An inspiring event aimed at fostering growth, learning, and cultural exchange among attendees."}
-                </p>
-                {isUpcoming && event.formLink && (
-                  <a href={event.formLink} className="mt-6 block w-full py-3 bg-primary text-primary-foreground text-center rounded-xl font-semibold hover:opacity-90 transition">
-                    Register Now
-                  </a>
-                )}
-              </div>
-            </div>
-
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Main Editorial Content */}
-            <div className="lg:col-span-9">
-              <div className="columns-1 md:columns-2 gap-10 space-y-8 text-lg text-muted-foreground leading-relaxed font-serif text-justify">
-                {/* Drop Cap for first paragraph */}
-                <p className="first-letter:text-7xl first-letter:font-black first-letter:float-left first-letter:mr-4 first-letter:mt-2 first-letter:font-serif first-letter:text-foreground text-foreground/90">
-                  {textBlocks[0]}
-                </p>
+            <div className="columns-1 md:columns-2 gap-10 space-y-8 text-lg text-muted-foreground leading-relaxed font-serif text-justify">
+              {/* Drop Cap for first paragraph */}
+              <p className="first-letter:text-7xl first-letter:font-black first-letter:float-left first-letter:mr-4 first-letter:mt-2 first-letter:font-serif first-letter:text-foreground text-foreground/90">
+                {textBlocks[0]}
+              </p>
 
                 {/* Iterate over remaining text and insert images dynamically */}
                 {textBlocks.slice(1).map((para: string, idx: number) => {
@@ -110,8 +89,8 @@ export default function EventDetailsPage() {
                   return (
                     <div key={idx} className="break-inside-avoid mb-8">
                       {hasImage && idx % 2 === 0 && (
-                        <div className="mb-8 rounded-sm overflow-hidden border-[3px] border-border/80 shadow-md relative group">
-                          <img src={event.gallery[imageIdx]} alt={`Event snapshot ${imageIdx}`} className="w-full h-auto object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700" />
+                        <div className="mb-8 rounded-sm overflow-hidden relative group">
+                          <img src={event.gallery[imageIdx]} alt={`Event snapshot ${imageIdx}`} className="w-full h-auto object-cover" />
                           <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-2 text-xs text-white/90 text-center font-sans tracking-wide">
                             Fig {imageIdx + 1}: Capturing the essence of the moment.
                           </div>
@@ -121,8 +100,8 @@ export default function EventDetailsPage() {
                       <p className="mb-8 text-foreground/80">{para}</p>
 
                       {hasImage && idx % 2 !== 0 && (
-                        <div className="mb-8 rounded-sm overflow-hidden border-[3px] border-border/80 shadow-md relative group">
-                          <img src={event.gallery[imageIdx]} alt={`Event snapshot ${imageIdx}`} className="w-full h-auto object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700" />
+                        <div className="mb-8 rounded-sm overflow-hidden relative group">
+                          <img src={event.gallery[imageIdx]} alt={`Event snapshot ${imageIdx}`} className="w-full h-auto object-cover" />
                           <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-2 text-xs text-white/90 text-center font-sans tracking-wide">
                             Fig {imageIdx + 1}: Glimpses from {event.title}.
                           </div>
@@ -139,16 +118,14 @@ export default function EventDetailsPage() {
                   <h3 className="text-3xl font-serif font-black mb-8 text-center text-foreground uppercase tracking-widest">More from the Event</h3>
                   <div className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
                     {event.gallery.slice(textBlocks.length - 1).map((img: string, idx: number) => (
-                      <div key={idx} className="break-inside-avoid rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all border-2 border-border/60 group relative cursor-pointer">
-                        <img src={img} alt={`Gallery image ${idx}`} className="w-full h-auto object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-500" />
+                      <div key={idx} className="break-inside-avoid rounded-sm overflow-hidden shadow-sm group relative cursor-pointer">
+                        <img src={img} alt={`Gallery image ${idx}`} className="w-full h-auto object-cover" />
                       </div>
                     ))}
                   </div>
                 </div>
               )}
             </div>
-          </div>
-        </div>
       </main>
 
       <Footer />

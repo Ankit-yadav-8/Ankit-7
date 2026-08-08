@@ -6,6 +6,24 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
     >
+      {/* ── Particles ── */}
+      <div className="absolute inset-0 pointer-events-none z-[0] overflow-hidden">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-orange-500/20 animate-particle-float"
+            style={{
+              width: Math.random() * 6 + 2 + 'px',
+              height: Math.random() * 6 + 2 + 'px',
+              top: Math.random() * 100 + '%',
+              left: Math.random() * 100 + '%',
+              animationDuration: Math.random() * 5 + 5 + 's',
+              animationDelay: Math.random() * 5 + 's',
+            }}
+          />
+        ))}
+      </div>
+
       {/* ── Main content ── */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto w-full pt-16">
 
