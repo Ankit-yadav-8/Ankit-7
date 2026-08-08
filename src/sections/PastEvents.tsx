@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Calendar, MapPin, Users, X, ArrowRight } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Calendar, MapPin, Users, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-import { PastEvent, pastEventsData } from '@/data/pastEvents';
+import { pastEventsData } from '@/data/pastEvents';
 
 function useReveal(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,7 +22,6 @@ function useReveal(threshold = 0.1) {
 
 export default function PastEvents() {
   const { ref, revealed } = useReveal();
-  const [selected, setSelected] = useState<PastEvent | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
@@ -91,13 +90,12 @@ export default function PastEvents() {
           {allEvents.map((event, i) => (
             <div
               key={`${event.id}-${i}`}
-              className={`event-card flex-shrink-0 w-[300px] sm:w-[360px] group transition-all duration-700 ${revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${0.05 + (i % pastEventsData.length) * 0.08}s` }}
-              onClick={() => setSelected(pastEventsData.find(e => e.id === event.id) ?? null)}
+              className="flex-none w-72 sm:w-80 group cursor-pointer bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300"
+              onClick={() => navigate(`/event/past-${event.id}`)}
             >
               {/* Image */}
               <div className="relative h-56 sm:h-60 overflow-hidden bg-secondary/10 flex items-center justify-center p-2">
-                <img src={event.image} alt={event.title} className="w-full h-full object-contain" />
+                <img src={event.image} alt={event.title} className="w-full h-full object-cover rounded-xl" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
                 <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold ${event.categoryColor} text-white`}>
                   {event.category}
@@ -106,28 +104,27 @@ export default function PastEvents() {
 
               {/* Content */}
               <div className="p-4">
-                <h3 className="font-bold text-sm mb-1 group-hover:text-orange-500 transition-colors line-clamp-1">
+                <h3 className="font-bold text-[#1a365d] text-base mb-3 group-hover:text-orange-500 transition-colors line-clamp-1">
                   {event.title}
                 </h3>
-                <div className="flex items-center gap-3 text-[11px] text-muted-foreground mb-2">
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3 text-orange-400" />
+                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
+                  <span className="flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-orange-400" />
                     {event.date}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <Users className="w-3 h-3 text-green-400" />
-                    {event.attendees}
+                  <span className="flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-blue-400" />
+                    {event.location.split(',')[0]}
                   </span>
                 </div>
-                <p className="text-xs text-muted-foreground line-clamp-2 mb-3">{event.summary}</p>
+                <p className="text-sm text-muted-foreground line-clamp-2 mb-4 leading-relaxed">{event.summary}</p>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
-                    <MapPin className="w-3 h-3 text-blue-400" /> {event.location}
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium">
+                    <Users className="w-4 h-4 text-slate-400" /> {event.attendees}
                   </span>
-                  <button className="text-[11px] font-semibold text-orange-500 hover:text-orange-400 transition-colors flex items-center gap-1 group/btn">
-                    Read Full Info
-                    <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform" />
-                  </button>
+                  <span className="text-xs font-semibold text-orange-400 flex items-center gap-1.5 group-hover:text-orange-500 transition-colors">
+                    View Details <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
                 </div>
               </div>
             </div>
@@ -146,44 +143,6 @@ export default function PastEvents() {
           </button>
         </div>
       </div>
-
-      {/* Modal */}
-      {selected && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in" onClick={() => setSelected(null)}>
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-          <div className="relative glass-strong rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto animate-scale-in" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
-            <button onClick={() => setSelected(null)} className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/40 text-white hover:bg-orange-500 transition-colors">
-              <X className="w-4 h-4" />
-            </button>
-
-            <div className="relative h-64 sm:h-80 bg-secondary/10 rounded-t-3xl p-4 flex items-center justify-center">
-              <img src={selected.image} alt={selected.title} className="w-full h-full object-contain" />
-              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent rounded-t-3xl" />
-              <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${selected.categoryColor} text-white`}>
-                {selected.category}
-              </span>
-            </div>
-
-            <div className="p-6">
-              <h3 className="text-xl sm:text-2xl font-black mb-2">{selected.title}</h3>
-              
-              <div className="flex flex-wrap gap-3 mb-4">
-                <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                  <Calendar className="w-4 h-4 text-orange-400" /> {selected.date}
-                </span>
-                <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                  <MapPin className="w-4 h-4 text-blue-400" /> {selected.location}
-                </span>
-                <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                  <Users className="w-4 h-4 text-green-400" /> {selected.attendees} attendees
-                </span>
-              </div>
-
-              <p className="text-sm text-muted-foreground leading-relaxed">{selected.description}</p>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
