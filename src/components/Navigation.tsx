@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Home, BookOpen, Calendar, Info, Phone, Moon, Sun, Menu, X, Heart } from 'lucide-react';
+import { Home, BookOpen, Calendar, Info, Phone, Moon, Sun, Menu, X, Heart, History, ChevronDown } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const navItems = [
-  { id: 'home',            label: 'Home',            icon: Home,     path: '/' },
-  { id: 'past-events',     label: 'Past Events',     icon: Calendar, path: '/past-events' },
-  { id: 'upcoming-events', label: 'Upcoming Events', icon: Calendar, path: '/upcoming-events' },
-  { id: 'blog',            label: 'Blog',            icon: BookOpen, path: '/blog' },
-  { id: 'about',           label: 'About Us',        icon: Info,     path: '/#about' },
-  { id: 'contact',         label: 'Contact Us',      icon: Phone,    path: '/#contact' },
+  { id: 'home',    label: 'Home',       icon: Home,     path: '/' },
+  { id: 'blog',    label: 'Blog',       icon: BookOpen, path: '/blog' },
+  { id: 'about',   label: 'About Us',   icon: Info,     path: '/#about' },
+  { id: 'contact', label: 'Contact Us', icon: Phone,    path: '/#contact' },
 ];
 
 export default function Navigation() {
@@ -17,6 +15,7 @@ export default function Navigation() {
   const [theme, setTheme]           = useState<'light' | 'dark'>('light');
   const [scrolled, setScrolled]     = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileEventsOpen, setMobileEventsOpen] = useState(false);
 
   /* ── Apply theme to <html> ── */
   useEffect(() => {
@@ -65,7 +64,7 @@ export default function Navigation() {
         scrolled ? 'glass nav-shadow' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[60px]">
 
           {/* ── Logo ── */}
@@ -86,7 +85,39 @@ export default function Navigation() {
 
           {/* ── Centre pill (desktop) ── */}
           <div className="hidden lg:flex nav-center-pill items-center gap-0.5 absolute left-1/2 -translate-x-1/2">
-            {navItems.map(({ id, label, icon: Icon, path }) => (
+            {/* Home */}
+            <button
+              onClick={() => handleNavClick(navItems[0].path)}
+              className={`nav-link flex items-center gap-1.5 ${isActive(navItems[0].path) ? 'nav-link-active' : ''}`}
+            >
+              <navItems[0].icon className="w-3.5 h-3.5 shrink-0" />
+              <span>{navItems[0].label}</span>
+            </button>
+
+            {/* Events Dropdown */}
+            <div className="relative group/events">
+              <button 
+                className={`nav-link flex items-center gap-1.5 ${isActive('/past-events') || isActive('/upcoming-events') ? 'nav-link-active' : ''}`}
+              >
+                <Calendar className="w-3.5 h-3.5 shrink-0" />
+                <span>Events</span>
+                <ChevronDown className="w-3 h-3 group-hover/events:rotate-180 transition-transform duration-200" />
+              </button>
+              
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-2 invisible group-hover/events:opacity-100 group-hover/events:translate-y-0 group-hover/events:visible transition-all duration-200 z-50">
+                <div className="w-48 glass-strong rounded-xl shadow-lg border border-border/50 p-2 flex flex-col gap-1 bg-card">
+                   <button onClick={() => handleNavClick('/past-events')} className={`px-3 py-2 text-sm font-medium text-left hover:bg-primary/10 hover:text-primary rounded-lg w-full transition-colors ${isActive('/past-events') ? 'text-primary bg-primary/5' : 'text-foreground'}`}>
+                     Past Events
+                   </button>
+                   <button onClick={() => handleNavClick('/upcoming-events')} className={`px-3 py-2 text-sm font-medium text-left hover:bg-primary/10 hover:text-primary rounded-lg w-full transition-colors ${isActive('/upcoming-events') ? 'text-primary bg-primary/5' : 'text-foreground'}`}>
+                     Upcoming Events
+                   </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Rest of the items */}
+            {navItems.slice(1).map(({ id, label, icon: Icon, path }) => (
               <button
                 key={id}
                 onClick={() => handleNavClick(path)}
@@ -99,20 +130,24 @@ export default function Navigation() {
           </div>
 
           {/* ── Right buttons (desktop) ── */}
-          <div className="hidden lg:flex items-center gap-3 shrink-0">
+          <div className="hidden lg:flex items-center gap-2 shrink-0">
             <button
-              onClick={toggleTheme} className="btn-theme flex items-center justify-center p-2 rounded-full"
-              title="Toggle Theme"
+              onClick={() => handleNavClick('/#history')}
+              className="btn-action flex items-center gap-1.5"
             >
+              <History className="w-3.5 h-3.5 shrink-0" />
+              History
+            </button>
+
+            <button onClick={toggleTheme} className="btn-theme flex items-center gap-1.5">
               <span className="theme-icon-wrapper">
-                {theme === 'dark'
-                  ? <Sun  className="w-4 h-4" />
-                  : <Moon className="w-4 h-4" />}
+                {theme === 'dark' ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
               </span>
+              <span className="w-9 text-left">{theme === 'dark' ? 'Light' : 'Dark'}</span>
             </button>
             
             <button
-              className="bg-primary hover:bg-orange-600 text-white text-sm font-semibold py-2 px-5 rounded-full shadow-md transition-transform hover:-translate-y-0.5 flex items-center gap-2"
+              className="bg-primary hover:bg-orange-600 text-white text-sm font-semibold py-2 px-5 rounded-full shadow-md transition-transform hover:-translate-y-0.5 flex items-center gap-2 ml-2"
               onClick={() => handleNavClick('/#contact')}
             >
               <Heart className="w-4 h-4" />
@@ -136,15 +171,59 @@ export default function Navigation() {
       {/* ── Mobile menu ── */}
       {mobileOpen && (
         <div className="lg:hidden glass-strong mobile-menu-panel animate-slide-down border-t border-border shadow-xl">
-          <div className="px-4 py-4 space-y-2">
-            {navItems.map(({ id, label, icon: Icon, path }, i) => (
+          <div className="px-4 py-4 flex flex-col gap-1">
+            <button
+              onClick={() => handleNavClick(navItems[0].path)}
+              className={`mobile-nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium animate-stagger-up ${
+                isActive(navItems[0].path) ? 'mobile-nav-link-active' : ''
+              }`}
+            >
+              <navItems[0].icon className="w-5 h-5 shrink-0" />
+              {navItems[0].label}
+            </button>
+
+            {/* Events Mobile Accordion */}
+            <div className="w-full flex flex-col animate-stagger-up" style={{ animationDelay: '0.05s' }}>
+              <button
+                onClick={() => setMobileEventsOpen(!mobileEventsOpen)}
+                className={`mobile-nav-link w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium ${
+                  isActive('/past-events') || isActive('/upcoming-events') ? 'mobile-nav-link-active' : ''
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <Calendar className="w-5 h-5 shrink-0" />
+                  Events
+                </div>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileEventsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {mobileEventsOpen && (
+                <div className="pl-12 pr-4 py-2 flex flex-col gap-2 animate-slide-down">
+                  <button
+                    onClick={() => handleNavClick('/past-events')}
+                    className={`text-left text-sm font-medium py-2 transition-colors ${isActive('/past-events') ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
+                  >
+                    Past Events
+                  </button>
+                  <button
+                    onClick={() => handleNavClick('/upcoming-events')}
+                    className={`text-left text-sm font-medium py-2 transition-colors ${isActive('/upcoming-events') ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
+                  >
+                    Upcoming Events
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Rest of items */}
+            {navItems.slice(1).map(({ id, label, icon: Icon, path }, i) => (
               <button
                 key={id}
                 onClick={() => handleNavClick(path)}
                 className={`mobile-nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium animate-stagger-up ${
                   isActive(path) ? 'mobile-nav-link-active' : ''
                 }`}
-                style={{ animationDelay: `${i * 0.05}s` }}
+                style={{ animationDelay: `${(i + 2) * 0.05}s` }}
               >
                 <Icon className="w-5 h-5 shrink-0" />
                 {label}
@@ -159,14 +238,20 @@ export default function Navigation() {
               >
                 <Heart className="w-5 h-5" /> Get Involved
               </button>
+              
+              <button
+                onClick={() => handleNavClick('/#history')}
+                className="btn-action w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl"
+              >
+                <History className="w-4 h-4" /> History
+              </button>
+              
               <button
                 onClick={toggleTheme}
                 className="btn-theme w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl"
               >
                 <span className="theme-icon-wrapper">
-                  {theme === 'dark'
-                    ? <Sun  className="w-4 h-4" />
-                    : <Moon className="w-4 h-4" />}
+                  {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
                 </span>
                 {theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
               </button>
