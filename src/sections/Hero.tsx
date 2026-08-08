@@ -1,4 +1,3 @@
-import ParticleText from '@/components/ParticleText';
 import { ArrowDown, Sparkles } from 'lucide-react';
 
 export default function Hero() {
