@@ -63,14 +63,48 @@ const messages = [
 
 export default function DeskMessages() {
   const { ref, revealed } = useReveal();
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  /* Auto-scroll */
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    let animId: number;
+    let pos = 0;
+    const speed = 0.45;
+
+    const tick = () => {
+      pos += speed;
+      if (pos >= container.scrollWidth / 2) pos = 0;
+      container.scrollLeft = pos;
+      animId = requestAnimationFrame(tick);
+    };
+
+    const timer = setTimeout(() => { animId = requestAnimationFrame(tick); }, 1500);
+    const pause  = () => cancelAnimationFrame(animId);
+    const resume = () => { animId = requestAnimationFrame(tick); };
+
+    container.addEventListener('mouseenter', pause);
+    container.addEventListener('mouseleave', resume);
+
+    return () => {
+      clearTimeout(timer);
+      cancelAnimationFrame(animId);
+      container.removeEventListener('mouseenter', pause);
+      container.removeEventListener('mouseleave', resume);
+    };
+  }, []);
+
+  const allMessages = [...messages, ...messages];
 
   return (
     <section id="desk-messages" className="relative py-24 overflow-hidden bg-background" ref={ref}>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div className="relative max-w-[96%] xl:max-w-7xl mx-auto shadow-[0_8px_40px_rgb(0,0,0,0.08)] bg-card/40 rounded-[3rem] py-16 px-2 sm:px-8 border border-border/50 backdrop-blur-[2px]">
         
         {/* Section header */}
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${
+          className={`text-center mb-12 px-4 transition-all duration-1000 ${
             revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -80,28 +114,45 @@ export default function DeskMessages() {
           <h2 className="text-3xl sm:text-5xl font-black mb-4">
             From The <span className="gradient-text">Desk</span>
           </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
+            Words of encouragement and vision from the leaders and mentors of Think India.
+          </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {messages.map((msg, i) => (
-            <div
-              key={msg.name}
-              className={`flex flex-col items-center text-center p-8 rounded-[2rem] border border-orange-200/50 bg-card shadow-[0_4px_20px_rgba(249,115,22,0.08)] transition-all duration-700 hover:shadow-[0_8px_30px_rgba(249,115,22,0.12)] hover:-translate-y-1 ${
-                revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${0.1 * i}s` }}
-            >
-              <div className="w-24 h-24 rounded-full overflow-hidden mb-6 shadow-sm border border-orange-100">
-                <img src={msg.image} alt={msg.name} className="w-full h-full object-cover" />
+        {/* Carousel */}
+        <div className="relative">
+          {/* Left fade — hidden on mobile */}
+          <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, hsl(var(--card)), transparent)' }} />
+          {/* Right fade — hidden on mobile */}
+          <div className="hidden sm:block absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, hsl(var(--card)), transparent)' }} />
+          
+          <div
+            ref={scrollRef}
+            className="flex gap-5 overflow-x-auto px-4 sm:px-12 pb-4 scrollbar-hide"
+          >
+            {allMessages.map((msg, i) => (
+              <div
+                key={`${msg.name}-${i}`}
+                className={`event-card flex-shrink-0 w-[300px] sm:w-[380px] group transition-all duration-700 flex flex-col items-center text-center p-8 rounded-[2rem] border border-orange-200/50 bg-card shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_8px_30px_rgba(249,115,22,0.12)] hover:-translate-y-1 ${
+                  revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${0.05 + (i % messages.length) * 0.08}s` }}
+              >
+                <div className="w-24 h-24 rounded-full overflow-hidden mb-6 shadow-sm border border-orange-100 flex-shrink-0">
+                  <img src={msg.image} alt={msg.name} className="w-full h-full object-cover" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-1">{msg.name}</h3>
+                <p className="text-sm font-semibold text-orange-500 mb-4">{msg.role}</p>
+                <p className="text-sm text-muted-foreground italic leading-relaxed overflow-y-auto scrollbar-hide max-h-[160px]">
+                  "{msg.message}"
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-1">{msg.name}</h3>
-              <p className="text-sm font-semibold text-orange-500 mb-6">{msg.role}</p>
-              <p className="text-sm text-muted-foreground italic leading-relaxed">
-                "{msg.message}"
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        <div className={`text-center mt-4 transition-opacity duration-1000 ${revealed ? 'opacity-100' : 'opacity-0'}`}>
+          <p className="text-xs text-muted-foreground">Hover to pause and read</p>
         </div>
 
       </div>

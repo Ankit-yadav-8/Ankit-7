@@ -154,7 +154,7 @@ export default function Events() {
 
       <div className="bg-orb bg-orb-2" style={{ opacity: 0.7 }} />
 
-      <div className="relative">
+      <div className="relative max-w-[96%] xl:max-w-7xl mx-auto shadow-[0_8px_40px_rgb(0,0,0,0.08)] bg-card/40 rounded-[3rem] py-16 px-2 sm:px-8 border border-border/50 backdrop-blur-[2px]">
 
         {/* Header */}
         <div
