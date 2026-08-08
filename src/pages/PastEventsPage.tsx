@@ -67,7 +67,7 @@ export default function PastEventsPage() {
                     { label: 'Participants', icon: <Users className="w-4 h-4" />, text: event.attendees },
                   ]}
                   buttonText="Read Full Info"
-                  onClick={() => navigate(`/event/${event.id}`)}
+                  onClick={() => navigate(`/event/past-${event.id}`)}
                   reverse={index % 2 !== 0}
                 />
               </div>
