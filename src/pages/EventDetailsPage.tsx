@@ -85,11 +85,11 @@ export default function EventDetailsPage() {
                 <div key={idx}>
                   {hasImage && (
                     <div className={`mb-8 ${isEven ? 'md:float-left md:mr-8 md:w-[45%]' : 'md:float-right md:ml-8 md:w-[45%]'}`}>
-                      <div className="rounded-xl overflow-hidden shadow-lg">
+                      <div className="rounded-xl overflow-hidden shadow-lg h-64 w-full">
                         <img 
                           src={event.gallery[imageIdx]} 
                           alt={`${event.title} - Image ${imageIdx + 1}`} 
-                          className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                           style={{ filter: 'brightness(1.05) contrast(1.05) saturate(1.15)' }}
                         />
                       </div>
@@ -111,11 +111,11 @@ export default function EventDetailsPage() {
               <h3 className="text-3xl font-serif font-black mb-8 text-center text-[#1a1a1a] uppercase tracking-widest">More from the Event</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {event.gallery.slice(textBlocks.length - 1).map((img: string, idx: number) => (
-                  <div key={idx} className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <div key={idx} className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-64 w-full">
                     <img 
                       src={img} 
                       alt={`Gallery image ${idx + 1}`} 
-                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                       style={{ filter: 'brightness(1.05) contrast(1.05) saturate(1.15)' }}
                     />
                   </div>
