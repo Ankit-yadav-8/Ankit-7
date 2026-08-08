@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { Home, Briefcase, BookOpen, Calendar, History, Moon, Sun, Menu, X } from 'lucide-react';
 
 const navItems = [
-  { id: 'home',        label: 'Home',       icon: Home      },
-  { id: 'internship',  label: 'Internship', icon: Briefcase },
-  { id: 'blog',        label: 'Blog',       icon: BookOpen  },
-  { id: 'events',      label: 'Events',     icon: Calendar  },
+  { id: 'home',        label: 'Home',        icon: Home      },
+  { id: 'past-events', label: 'Past Events', icon: Calendar  },
+  { id: 'blog',        label: 'Blog',        icon: BookOpen  },
+  { id: 'events',      label: 'Events',      icon: Calendar  },
 ];
 
 export default function Navigation() {
