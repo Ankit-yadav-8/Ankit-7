@@ -74,6 +74,29 @@ export default function About() {
           </p>
         </div>
 
+        {/* Think India Detailed Description */}
+        <div 
+          className={`max-w-4xl mx-auto mb-20 space-y-6 text-muted-foreground text-sm sm:text-base leading-relaxed transition-all duration-1000 delay-200 ${
+            revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <p className="text-justify">
+            Think India began as a national student-led initiative in 2006, founded by students from premier institutions including IISc, IIM Bangalore, NIMHANS and NLSIU. What began as a platform for thoughtful dialogue and intellectual engagement gradually evolved into a nationwide movement connecting students, researchers and professionals in conversations and initiatives centred on issues of national importance.
+          </p>
+          <p className="text-justify">
+            At IIT Roorkee, Think India carries this vision forward by fostering an environment where technical education is complemented by social responsibility, cultural awareness and a commitment to nation-building. The chapter encourages students to look beyond academic excellence and engage with the broader challenges and opportunities shaping Bharat’s future.
+          </p>
+          <p className="text-justify">
+            Through a diverse range of lectures, debates, cultural programmes, workshops, awareness campaigns and community-oriented initiatives, Think India IIT Roorkee provides students with opportunities to learn, collaborate and contribute beyond the classroom. The chapter also places strong emphasis on leadership and holistic development, giving students hands-on opportunities to conceptualise, plan, strategize and execute events at both the institute and national levels. Through these experiences, students develop essential skills in teamwork, communication, management, critical thinking, decision-making and responsible leadership, while learning the importance of initiative, collaboration and commitment.
+          </p>
+          <p className="text-justify">
+            One such national-level event was the Think India National Convention 2024, hosted at IIT Roorkee, which brought together more than 280 delegates, faculty members, alumni and thought leaders to deliberate on the vision of Bharat@2047. The convention provided a platform for meaningful dialogue on India's aspirations and the role of young minds in shaping the nation's future. Another defining tradition of Think India IIT Roorkee is the annual Tiranga Yatra, which brings together students, faculty and staff in a collective celebration of national unity, pride and shared responsibility.
+          </p>
+          <p className="text-justify">
+            Today, Think India IIT Roorkee continues to serve as a platform where ideas, identity, innovation and action converge. Through its diverse initiatives and student-led activities, the chapter seeks to nurture informed, capable and socially responsible young leaders committed to contributing meaningfully to Bharat’s journey towards a stronger and more inclusive future.
+          </p>
+        </div>
+
         {/* Features grid */}
         <div className="grid md:grid-cols-3 gap-6 mb-20">
           {features.map((f, i) => (

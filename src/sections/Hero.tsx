@@ -57,20 +57,6 @@ export default function Hero() {
         }}
       />
 
-      {/* ── Animated grid ── */}
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(hsla(24, 95%, 53%, 0.06) 1px, transparent 1px),
-            linear-gradient(90deg, hsla(24, 95%, 53%, 0.06) 1px, transparent 1px)
-          `,
-          backgroundSize: '70px 70px',
-          animation: 'gridDrift 20s linear infinite',
-          maskImage: 'radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 100%)',
-        }}
-      />
 
       {/* ── Main content ── */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto w-full pt-16">

@@ -11,6 +11,7 @@ import PastEvents   from '@/sections/PastEvents';
 import Blog         from '@/sections/Blog';
 import Events       from '@/sections/Events';
 import Footer       from '@/sections/Footer';
+import DeskMessages from '@/sections/DeskMessages';
 import PastEventsPage from '@/pages/PastEventsPage';
 import UpcomingEventsPage from '@/pages/UpcomingEventsPage';
 import BlogPage from '@/pages/BlogPage';
@@ -28,6 +29,7 @@ function HomePage() {
         <Events />
         <PastEvents />
         <Blog />
+        <DeskMessages />
       </main>
       <Footer />
     </div>
