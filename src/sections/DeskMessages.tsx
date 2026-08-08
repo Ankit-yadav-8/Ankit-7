@@ -191,8 +191,8 @@ export default function DeskMessages() {
                 <X className="w-5 h-5" />
               </button>
               
-              <div className="w-full h-64 sm:h-80 relative">
-                <img src={selectedMessage.image} alt={selectedMessage.name} className="w-full h-full object-cover object-top" />
+              <div className="w-full h-64 sm:h-80 relative bg-secondary/10">
+                <img src={selectedMessage.image} alt={selectedMessage.name} className="w-full h-full object-contain" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">{selectedMessage.name}</h3>
