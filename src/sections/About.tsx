@@ -41,12 +41,7 @@ const features = [
   },
 ];
 
-const stats = [
-  { icon: Users,  value: '3,500+', label: 'Active Members'    },
-  { icon: Award,  value: '50+',    label: 'Events Hosted'     },
-  { icon: Globe,  value: '25+',    label: 'Industry Partners' },
-  { icon: Heart,  value: '100%',   label: 'Volunteer Driven'  },
-];
+
 
 export default function About() {
   const { ref, revealed } = useReveal();
@@ -98,22 +93,7 @@ export default function About() {
           ))}
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`relative p-6 rounded-2xl glass text-center transition-all duration-700 group hover:border-orange-500/40 ${
-                revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${0.4 + i * 0.1}s` }}
-            >
-              <s.icon className="w-7 h-7 text-orange-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-              <p className="text-2xl sm:text-3xl font-black gradient-text">{s.value}</p>
-              <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
-            </div>
-          ))}
-        </div>
+
       </div>
     </section>
   );

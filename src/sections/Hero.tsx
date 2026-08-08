@@ -190,26 +190,7 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* Stats */}
-        <div
-          className="grid grid-cols-3 gap-4 max-w-md mx-auto mt-12 animate-slide-up"
-          style={{ animationDelay: '0.6s' }}
-        >
-          {[
-            { value: '3,500+', label: 'Students', icon: Globe },
-            { value: '50+',    label: 'Events',   icon: Sparkles },
-            { value: '25+',    label: 'Partners', icon: Zap },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="text-center p-3 rounded-xl glass"
-            >
-              <stat.icon className="w-4 h-4 mx-auto mb-1 text-orange-400 opacity-70" />
-              <p className="text-2xl sm:text-3xl font-black gradient-text">{stat.value}</p>
-              <p className="text-xs mt-0.5 text-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
-        </div>
+
       </div>
 
       {/* Scroll indicator */}
