@@ -10,6 +10,8 @@ export interface PastEvent {
   description: string;
   category: string;
   categoryColor: string;
+  gallery?: string[];
+  contentBlocks?: string[];
 }
 
 export const pastEventsData: PastEvent[] = [
@@ -90,6 +92,22 @@ export const pastEventsData: PastEvent[] = [
     description: 'The Tiranga Yatra is one of Think India IIT Roorkee’s most prominent celebrations of national unity, freedom, and civic responsibility. The 2024 edition was organised on Independence Day with two 500-metre-long national flags carried across the campus. Students, faculty members, and staff participated in traditional and tricolour-themed attire. Patriotic slogans such as “Vande Mataram” and “Bharat Mata Ki Jai” echoed throughout the institute. The procession concluded with a collective pledge to uphold democratic values, national integrity, and responsible citizenship. Building on its success, Tiranga Yatra 2025 was organised on an even larger scale. Nearly 2,000 members of the IIT Roorkee community participated while carrying a 600-metre-long Tiranga. The event encouraged reflection on the sacrifices, values, and duties that unite the nation. Both editions transformed the campus into a vibrant expression of patriotism, pride, and collective responsibility.',
     category: 'Patriotic',
     categoryColor: 'bg-orange-600',
+    gallery: [
+      '/Ankit-7/images/events/tiranga/DSC_2482.JPG',
+      '/Ankit-7/images/events/tiranga/DSC_2493.JPG',
+      '/Ankit-7/images/events/tiranga/DSC_2511.JPG',
+      '/Ankit-7/images/events/tiranga/DSC_2563.JPG',
+      '/Ankit-7/images/events/tiranga/DSC_2590.JPG',
+      '/Ankit-7/images/events/tiranga/DSC_2594.JPG',
+      '/Ankit-7/images/events/tiranga/DSC_2603.JPG',
+      '/Ankit-7/images/events/tiranga/IMG_9792.JPG',
+    ],
+    contentBlocks: [
+      'The Tiranga Yatra is one of Think India IIT Roorkee’s most prominent celebrations of national unity, freedom, and civic responsibility. The 2024 edition was organised on Independence Day with two 500-metre-long national flags carried across the campus. Students, faculty members, and staff participated in traditional and tricolour-themed attire.',
+      'Patriotic slogans such as “Vande Mataram” and “Bharat Mata Ki Jai” echoed throughout the institute. The procession concluded with a collective pledge to uphold democratic values, national integrity, and responsible citizenship.',
+      'Building on its success, Tiranga Yatra 2025 was organised on an even larger scale. Nearly 2,000 members of the IIT Roorkee community participated while carrying a 600-metre-long Tiranga. The event encouraged reflection on the sacrifices, values, and duties that unite the nation.',
+      'Both editions transformed the campus into a vibrant expression of patriotism, pride, and collective responsibility.'
+    ]
   },
   {
     id: 7,
