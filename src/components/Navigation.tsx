@@ -145,14 +145,6 @@ export default function Navigation() {
               </span>
               <span className="w-9 text-left">{theme === 'dark' ? 'Light' : 'Dark'}</span>
             </button>
-            
-            <button
-              className="bg-primary hover:bg-orange-600 text-white text-sm font-semibold py-2 px-5 rounded-full shadow-md transition-transform hover:-translate-y-0.5 flex items-center gap-2 ml-2"
-              onClick={() => handleNavClick('/#contact')}
-            >
-              <Heart className="w-4 h-4" />
-              Get Involved
-            </button>
           </div>
 
           {/* ── Hamburger (mobile) ── */}
@@ -232,13 +224,6 @@ export default function Navigation() {
 
             {/* Mobile right buttons */}
             <div className="flex flex-col gap-3 pt-4 border-t border-border mt-2">
-              <button
-                className="w-full bg-primary text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-sm"
-                onClick={() => handleNavClick('/#contact')}
-              >
-                <Heart className="w-5 h-5" /> Get Involved
-              </button>
-              
               <button
                 onClick={() => handleNavClick('/#history')}
                 className="btn-action w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl"
