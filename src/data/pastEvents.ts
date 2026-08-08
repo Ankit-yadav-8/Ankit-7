@@ -7,6 +7,12 @@ import tiranga6 from '@/assets/events/tiranga/DSC_2594.JPG';
 import tiranga7 from '@/assets/events/tiranga/DSC_2603.JPG';
 import tiranga8 from '@/assets/events/tiranga/IMG_9792.JPG';
 
+import sansad1 from '@/assets/events/chhatrasansad/img1.jpg';
+import sansad2 from '@/assets/events/chhatrasansad/img2.jpg';
+import sansad3 from '@/assets/events/chhatrasansad/img3.jpg';
+import sansad4 from '@/assets/events/chhatrasansad/img4.jpg';
+import sansad5 from '@/assets/events/chhatrasansad/img5.jpg';
+
 export interface PastEvent {
   id: number;
   title: string;
@@ -62,6 +68,19 @@ export const pastEventsData: PastEvent[] = [
     description: 'Chhatra Sansad is Think India IIT Roorkee’s student-led platform for structured debate, critical thinking, and informed public dialogue. Its first edition, organised on 14 April 2024, explored “One Nation, One Election” while commemorating Dr B. R. Ambedkar Jayanti. Chhatra Sansad 2.0 examined the social, ethical, economic, and employment implications of living with or without artificial intelligence. The third edition focused on the Uniform Civil Code and encouraged discussion on equality, national integration, legal uniformity, and cultural diversity. Chhatra Sansad 4.0 debated whether free welfare schemes are damaging India’s economy. Participants presented researched arguments, questioned opposing views, and responded to challenging interventions. Faculty members, policy professionals, legal experts, and researchers evaluated the debates. The series has enabled students to engage thoughtfully with complex national issues. It continues to develop informed, articulate, responsible, and solution-oriented young citizens.',
     category: 'Debate',
     categoryColor: 'bg-blue-500',
+    gallery: [
+      sansad1,
+      sansad2,
+      sansad3,
+      sansad4,
+      sansad5,
+    ],
+    contentBlocks: [
+      'Chhatra Sansad is Think India IIT Roorkee’s student-led platform for structured debate, critical thinking, and informed public dialogue. Its first edition, organised on 14 April 2024, explored “One Nation, One Election” while commemorating Dr B. R. Ambedkar Jayanti.',
+      'Chhatra Sansad 2.0 examined the social, ethical, economic, and employment implications of living with or without artificial intelligence. The third edition focused on the Uniform Civil Code and encouraged discussion on equality, national integration, legal uniformity, and cultural diversity.',
+      'Chhatra Sansad 4.0 debated whether free welfare schemes are damaging India’s economy. Participants presented researched arguments, questioned opposing views, and responded to challenging interventions.',
+      'Faculty members, policy professionals, legal experts, and researchers evaluated the debates. The series has enabled students to engage thoughtfully with complex national issues. It continues to develop informed, articulate, responsible, and solution-oriented young citizens.'
+    ]
   },
   {
     id: 4,
