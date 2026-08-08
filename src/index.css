@@ -808,56 +808,50 @@
 ----------------------------------------- */
 .nav-center-pill {
   background: #ffffff !important;
-  border: 1px solid #e5e7eb !important;
+  border: none !important;
   box-shadow: 0 2px 10px rgba(0,0,0,0.03) !important;
 }
 [data-theme="dark"] .nav-center-pill {
   background: #1f2937 !important;
-  border-color: #374151 !important;
+  border: none !important;
 }
 
 .nav-link, .mobile-nav-link {
   color: #4b5563 !important;
   background: transparent !important;
 }
-.nav-link::after {
-  display: none !important;
-}
 .nav-link:hover, .mobile-nav-link:hover {
   color: #111827 !important;
-  background: #f3f4f6 !important;
+  background: transparent !important;
 }
 .nav-link-active, .mobile-nav-link-active {
   color: #111827 !important;
-  background: #e5e7eb !important;
+  background: transparent !important;
 }
 
 [data-theme="dark"] .nav-link, [data-theme="dark"] .mobile-nav-link { color: #9ca3af !important; background: transparent !important; }
-[data-theme="dark"] .nav-link:hover, [data-theme="dark"] .mobile-nav-link:hover { color: #f9fafb !important; background: #374151 !important; }
-[data-theme="dark"] .nav-link-active, [data-theme="dark"] .mobile-nav-link-active { color: #f9fafb !important; background: #4b5563 !important; }
+[data-theme="dark"] .nav-link:hover, [data-theme="dark"] .mobile-nav-link:hover { color: #f9fafb !important; background: transparent !important; }
+[data-theme="dark"] .nav-link-active, [data-theme="dark"] .mobile-nav-link-active { color: #f9fafb !important; background: transparent !important; }
 
 .btn-action, .btn-theme {
-  background: #ffffff !important;
-  border: 1px solid #e5e7eb !important;
+  background: transparent !important;
+  border: none !important;
   color: #4b5563 !important;
 }
-.btn-action::before, .btn-theme::before {
-  display: none !important;
-}
 .btn-action:hover, .btn-theme:hover {
-  background: #f3f4f6 !important;
+  background: transparent !important;
   color: #111827 !important;
-  border-color: #d1d5db !important;
+  border: none !important;
   box-shadow: none !important;
   transform: none !important;
 }
 [data-theme="dark"] .btn-action, [data-theme="dark"] .btn-theme {
-  background: #1f2937 !important;
-  border-color: #374151 !important;
+  background: transparent !important;
+  border: none !important;
   color: #d1d5db !important;
 }
 [data-theme="dark"] .btn-action:hover, [data-theme="dark"] .btn-theme:hover {
-  background: #374151 !important;
+  background: transparent !important;
   color: #f9fafb !important;
-  border-color: #4b5563 !important;
+  border: none !important;
 }
