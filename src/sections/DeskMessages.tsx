@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { X } from 'lucide-react';
 
 function useReveal(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -69,7 +70,7 @@ const messages = [
 export default function DeskMessages() {
   const { ref, revealed } = useReveal();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [selectedMessage, setSelectedMessage] = useState<typeof messages[0] | null>(null);
 
   /* Auto-scroll */
   useEffect(() => {
@@ -106,7 +107,7 @@ export default function DeskMessages() {
   return (
     <section id="desk-messages" className="relative py-24 overflow-hidden bg-background" ref={ref}>
       
-      <div className="relative max-w-[96%] xl:max-w-7xl mx-auto shadow-[0_8px_40px_rgb(0,0,0,0.08)] bg-card/40 rounded-[3rem] py-16 px-2 sm:px-8 border border-border/50 backdrop-blur-[2px]">
+      <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         
         {/* Section header */}
         <div
@@ -139,7 +140,7 @@ export default function DeskMessages() {
             {allMessages.map((msg, i) => (
               <div
                 key={`${msg.name}-${i}`}
-                onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
+                onClick={() => setSelectedMessage(msg)}
                 className={`event-card cursor-pointer flex-shrink-0 w-[300px] sm:w-[380px] group transition-all duration-700 flex flex-col text-center rounded-[2rem] overflow-hidden border border-orange-200/50 bg-card shadow-[0_4px_20px_rgba(249,115,22,0.08)] hover:shadow-[0_8px_30px_rgba(249,115,22,0.12)] hover:-translate-y-1 ${
                   revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
@@ -152,20 +153,18 @@ export default function DeskMessages() {
                   <h3 className="text-xl font-bold text-foreground mb-1">{msg.name}</h3>
                   <p className="text-sm font-semibold text-orange-500 mb-4">{msg.role}</p>
                   
-                  <div className={`transition-all duration-500 overflow-hidden w-full text-left ${expandedIndex === i ? 'max-h-[800px]' : 'max-h-[140px] relative'}`}>
+                  <div className="transition-all duration-500 overflow-hidden w-full text-left max-h-[140px] relative">
                     <p className="text-sm text-muted-foreground italic leading-relaxed">
                       "{msg.message}"
                     </p>
-                    {expandedIndex !== i && (
-                      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-card to-transparent" />
-                    )}
+                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-card to-transparent" />
                   </div>
                   
                   <button 
                     className="mt-6 flex items-center gap-2 text-primary font-semibold text-sm hover:text-orange-700 transition-colors"
                   >
-                    {expandedIndex === i ? 'Show Less' : 'Read Full Message'}
-                    <span className={`transition-transform duration-300 ${expandedIndex === i ? '-rotate-90' : 'translate-x-1'}`}>
+                    Read Full Message
+                    <span className="transition-transform duration-300 translate-x-1">
                       →
                     </span>
                   </button>
@@ -178,6 +177,35 @@ export default function DeskMessages() {
         <div className={`text-center mt-4 transition-opacity duration-1000 ${revealed ? 'opacity-100' : 'opacity-0'}`}>
           <p className="text-xs text-muted-foreground">Hover to pause and read</p>
         </div>
+
+        {/* Modal Overlay */}
+        {selectedMessage && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm animate-fade-in" onClick={() => setSelectedMessage(null)}>
+            <div className="bg-card w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl animate-pop-in relative border border-border/50" onClick={(e) => e.stopPropagation()}>
+              <button 
+                onClick={() => setSelectedMessage(null)}
+                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors z-10"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              
+              <div className="w-full h-64 sm:h-80 relative">
+                <img src={selectedMessage.image} alt={selectedMessage.name} className="w-full h-full object-cover object-top" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">{selectedMessage.name}</h3>
+                  <p className="text-orange-500 font-medium text-sm sm:text-base">{selectedMessage.role}</p>
+                </div>
+              </div>
+              
+              <div className="p-6 sm:p-10">
+                <p className="text-foreground text-sm sm:text-base leading-relaxed whitespace-pre-wrap italic">
+                  "{selectedMessage.message}"
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
     </section>

@@ -152,7 +152,7 @@ export default function Events() {
   return (
     <section id="events" className="relative py-24 overflow-hidden" ref={ref}>
 
-      <div className="relative max-w-[96%] xl:max-w-7xl mx-auto shadow-[0_8px_40px_rgb(0,0,0,0.08)] bg-card/40 rounded-[3rem] py-16 px-2 sm:px-8 border border-border/50 backdrop-blur-[2px]">
+      <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div

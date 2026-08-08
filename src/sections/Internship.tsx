@@ -162,7 +162,7 @@ export default function Internship() {
   return (
     <section id="internship" className="relative py-24 overflow-hidden section-alt" ref={ref}>
 
-      <div className="relative max-w-[96%] xl:max-w-7xl mx-auto shadow-[0_8px_40px_rgb(0,0,0,0.06)] bg-card rounded-[3rem] py-16 px-4 sm:px-8 border border-border/50 backdrop-blur-sm">
+      <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className={`text-center mb-12 px-4 transition-all duration-1000 ${revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
