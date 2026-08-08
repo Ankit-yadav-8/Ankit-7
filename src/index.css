@@ -323,6 +323,7 @@
   color: hsl(213, 25%, 40%);
   transition: all 0.3s;
   white-space: nowrap;
+  cursor: pointer;
 }
 .nav-link::after {
   content: '';
