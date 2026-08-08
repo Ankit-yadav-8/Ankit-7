@@ -96,9 +96,9 @@ export default function EventDetailsPage() {
 
             {/* Main Editorial Content */}
             <div className="lg:col-span-9">
-              <div className="columns-1 md:columns-2 gap-8 space-y-8 text-lg text-muted-foreground leading-relaxed">
+              <div className="columns-1 md:columns-2 gap-10 space-y-8 text-lg text-muted-foreground leading-relaxed font-serif text-justify">
                 {/* Drop Cap for first paragraph */}
-                <p className="first-letter:text-6xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-foreground">
+                <p className="first-letter:text-7xl first-letter:font-black first-letter:float-left first-letter:mr-4 first-letter:mt-2 first-letter:font-serif first-letter:text-foreground text-foreground/90">
                   {textBlocks[0]}
                 </p>
 
@@ -108,18 +108,24 @@ export default function EventDetailsPage() {
                   const hasImage = event.gallery && event.gallery[imageIdx];
                   
                   return (
-                    <div key={idx} className="break-inside-avoid mb-6">
+                    <div key={idx} className="break-inside-avoid mb-8">
                       {hasImage && idx % 2 === 0 && (
-                        <div className="mb-6 rounded-2xl overflow-hidden shadow-lg border border-border">
-                          <img src={event.gallery[imageIdx]} alt={`Event snapshot ${imageIdx}`} className="w-full h-auto object-cover" />
+                        <div className="mb-8 rounded-sm overflow-hidden border-[3px] border-border/80 shadow-md relative group">
+                          <img src={event.gallery[imageIdx]} alt={`Event snapshot ${imageIdx}`} className="w-full h-auto object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-2 text-xs text-white/90 text-center font-sans tracking-wide">
+                            Fig {imageIdx + 1}: Capturing the essence of the moment.
+                          </div>
                         </div>
                       )}
                       
-                      <p className="mb-6">{para}</p>
+                      <p className="mb-8 text-foreground/80">{para}</p>
 
                       {hasImage && idx % 2 !== 0 && (
-                        <div className="mb-6 rounded-2xl overflow-hidden shadow-lg border border-border">
-                          <img src={event.gallery[imageIdx]} alt={`Event snapshot ${imageIdx}`} className="w-full h-auto object-cover" />
+                        <div className="mb-8 rounded-sm overflow-hidden border-[3px] border-border/80 shadow-md relative group">
+                          <img src={event.gallery[imageIdx]} alt={`Event snapshot ${imageIdx}`} className="w-full h-auto object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-2 text-xs text-white/90 text-center font-sans tracking-wide">
+                            Fig {imageIdx + 1}: Glimpses from {event.title}.
+                          </div>
                         </div>
                       )}
                     </div>
@@ -129,19 +135,17 @@ export default function EventDetailsPage() {
 
               {/* Extra Gallery Images spanning full width below text */}
               {event.gallery && event.gallery.length > (textBlocks.length - 1) && (
-                <div className="mt-16">
-                  <h3 className="text-2xl font-serif font-bold mb-8 border-b border-border pb-4">More from the Event</h3>
+                <div className="mt-20 pt-10 border-t-2 border-dashed border-border/60">
+                  <h3 className="text-3xl font-serif font-black mb-8 text-center text-foreground uppercase tracking-widest">More from the Event</h3>
                   <div className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
                     {event.gallery.slice(textBlocks.length - 1).map((img: string, idx: number) => (
-                      <div key={idx} className="break-inside-avoid rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-border group relative">
-                        <img src={img} alt={`Gallery image ${idx}`} className="w-full h-auto object-cover" />
-                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div key={idx} className="break-inside-avoid rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all border-2 border-border/60 group relative cursor-pointer">
+                        <img src={img} alt={`Gallery image ${idx}`} className="w-full h-auto object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-500" />
                       </div>
                     ))}
                   </div>
                 </div>
               )}
-
             </div>
           </div>
         </div>
