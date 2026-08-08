@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/sections/Footer';
 import AlternatingCard from '@/components/AlternatingCard';
@@ -45,7 +45,6 @@ const categories = ['All', 'Workshop', 'Hackathon', 'Webinar'];
 
 export default function UpcomingEventsPage() {
   const [filter, setFilter] = useState('All');
-  const navigate = useNavigate();
 
   const filteredEvents = upcomingEventsData.filter(
     (e) => filter === 'All' || e.category === filter
@@ -95,13 +94,12 @@ export default function UpcomingEventsPage() {
                   title={event.title}
                   description={event.description}
                   metadata={[
-                    { icon: <Calendar className="w-4 h-4" />, text: event.date },
-                    { icon: <Clock className="w-4 h-4" />, text: event.time },
-                    { icon: <MapPin className="w-4 h-4" />, text: event.location },
-                    { icon: <Users className="w-4 h-4" />, text: event.participants },
+                    { label: 'Date', icon: <Calendar className="w-4 h-4" />, text: event.date },
+                    { label: 'Time', icon: <Clock className="w-4 h-4" />, text: event.time },
+                    { label: 'Location', icon: <MapPin className="w-4 h-4" />, text: event.location },
+                    { label: 'Participants', icon: <Users className="w-4 h-4" />, text: event.participants },
                   ]}
                   buttonText="View Event Details"
-                  onClick={() => navigate(`/event/${event.id}`)}
                   reverse={index % 2 !== 0}
                 />
               </div>

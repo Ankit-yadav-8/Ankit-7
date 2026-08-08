@@ -1,15 +1,16 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/sections/Footer';
 import AlternatingCard from '@/components/AlternatingCard';
-import { Calendar, MapPin, Users } from 'lucide-react';
+import { Calendar, MapPin, Users, Clock } from 'lucide-react';
 
 const allPastEvents = [
   {
     id: 1,
     title: 'Think India National Convention 2024',
     date: 'Dec 21–23, 2024',
+    time: '3 Days',
     location: 'IIT Roorkee',
     attendees: '280+',
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80',
@@ -20,6 +21,7 @@ const allPastEvents = [
     id: 2,
     title: 'Nukkad Natak on Constitution Day',
     date: 'Nov 26, 2024',
+    time: '2 Hours',
     location: 'LHC Complex',
     attendees: '300+',
     image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80',
@@ -30,6 +32,7 @@ const allPastEvents = [
     id: 3,
     title: 'Cleanliness Drive',
     date: 'Oct 2, 2024',
+    time: '9:00 AM - 1:00 PM',
     location: 'Campus Wide',
     attendees: '150+',
     image: 'https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=600&q=80',
@@ -40,6 +43,7 @@ const allPastEvents = [
     id: 4,
     title: 'Chhatra Sansad',
     date: 'Apr 14, 2024',
+    time: 'Full Day',
     location: 'IIT Roorkee',
     attendees: '200+',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
@@ -50,6 +54,7 @@ const allPastEvents = [
     id: 5,
     title: 'Khadi Mela',
     date: 'Oct 17–20, 2025',
+    time: '4 Days',
     location: 'IIT Roorkee Campus',
     attendees: '5,000+',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80',
@@ -60,6 +65,7 @@ const allPastEvents = [
     id: 6,
     title: 'Blood Donation Camp',
     date: 'Jan 23, 2026',
+    time: '10:00 AM - 5:00 PM',
     location: 'Student Activity Centre',
     attendees: '400+',
     image: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&q=80',
@@ -72,7 +78,6 @@ const categories = ['All', ...Array.from(new Set(allPastEvents.map(e => e.catego
 
 export default function PastEventsPage() {
   const [filter, setFilter] = useState('All');
-  const navigate = useNavigate();
 
   const filteredEvents = allPastEvents.filter(
     (e) => filter === 'All' || e.category === filter
@@ -122,12 +127,12 @@ export default function PastEventsPage() {
                   title={event.title}
                   description={event.description}
                   metadata={[
-                    { icon: <Calendar className="w-4 h-4" />, text: event.date },
-                    { icon: <MapPin className="w-4 h-4" />, text: event.location },
-                    { icon: <Users className="w-4 h-4" />, text: event.attendees },
+                    { label: 'Date', icon: <Calendar className="w-4 h-4" />, text: event.date },
+                    { label: 'Time', icon: <Clock className="w-4 h-4" />, text: event.time },
+                    { label: 'Location', icon: <MapPin className="w-4 h-4" />, text: event.location },
+                    { label: 'Participants', icon: <Users className="w-4 h-4" />, text: event.attendees },
                   ]}
-                  buttonText="Details & Review"
-                  onClick={() => navigate(`/event/${event.id}`)}
+                  buttonText="Full Details & Review"
                   reverse={index % 2 !== 0}
                 />
               </div>
