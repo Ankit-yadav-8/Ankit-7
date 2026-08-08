@@ -90,7 +90,7 @@ export default function Navigation() {
               onClick={() => handleNavClick(navItems[0].path)}
               className={`nav-link flex items-center gap-1.5 ${isActive(navItems[0].path) ? 'nav-link-active' : ''}`}
             >
-              <navItems[0].icon className="w-3.5 h-3.5 shrink-0" />
+              <Home className="w-3.5 h-3.5 shrink-0" />
               <span>{navItems[0].label}</span>
             </button>
 
@@ -178,7 +178,7 @@ export default function Navigation() {
                 isActive(navItems[0].path) ? 'mobile-nav-link-active' : ''
               }`}
             >
-              <navItems[0].icon className="w-5 h-5 shrink-0" />
+              <Home className="w-5 h-5 shrink-0" />
               {navItems[0].label}
             </button>
 
