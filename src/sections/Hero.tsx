@@ -144,25 +144,26 @@ export default function Hero() {
             <div
               className="absolute inset-0"
               style={{
-                background: 'linear-gradient(to top, hsl(var(--background)) 0%, hsla(var(--background), 0.3) 50%, transparent 100%)',
+                background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.1) 70%, transparent 100%)',
               }}
             />
             <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
               <div className="text-left">
-                <p className="text-lg font-bold text-foreground">IIT Roorkee</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-lg font-bold text-white" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>IIT Roorkee</p>
+                <p className="text-xs text-white/80" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
                   Est. 1847 — Asia&apos;s oldest technical institution
                 </p>
               </div>
               <div
                 className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full"
                 style={{
-                  background: 'hsla(142, 76%, 36%, 0.15)',
-                  border: '1px solid hsla(142, 76%, 36%, 0.35)',
+                  background: 'hsla(142, 76%, 36%, 0.25)',
+                  border: '1px solid hsla(142, 76%, 36%, 0.5)',
+                  backdropFilter: 'blur(8px)',
                 }}
               >
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs" style={{ color: 'hsl(142, 76%, 42%)' }}>
+                <span className="text-xs font-medium text-green-300">
                   Active Chapter
                 </span>
               </div>
