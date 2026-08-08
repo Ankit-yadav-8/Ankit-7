@@ -284,9 +284,10 @@ export default function PastEvents() {
                   <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
                     <MapPin className="w-3 h-3 text-blue-400" /> {event.location}
                   </span>
-                  <span className="text-[11px] font-medium text-orange-500 flex items-center gap-1">
-                    Details <ArrowRight className="w-3 h-3" />
-                  </span>
+                  <button className="text-[11px] font-semibold text-orange-500 hover:text-orange-400 transition-colors flex items-center gap-1 group/btn">
+                    Read Full Info
+                    <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform" />
+                  </button>
                 </div>
               </div>
             </div>
