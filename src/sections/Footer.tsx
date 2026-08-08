@@ -34,7 +34,7 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className="relative pt-16 pb-6 overflow-hidden footer-bg border-t border-border">
+    <footer className="relative pt-10 sm:pt-16 pb-6 overflow-hidden footer-bg border-t border-border">
       
       {/* Dynamic Background Effects */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" />
@@ -51,7 +51,7 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         
         {/* Quote Section — compact */}
-        <div className="relative max-w-3xl mx-auto mb-12 px-2">
+        <div className="relative max-w-3xl mx-auto mb-8 sm:mb-12 px-2">
           <div className="glass px-6 py-6 sm:px-10 sm:py-8 rounded-2xl border border-orange-500/10 bg-background/60 backdrop-blur-md text-center relative z-10 overflow-hidden group hover:border-orange-500/25 transition-colors duration-500">
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             
@@ -70,7 +70,7 @@ export default function Footer() {
         </div>
 
         {/* Main Grid Layout — tighter gaps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 mb-10 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-6 sm:gap-y-10 mb-8 sm:mb-10 relative z-10">
           
           {/* 1. Brand & Contact (Span 4) */}
           <div className="lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
@@ -91,7 +91,7 @@ export default function Footer() {
               </div>
             </div>
             
-            <p className="text-sm text-muted-foreground leading-relaxed mb-5 max-w-xs md:max-w-sm">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3 sm:mb-5 max-w-xs md:max-w-sm">
               Empowering students to think beyond boundaries and contribute to nation-building through innovation, leadership, and dedicated service.
             </p>
 

@@ -321,7 +321,11 @@ export default function PastEventsPage() {
                     <Users className="w-3.5 h-3.5 text-green-400" /> {event.attendees}
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">{event.description}</p>
+                <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed mb-3">{event.description}</p>
+                <button className="text-xs font-semibold text-orange-500 hover:text-orange-400 transition-colors flex items-center gap-1 group/btn">
+                  Read Full Info
+                  <span className="group-hover/btn:translate-x-0.5 transition-transform">→</span>
+                </button>
               </div>
             </div>
           ))}

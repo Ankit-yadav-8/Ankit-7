@@ -174,13 +174,13 @@ export default function Blog() {
 
         {/* Carousel */}
         <div className="relative">
-          {/* Left fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, hsl(var(--background)), transparent)' }} />
-          {/* Right fade */}
-          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, hsl(var(--background)), transparent)' }} />
+          {/* Left fade — hidden on mobile */}
+          <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, hsl(var(--background)), transparent)' }} />
+          {/* Right fade — hidden on mobile */}
+          <div className="hidden sm:block absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, hsl(var(--background)), transparent)' }} />
           <div
             ref={scrollRef}
-            className="flex gap-5 overflow-x-auto px-6 sm:px-10 pb-4 scrollbar-hide"
+            className="flex gap-5 overflow-x-auto px-4 sm:px-12 pb-4 scrollbar-hide"
           >
           {allPosts.map((post, i) => (
             <div
