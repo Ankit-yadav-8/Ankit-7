@@ -177,7 +177,6 @@ export default function DeskMessages() {
         </div>
 
         <div className={`text-center mt-4 transition-opacity duration-1000 ${revealed ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="text-xs text-muted-foreground">Hover to pause and read</p>
         </div>
 
         {/* Modal Overlay */}

@@ -133,7 +133,6 @@ export default function PastEvents() {
         </div>
 
         <div className={`text-center mt-4 transition-opacity duration-1000 ${revealed ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="text-xs text-muted-foreground mb-4">Hover to pause • Click any card to view details</p>
           <button
             onClick={() => navigate('/past-events')}
             className="btn-primary inline-flex items-center gap-2 text-sm px-6 py-2.5"

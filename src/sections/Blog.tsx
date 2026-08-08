@@ -231,7 +231,6 @@ export default function Blog() {
         </div>
 
         <div className={`text-center mt-4 transition-opacity duration-1000 ${revealed ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="text-xs text-muted-foreground">Hover to pause • Click any card to read</p>
         </div>
       </div>
 
