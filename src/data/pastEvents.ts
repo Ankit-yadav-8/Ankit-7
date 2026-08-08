@@ -76,10 +76,12 @@ export const pastEventsData: PastEvent[] = [
       sansad5,
     ],
     contentBlocks: [
-      'Chhatra Sansad is Think India IIT Roorkee’s student-led platform for structured debate, critical thinking, and informed public dialogue. Its first edition, organised on 14 April 2024, explored “One Nation, One Election” while commemorating Dr B. R. Ambedkar Jayanti.',
-      'Chhatra Sansad 2.0 examined the social, ethical, economic, and employment implications of living with or without artificial intelligence. The third edition focused on the Uniform Civil Code and encouraged discussion on equality, national integration, legal uniformity, and cultural diversity.',
-      'Chhatra Sansad 4.0 debated whether free welfare schemes are damaging India’s economy. Participants presented researched arguments, questioned opposing views, and responded to challenging interventions.',
-      'Faculty members, policy professionals, legal experts, and researchers evaluated the debates. The series has enabled students to engage thoughtfully with complex national issues. It continues to develop informed, articulate, responsible, and solution-oriented young citizens.'
+      'Chhatra Sansad is Think India IIT Roorkee’s student-led platform for structured debate, critical thinking, and informed public dialogue. Its first edition, organised on 14 April 2024, explored “One Nation, One Election” while commemorating Dr B. R. Ambedkar Jayanti. Students examined the feasibility, constitutional implications, and democratic merits of synchronised elections across the country.',
+      'Chhatra Sansad 2.0 examined the social, ethical, economic, and employment implications of living with or without artificial intelligence. The session drew passionate arguments from both sides, with students presenting data-driven analyses and ethical frameworks. Participants explored how AI could reshape education, healthcare, employment, and governance in India.',
+      'The third edition focused on the Uniform Civil Code and encouraged discussion on equality, national integration, legal uniformity, and cultural diversity. Students debated whether a common civil code would strengthen national unity or undermine India’s pluralistic traditions. Legal scholars and policy experts provided expert guidance during the session.',
+      'Chhatra Sansad 4.0 debated whether free welfare schemes are damaging India’s economy. Participants presented researched arguments, questioned opposing views, and responded to challenging interventions. The discussion covered fiscal sustainability, poverty alleviation, electoral politics, and the long-term economic impact of subsidies.',
+      'Faculty members, policy professionals, legal experts, and researchers evaluated each edition of the debates. The series has enabled students to engage thoughtfully with complex national issues by developing research skills, public speaking confidence, and the ability to construct rigorous arguments.',
+      'Chhatra Sansad continues to grow as one of the most anticipated intellectual events on the IIT Roorkee campus. It develops informed, articulate, responsible, and solution-oriented young citizens who can contribute meaningfully to India’s democratic discourse and policy-making processes.'
     ]
   },
   {

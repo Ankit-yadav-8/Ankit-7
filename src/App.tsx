@@ -13,7 +13,6 @@ import Events       from '@/sections/Events';
 import Footer       from '@/sections/Footer';
 import DeskMessages from '@/sections/DeskMessages';
 import PastEventsPage from '@/pages/PastEventsPage';
-import UpcomingEventsPage from '@/pages/UpcomingEventsPage';
 import BlogPage from '@/pages/BlogPage';
 import EventDetailsPage from '@/pages/EventDetailsPage';
 import BlogDetailsPage from '@/pages/BlogDetailsPage';
@@ -64,7 +63,6 @@ export default function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/past-events" element={<PastEventsPage />} />
-      <Route path="/upcoming-events" element={<UpcomingEventsPage />} />
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/event/:id" element={<EventDetailsPage />} />
       <Route path="/blog/:id" element={<BlogDetailsPage />} />

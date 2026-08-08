@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Calendar, MapPin, ExternalLink, Users } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { eventsData } from '@/data/events';
+import { Calendar, MapPin, ExternalLink, Users, Clock, X } from 'lucide-react';
+import { eventsData, Event } from '@/data/events';
 import { useAutoScroll } from '@/Hooks/useAutoScroll';
 
 function useReveal(threshold = 0.1) {
@@ -22,8 +21,8 @@ function useReveal(threshold = 0.1) {
 
 export default function Events() {
   const { ref, revealed } = useReveal();
-  const navigate = useNavigate();
   const scrollRef = useAutoScroll('right');
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   const allEvents = [...eventsData, ...eventsData];
 
@@ -63,7 +62,7 @@ export default function Events() {
             <div
               key={`${event.id}-${idx}`}
               className="flex-none w-72 sm:w-80 group cursor-pointer bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300"
-              onClick={() => navigate(`/event/upcoming-${event.id}`)}
+              onClick={() => setSelectedEvent(eventsData.find(e => e.id === event.id) ?? null)}
             >
               {/* Image */}
               <div className="relative h-56 sm:h-60 overflow-hidden bg-secondary/10 flex items-center justify-center p-2">
@@ -109,8 +108,71 @@ export default function Events() {
         </div>
 
         <div className={`text-center mt-4 transition-opacity duration-1000 ${revealed ? 'opacity-100' : 'opacity-0'}`}>
+          <p className="text-xs text-muted-foreground">Click any card to view details</p>
         </div>
       </div>
+
+      {/* ── Modal ── */}
+      {selectedEvent && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setSelectedEvent(null)}
+        >
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+          <div
+            className="relative glass-strong rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto animate-scale-in"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedEvent(null)}
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/40 text-white hover:bg-orange-500 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Image */}
+            <div className="relative h-52 sm:h-64">
+              <img
+                src={selectedEvent.image}
+                alt={selectedEvent.title}
+                className="w-full h-full object-cover rounded-t-3xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent rounded-t-3xl" />
+              <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${selectedEvent.categoryColor} text-white`}>
+                {selectedEvent.category}
+              </span>
+            </div>
+
+            {/* Content */}
+            <div className="p-6">
+              <h3 className="text-xl sm:text-2xl font-black mb-3">{selectedEvent.title}</h3>
+              <p className="text-sm text-muted-foreground mb-5 leading-relaxed">{selectedEvent.description}</p>
+
+              <div className="grid grid-cols-2 gap-3 mb-5">
+                {[
+                  { icon: Calendar, color: 'text-orange-400', label: 'Date',         value: selectedEvent.date },
+                  { icon: Clock,    color: 'text-blue-400',   label: 'Time',         value: selectedEvent.time },
+                  { icon: MapPin,   color: 'text-green-400',  label: 'Location',     value: selectedEvent.location },
+                  { icon: Users,    color: 'text-purple-400', label: 'Participants', value: `${selectedEvent.participants} expected` },
+                ].map(({ icon: Icon, color, label, value }) => (
+                  <div key={label} className="flex items-center gap-2.5 p-3 rounded-xl" style={{ background: 'hsl(var(--muted))' }}>
+                    <Icon className={`w-4 h-4 ${color} shrink-0`} />
+                    <div className="min-w-0">
+                      <p className="text-[10px] text-muted-foreground">{label}</p>
+                      <p className="text-xs font-medium truncate">{value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <button className="btn-primary w-full flex items-center justify-center gap-2 text-sm py-3">
+                <ExternalLink className="w-4 h-4" />
+                Register for Event
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

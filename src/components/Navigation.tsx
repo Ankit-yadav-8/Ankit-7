@@ -97,7 +97,7 @@ export default function Navigation() {
             {/* Events Dropdown */}
             <div className="relative group/events">
               <button 
-                className={`nav-link flex items-center gap-1.5 ${isActive('/past-events') || isActive('/upcoming-events') ? 'nav-link-active' : ''}`}
+                className={`nav-link flex items-center gap-1.5 ${isActive('/past-events') ? 'nav-link-active' : ''}`}
               >
                 <Calendar className="w-3.5 h-3.5 shrink-0" />
                 <span>Events</span>
@@ -109,7 +109,7 @@ export default function Navigation() {
                    <button onClick={() => handleNavClick('/past-events')} className={`px-3 py-2 text-sm font-medium text-left hover:bg-primary/10 hover:text-primary rounded-lg w-full transition-colors ${isActive('/past-events') ? 'text-primary bg-primary/5' : 'text-foreground'}`}>
                      Past Events
                    </button>
-                   <button onClick={() => handleNavClick('/upcoming-events')} className={`px-3 py-2 text-sm font-medium text-left hover:bg-primary/10 hover:text-primary rounded-lg w-full transition-colors ${isActive('/upcoming-events') ? 'text-primary bg-primary/5' : 'text-foreground'}`}>
+                   <button onClick={() => handleNavClick('/#events')} className="px-3 py-2 text-sm font-medium text-left hover:bg-primary/10 hover:text-primary rounded-lg w-full transition-colors text-foreground">
                      Upcoming Events
                    </button>
                 </div>
@@ -179,7 +179,7 @@ export default function Navigation() {
               <button
                 onClick={() => setMobileEventsOpen(!mobileEventsOpen)}
                 className={`mobile-nav-link w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium ${
-                  isActive('/past-events') || isActive('/upcoming-events') ? 'mobile-nav-link-active' : ''
+                  isActive('/past-events') ? 'mobile-nav-link-active' : ''
                 }`}
               >
                 <div className="flex items-center gap-3">
@@ -198,8 +198,8 @@ export default function Navigation() {
                     Past Events
                   </button>
                   <button
-                    onClick={() => handleNavClick('/upcoming-events')}
-                    className={`text-left text-sm font-medium py-2 transition-colors ${isActive('/upcoming-events') ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
+                    onClick={() => handleNavClick('/#events')}
+                    className="text-left text-sm font-medium py-2 transition-colors text-muted-foreground hover:text-foreground"
                   >
                     Upcoming Events
                   </button>
