@@ -1,7 +1,7 @@
 import {
   Mail, Heart, ArrowUp,
-  Phone, MapPin,
-  Instagram, Linkedin, Twitter, Youtube, ArrowRight,
+  Phone, MapPin, Link,
+  ArrowRight,
   Sparkles
 } from 'lucide-react';
 
@@ -18,10 +18,10 @@ const developers = [
 ];
 
 const socialLinks = [
-  { icon: Instagram, label: 'Instagram', handle: '@thinkindia_iitr',  href: '#', color: 'hover:text-pink-500', bg: 'hover:bg-pink-500/10', border: 'hover:border-pink-500/30' },
-  { icon: Linkedin,  label: 'LinkedIn',  handle: 'Think India IITR',  href: '#', color: 'hover:text-blue-500', bg: 'hover:bg-blue-500/10', border: 'hover:border-blue-500/30' },
-  { icon: Twitter,   label: 'Twitter',   handle: '@ThinkIndiaIITR',   href: '#', color: 'hover:text-sky-400',  bg: 'hover:bg-sky-400/10', border: 'hover:border-sky-400/30'  },
-  { icon: Youtube,   label: 'YouTube',   handle: 'Think India IIT R', href: '#', color: 'hover:text-red-500',  bg: 'hover:bg-red-500/10', border: 'hover:border-red-500/30'  },
+  { icon: Link, label: 'Instagram', handle: '@thinkindia_iitr',  href: '#', color: 'hover:text-pink-500', bg: 'hover:bg-pink-500/10', border: 'hover:border-pink-500/30' },
+  { icon: Link,  label: 'LinkedIn',  handle: 'Think India IITR',  href: '#', color: 'hover:text-blue-500', bg: 'hover:bg-blue-500/10', border: 'hover:border-blue-500/30' },
+  { icon: Link,   label: 'Twitter',   handle: '@ThinkIndiaIITR',   href: '#', color: 'hover:text-sky-400',  bg: 'hover:bg-sky-400/10', border: 'hover:border-sky-400/30'  },
+  { icon: Link,   label: 'YouTube',   handle: 'Think India IIT R', href: '#', color: 'hover:text-red-500',  bg: 'hover:bg-red-500/10', border: 'hover:border-red-500/30'  },
 ];
 
 const contactInfo = [

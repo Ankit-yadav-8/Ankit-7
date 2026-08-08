@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Briefcase, MapPin, ExternalLink, X, Clock, DollarSign, Building2 } from 'lucide-react';
 
 interface Internship {
@@ -241,7 +241,7 @@ export default function Internship() {
       {selected && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in" onClick={() => setSelected(null)}>
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-          <div className="relative glass-strong rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto animate-scale-in" onClick={e => e.stopPropagation()}>
+          <div className="relative glass-strong rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto animate-scale-in" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
             <button onClick={() => setSelected(null)} className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/40 text-white hover:bg-orange-500 transition-colors">
               <X className="w-4 h-4" />
             </button>
@@ -280,7 +280,7 @@ export default function Internship() {
 
               {/* Skills */}
               <div className="flex flex-wrap gap-2 mb-5">
-                {selected.skills.map(skill => (
+                {selected.skills.map((skill: string) => (
                   <span key={skill} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-orange-500/10 text-orange-500 border border-orange-500/20">
                     {skill}
                   </span>

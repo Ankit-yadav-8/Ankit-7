@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Target, Eye, Heart, Award, Users, Globe } from 'lucide-react';
+import { Target, Eye, Heart } from 'lucide-react';
 
 function useReveal(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
