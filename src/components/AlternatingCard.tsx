@@ -62,61 +62,53 @@ export default function AlternatingCard({
           {title}
         </h3>
         
-        {/* Animated Container for Details/Metadata */}
-        <div className="relative flex-grow min-h-[180px]">
-          {/* Collapsed State */}
-          <div 
-            className={`absolute top-0 left-0 w-full transition-all duration-500 ${
-              isExpanded ? 'opacity-0 translate-y-4 pointer-events-none' : 'opacity-100 translate-y-0'
-            }`}
-          >
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-2">
-              {description}
-            </p>
-
-            {/* 2x2 Grid for Metadata (if labels are provided, use rich style, else simple style) */}
-            {metadata.length > 0 && metadata[0].label ? (
-              <div className="grid grid-cols-2 gap-3 mb-8">
-                {metadata.map((meta, idx) => (
-                  <div key={idx} className="bg-secondary/50 rounded-xl p-3 flex gap-3 items-start border border-border/30">
-                    <div className="mt-0.5 text-primary">
-                      {meta.icon}
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-0.5">
-                        {meta.label}
-                      </span>
-                      <span className="text-xs font-medium text-foreground">
-                        {meta.text}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-muted-foreground mb-8">
-                {metadata.map((meta, idx) => (
-                  <span key={idx} className="flex items-center gap-1.5">
-                    <span className="text-primary">{meta.icon}</span>
-                    {meta.text}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Expanded State */}
-          <div 
-            className={`absolute top-0 left-0 w-full transition-all duration-500 ${
-              isExpanded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
-            }`}
-          >
-            <div className="max-h-[220px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4 whitespace-pre-wrap">
+        {/* Details/Metadata */}
+        <div className="mb-6">
+          {!isExpanded ? (
+            <div className="animate-fade-in">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-2">
                 {description}
               </p>
+
+              {/* 2x2 Grid for Metadata (if labels are provided, use rich style, else simple style) */}
+              {metadata.length > 0 && metadata[0].label ? (
+                <div className="grid grid-cols-2 gap-3">
+                  {metadata.map((meta, idx) => (
+                    <div key={idx} className="bg-secondary/50 rounded-xl p-3 flex gap-3 items-start border border-border/30">
+                      <div className="mt-0.5 text-primary">
+                        {meta.icon}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold mb-0.5">
+                          {meta.label}
+                        </span>
+                        <span className="text-xs font-medium text-foreground">
+                          {meta.text}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-muted-foreground">
+                  {metadata.map((meta, idx) => (
+                    <span key={idx} className="flex items-center gap-1.5">
+                      <span className="text-primary">{meta.icon}</span>
+                      {meta.text}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
-          </div>
+          ) : (
+            <div className="animate-fade-in">
+              <div className="max-h-[300px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-border">
+                <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-wrap">
+                  {description}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Action Button */}
