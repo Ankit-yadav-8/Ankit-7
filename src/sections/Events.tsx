@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Calendar, MapPin, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, ExternalLink, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { eventsData } from '@/data/events';
 
