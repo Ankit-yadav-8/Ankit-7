@@ -1,5 +1,4 @@
 import tiranga1 from '@/assets/events/tiranga/DSC_2482.JPG';
-import tiranga2 from '@/assets/events/tiranga/DSC_2493.JPG';
 import tiranga3 from '@/assets/events/tiranga/DSC_2511.JPG';
 import tiranga4 from '@/assets/events/tiranga/DSC_2563.JPG';
 import tiranga5 from '@/assets/events/tiranga/DSC_2590.JPG';
@@ -175,14 +174,12 @@ export const pastEventsData: PastEvent[] = [
     categoryColor: 'bg-orange-600',
     gallery: [
       tiranga1,
-      tiranga2,
+      posterTirangaRoute,
       tiranga3,
       tiranga4,
       tiranga5,
       tiranga6,
       tiranga7,
-      posterTirangaMain,
-      posterTirangaRoute,
     ],
     contentBlocks: [
       'The Tiranga Yatra stands as one of Think India IIT Roorkee’s most prominent and visually spectacular celebrations of national unity, freedom, and civic responsibility. Each year, as Independence Day approaches, the campus transforms into a vibrant canvas of patriotism. The 2024 edition was organised with immense enthusiasm, featuring two magnificent 500-metre-long national flags carried proudly across the sprawling campus. Students, esteemed faculty members, and staff participated in traditional and tricolour-themed attire, painting a picture of profound cultural pride.',
