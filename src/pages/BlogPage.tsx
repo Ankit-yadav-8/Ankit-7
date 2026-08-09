@@ -98,7 +98,6 @@ export default function BlogPage() {
               <div key={post.id} className="animate-slide-up" style={{ animationDelay: `${0.1 + index * 0.1}s` }}>
                 <AlternatingCard
                   image={post.image}
-                  category={post.category}
                   title={post.title}
                   description={post.description}
                   metadata={[
