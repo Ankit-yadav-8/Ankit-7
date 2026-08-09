@@ -2,7 +2,8 @@ import {
   Mail, Heart, ArrowUp,
   Phone, MapPin, Link,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Instagram, Facebook
 } from 'lucide-react';
 
 const teamHeads = [
@@ -18,10 +19,10 @@ const developers = [
 ];
 
 const socialLinks = [
-  { icon: Link, label: 'Instagram', handle: '@thinkindia_iitr',  href: '#', color: 'hover:text-pink-500', bg: 'hover:bg-pink-500/10', border: 'hover:border-pink-500/30' },
-  { icon: Link,  label: 'LinkedIn',  handle: 'Think India IITR',  href: '#', color: 'hover:text-blue-500', bg: 'hover:bg-blue-500/10', border: 'hover:border-blue-500/30' },
-  { icon: Link,   label: 'Twitter',   handle: '@ThinkIndiaIITR',   href: '#', color: 'hover:text-sky-400',  bg: 'hover:bg-sky-400/10', border: 'hover:border-sky-400/30'  },
-  { icon: Link,   label: 'YouTube',   handle: 'Think India IIT R', href: '#', color: 'hover:text-red-500',  bg: 'hover:bg-red-500/10', border: 'hover:border-red-500/30'  },
+  { icon: Instagram, label: 'Instagram', handle: '@thinkindia_iitr',  href: '#', color: 'hover:text-pink-500', bg: 'hover:bg-pink-500/10', border: 'hover:border-pink-500/30' },
+  { icon: Mail,  label: 'Email',  handle: 'thinkindia@iitr.ac.in',  href: 'mailto:thinkindia@iitr.ac.in', color: 'hover:text-orange-500', bg: 'hover:bg-orange-500/10', border: 'hover:border-orange-500/30' },
+  { icon: Facebook,   label: 'Facebook',   handle: 'Think India IITR',   href: '#', color: 'hover:text-blue-600',  bg: 'hover:bg-blue-600/10', border: 'hover:border-blue-600/30'  },
+  { icon: Phone,   label: 'Call',   handle: '+91 98765 43210', href: 'tel:+919876543210', color: 'hover:text-green-500',  bg: 'hover:bg-green-500/10', border: 'hover:border-green-500/30'  },
 ];
 
 const contactInfo = [
@@ -113,7 +114,7 @@ export default function Footer() {
           </div>
 
           {/* 2. Team & Developers (Span 5) */}
-          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div className="lg:col-span-5 grid grid-cols-2 gap-8">
             {/* Team Heads */}
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
               <h4 className="font-bold mb-5 text-xs tracking-widest uppercase text-foreground relative inline-block">
