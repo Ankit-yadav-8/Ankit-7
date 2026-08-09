@@ -12,6 +12,33 @@ import sansad3 from '@/assets/events/chhatrasansad/img3.jpg';
 import sansad4 from '@/assets/events/chhatrasansad/img4.jpg';
 import sansad5 from '@/assets/events/chhatrasansad/img5.jpg';
 
+import convention1 from '@/assets/events/national_convention/national convention/145D6B17-DAFA-43DE-B3AE-0803284DB9CB.JPG.jpeg';
+import convention2 from '@/assets/events/national_convention/national convention/15ED8C24-0CC7-41D5-A1F7-76C4CEBF4F16.JPG.jpeg';
+import convention3 from '@/assets/events/national_convention/national convention/4EA2188B-C484-4256-A4C0-C152ED7A788D.JPG.jpeg';
+
+import revivingBharat1 from '@/assets/events/reviving_bharat/Reviving Bharat/Photo from AMAN SWARAJ.jpg';
+import revivingBharat2 from '@/assets/events/reviving_bharat/Reviving Bharat/WhatsApp Image 2024-09-18 at 21.31.01.jpeg';
+
+import shivaji1 from '@/assets/events/shivaji_jayanti/Chhatrapati Shivaji Jayanti/IMG_4815.jpg';
+
+import negotiation1 from '@/assets/events/negotiation_workshop/Negotiation Workshop/IMG_20250222_182419.jpg';
+import negotiation2 from '@/assets/events/negotiation_workshop/Negotiation Workshop/IMG_20250222_182909.jpg';
+
+import maatiNiti1 from '@/assets/events/maati_niti/Maati Niti/1760596583985.jpg';
+import maatiNiti2 from '@/assets/events/maati_niti/Maati Niti/20251015_115306.jpg';
+import maatiNiti3 from '@/assets/events/maati_niti/Maati Niti/20251015_170101.jpg';
+import maatiNiti4 from '@/assets/events/maati_niti/Maati Niti/IMG20251015104849.jpg';
+import maatiNiti5 from '@/assets/events/maati_niti/Maati Niti/IMG_20251015_141527916.jpg';
+import maatiNiti6 from '@/assets/events/maati_niti/Maati Niti/PHOTO-2025-10-15-22-48-57.jpg';
+
+import nydPainting1 from '@/assets/events/nyd_painting/National Youth Day Painting Competition/20260118_133524.jpg';
+import nydPainting2 from '@/assets/events/nyd_painting/National Youth Day Painting Competition/20260118_133823.jpg';
+import nydPainting3 from '@/assets/events/nyd_painting/National Youth Day Painting Competition/20260118_143319.jpg';
+
+import bloodDonation1 from '@/assets/events/blood_donation/Blood Donation/20260123_165543.jpg';
+import bloodDonation2 from '@/assets/events/blood_donation/Blood Donation/IMG-20260123-WA0161.jpg';
+import bloodDonation3 from '@/assets/events/blood_donation/Blood Donation/IMG_20260123_112106.jpg';
+import bloodDonation4 from '@/assets/events/blood_donation/Blood Donation/IMG_20260123_151359.jpg';
 export interface PastEvent {
   id: number;
   title: string;
@@ -41,6 +68,11 @@ export const pastEventsData: PastEvent[] = [
     description: 'The Think India National Convention 2024 was organised at IIT Roorkee from 21 to 23 December under the theme “Bharat 4.0: Crafting a Self-Resilient Future by 2047.” The convention brought together more than 280 students, faculty members, alumni, youth leaders, and distinguished speakers from across the country. Discussions focused on building a future rooted in innovation, sustainability, cultural confidence, and national pride. Sessions addressed legal reforms, media narratives, misinformation, global youth leadership, cybersecurity, economic resilience, and sustainable development. The convention also featured an Ideathon where students presented technology-driven solutions to real-world problems. Experts from institutions such as NITI Aayog, IITs, Cisco Research, and i-Hub Gujarat evaluated the ideas. Cultural performances celebrating Uttarakhand’s heritage added vibrancy to the programme. Supported by more than 100 student volunteers, the convention reflected the collective vision of a confident, responsible, and self-reliant Bharat.',
     category: 'Convention',
     categoryColor: 'bg-orange-500',
+    gallery: [
+      convention1,
+      convention2,
+      convention3,
+    ],
   },
   {
     id: 2,
@@ -150,6 +182,10 @@ export const pastEventsData: PastEvent[] = [
     description: 'Think India IIT Roorkee organised the “Reviving Bharat: A Scientific Civilization and Its Relevance in Present Times” lecture on 18 September 2024. The keynote speaker was Mr Aditya Jha, a Senior Application Engineer at Oracle and an alumnus of IIT Roorkee. The session explored India’s rich scientific, philosophical, and spiritual heritage. Mr Jha discussed how ancient Indian knowledge can provide meaningful perspectives on modern social and professional challenges. He highlighted values such as discipline, self-awareness, innovation, holistic development, and responsible leadership. Students were encouraged to combine personal growth with meaningful contributions to national development. Senior faculty members attended the programme and reinforced the importance of culturally rooted education. An interactive question-and-answer session enabled participants to discuss their aspirations and concerns. The lecture offered a thoughtful perspective on reconnecting modern progress with Bharat’s civilizational foundations.',
     category: 'Lecture',
     categoryColor: 'bg-purple-500',
+    gallery: [
+      revivingBharat1,
+      revivingBharat2,
+    ],
   },
   {
     id: 8,
@@ -189,6 +225,9 @@ export const pastEventsData: PastEvent[] = [
     description: 'Think India IIT Roorkee celebrated Chhatrapati Shivaji Maharaj Jayanti on 21 February 2025. The programme honoured the life and legacy of one of India’s most admired warrior-kings and visionary leaders. Students gathered in large numbers for a celebration rooted in history, culture, leadership, and national pride. The event began with the lighting of a ceremonial diya in memory of Shivaji Maharaj. Traditional Maharashtrian folk dances brought the courage, energy, and cultural spirit of his era to the stage. A powerful Powada recital narrated stories of bravery, sacrifice, and leadership. Students and professors also reflected on the continuing relevance of Shivaji Maharaj’s ideals. The celebration highlighted courage, integrity, strategic vision, good governance, and commitment to Swarajya. It encouraged young people to carry these values forward while contributing to a stronger and more self-reliant India.',
     category: 'Cultural',
     categoryColor: 'bg-red-500',
+    gallery: [
+      shivaji1,
+    ],
   },
   {
     id: 11,
@@ -202,6 +241,10 @@ export const pastEventsData: PastEvent[] = [
     description: 'Think India IIT Roorkee organised a two-hour Policy Negotiation Workshop on 22 February 2025. The session was conducted under the guidance of Mr Nikhil Arya, Community Manager at the Rashtram School of Public Leadership. The workshop introduced students to the fundamentals of public policy, stakeholder dialogue, and structured negotiation. Participants were divided into small groups and assigned a realistic policy simulation. The exercise involved planning an ethanol plant while addressing environmental regulations, employment concerns, government financing, labour laws, and local community interests. Students represented different stakeholders and negotiated to find balanced and practical solutions. The activity demonstrated how policy decisions require communication, research, compromise, and long-term thinking. Participants strengthened their teamwork, critical-thinking, and persuasive communication skills. The workshop effectively connected classroom learning with the real-world challenges of governance and nation-building.',
     category: 'Workshop',
     categoryColor: 'bg-yellow-500',
+    gallery: [
+      negotiation1,
+      negotiation2,
+    ],
   },
   {
     id: 12,
@@ -254,6 +297,14 @@ export const pastEventsData: PastEvent[] = [
     description: 'Maati-NITI was conceived as an initiative to reconnect young Indians with the soil, traditions, and artisanal heritage of Bharat. The programme began on 12 October 2025 with a quiz competition that attracted 90 participants. It later expanded into the Maati Mela, which welcomed nearly 5,000 students, faculty members, and staff. Visitors explored handcrafted artefacts, terracotta products, traditional cookware, clay diyas, and regional crafts. The mela created a direct connection between the campus community and artisans preserving generations of knowledge. A pottery and clay-modelling workshop, led by Ms Garima Negi, provided hands-on learning to around 150 participants. School students also participated in interactive pottery and quiz activities. The initiative celebrated dignity of work, environmental consciousness, cultural pride, and self-reliance. Maati-NITI demonstrated that traditional skills are not simply objects of the past but valuable principles for a sustainable and rooted future.',
     category: 'Cultural',
     categoryColor: 'bg-red-500',
+    gallery: [
+      maatiNiti1,
+      maatiNiti2,
+      maatiNiti3,
+      maatiNiti4,
+      maatiNiti5,
+      maatiNiti6,
+    ],
   },
   {
     id: 16,
@@ -267,6 +318,11 @@ export const pastEventsData: PastEvent[] = [
     description: 'Think India IIT Roorkee organised a painting competition on 18 January 2026 to mark National Youth Day. The event was held in the calm and natural surroundings of the Old Horticulture Department Garden. Young artists were invited to express their ideas through themes connected with culture, nature, and history. Participants produced artworks inspired by folk traditions, national heritage, natural landscapes, and significant moments from India’s past. Each painting reflected a distinct artistic style and personal interpretation. The open setting encouraged creativity, thoughtful observation, and meaningful interaction among participants. Winners were recognised and presented with prizes for their artistic excellence. The event demonstrated how art can preserve memory, identity, values, and cultural continuity. It reflected Think India’s commitment to nurturing young minds that are both creative and deeply connected to their heritage.',
     category: 'Cultural',
     categoryColor: 'bg-red-500',
+    gallery: [
+      nydPainting1,
+      nydPainting2,
+      nydPainting3,
+    ],
   },
   {
     id: 17,
@@ -293,5 +349,11 @@ export const pastEventsData: PastEvent[] = [
     description: 'Think India IIT Roorkee organised a Blood Donation Camp on 23 January 2026 to commemorate Parakram Diwas and the birth anniversary of Netaji Subhas Chandra Bose. The camp was conducted at the Student Activity Centre with the support of government and private blood banks. Nearly 400 students, faculty members, staff, and professors participated in the initiative. Senior institute officials attended the programme and encouraged donors and volunteers. Despite heavy rainfall, the IIT Roorkee community responded with determination and enthusiasm. Medical teams ensured that the collection process remained safe, systematic, and efficient. Donors received mementos and gift bags as tokens of gratitude for their contribution. Volunteers played an important role in coordinating registrations, assisting participants, and maintaining an organised environment. The camp transformed the ideals of courage, compassion, service, and collective responsibility into meaningful action.',
     category: 'Service',
     categoryColor: 'bg-pink-500',
+    gallery: [
+      bloodDonation1,
+      bloodDonation2,
+      bloodDonation3,
+      bloodDonation4,
+    ],
   }
 ];

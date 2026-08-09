@@ -14,6 +14,26 @@ export interface Event {
   contentBlocks?: string[];
 }
 
+import sacPainting1 from '@/assets/events/sac_painting/Sac painting competetion/IMG-20250803-WA0018.jpg';
+import sacPainting2 from '@/assets/events/sac_painting/Sac painting competetion/IMG_20250802_105216.jpg';
+import sacPainting3 from '@/assets/events/sac_painting/Sac painting competetion/IMG_20250803_185530816.jpg';
+import sacPainting4 from '@/assets/events/sac_painting/Sac painting competetion/IMG_20250803_192117.jpg';
+import sacPainting5 from '@/assets/events/sac_painting/Sac painting competetion/IMG_20250803_200110058.jpg';
+
+import bloodDonation1 from '@/assets/events/blood_donation/Blood Donation/20260123_165543.jpg';
+import bloodDonation2 from '@/assets/events/blood_donation/Blood Donation/IMG-20260123-WA0161.jpg';
+import bloodDonation3 from '@/assets/events/blood_donation/Blood Donation/IMG_20260123_112106.jpg';
+import bloodDonation4 from '@/assets/events/blood_donation/Blood Donation/IMG_20260123_151359.jpg';
+
+import shivaji1 from '@/assets/events/shivaji_jayanti/Chhatrapati Shivaji Jayanti/IMG_4815.jpg';
+
+import maatiNiti1 from '@/assets/events/maati_niti/Maati Niti/1760596583985.jpg';
+import maatiNiti2 from '@/assets/events/maati_niti/Maati Niti/20251015_115306.jpg';
+import maatiNiti3 from '@/assets/events/maati_niti/Maati Niti/20251015_170101.jpg';
+import maatiNiti4 from '@/assets/events/maati_niti/Maati Niti/IMG20251015104849.jpg';
+import maatiNiti5 from '@/assets/events/maati_niti/Maati Niti/IMG_20251015_141527916.jpg';
+import maatiNiti6 from '@/assets/events/maati_niti/Maati Niti/PHOTO-2025-10-15-22-48-57.jpg';
+
 export const eventsData: Event[] = [
   {
     id: 1,
@@ -105,6 +125,7 @@ export const eventsData: Event[] = [
     formLink: '#register',
     category: 'Social',
     categoryColor: 'bg-red-500',
+    gallery: [bloodDonation1, bloodDonation2, bloodDonation3, bloodDonation4],
   },
   {
     id: 8,
@@ -118,6 +139,7 @@ export const eventsData: Event[] = [
     formLink: '#register',
     category: 'Environmental',
     categoryColor: 'bg-amber-600',
+    gallery: [maatiNiti1, maatiNiti2, maatiNiti3, maatiNiti4, maatiNiti5, maatiNiti6],
   },
   {
     id: 9,
@@ -144,6 +166,7 @@ export const eventsData: Event[] = [
     formLink: '#register',
     category: 'Art',
     categoryColor: 'bg-rose-500',
+    gallery: [sacPainting1, sacPainting2, sacPainting3, sacPainting4, sacPainting5],
   },
   {
     id: 11,
@@ -157,5 +180,6 @@ export const eventsData: Event[] = [
     formLink: '#register',
     category: 'Cultural',
     categoryColor: 'bg-orange-600',
+    gallery: [shivaji1],
   }
 ];
