@@ -27,20 +27,6 @@ export default function Hero() {
       {/* ── Main content ── */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto w-full pt-16">
 
-        {/* Badge */}
-        <div
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 animate-slide-down"
-          style={{
-            background: 'hsla(24, 95%, 53%, 0.1)',
-            border: '1px solid hsla(24, 95%, 53%, 0.25)',
-            animationDelay: '0.05s',
-          }}
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
-          <span className="text-xs font-medium text-orange-500">
-            Welcome to Think India IIT Roorkee
-          </span>
-        </div>
 
         {/* Heading */}
         <h1
