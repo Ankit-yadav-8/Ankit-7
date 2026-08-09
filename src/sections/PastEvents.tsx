@@ -66,9 +66,7 @@ export default function PastEvents() {
               <div className="relative h-56 sm:h-60 overflow-hidden bg-secondary/10 flex items-center justify-center p-2">
                 <img loading="lazy" src={event.image} alt={event.title} className="w-full h-full object-contain rounded-xl" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-                <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold ${event.categoryColor} text-white`}>
-                  {event.category}
-                </span>
+
               </div>
 
               {/* Content */}

@@ -53,9 +53,7 @@ export default function EventDetailsPage() {
                 <ArrowLeft className="w-4 h-4" /> Back to Events
               </button>
               <div className="mb-4">
-                <span className={`inline-block px-3 py-1 text-white text-xs font-semibold rounded-full uppercase tracking-wider ${event.categoryColor}`}>
-                  {event.category}
-                </span>
+
               </div>
               <h1 className="font-serif text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight">
                 {event.title}
@@ -114,16 +112,19 @@ export default function EventDetailsPage() {
             <div className="mt-20 pt-10 border-t-2 border-dashed border-gray-300">
               <h3 className="text-3xl font-serif font-black mb-8 text-center text-[#1a1a1a] uppercase tracking-widest">More from the Event</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {event.gallery.slice(textBlocks.length - 1).map((img: string, idx: number) => (
-                  <div key={idx} className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-64 w-full">
-                    <img loading="lazy"
-                      src={img} 
-                      alt={`Gallery image ${idx + 1}`} 
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                      style={{ filter: 'brightness(1.05) contrast(1.05) saturate(1.15)' }}
-                    />
-                  </div>
-                ))}
+                {event.gallery.slice(textBlocks.length - 1).map((img: string, idx: number) => {
+                  const isChhatraSansad4thPhoto = event.id === 3 && idx === 3;
+                  return (
+                    <div key={idx} className={`rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 w-full ${isChhatraSansad4thPhoto ? 'sm:col-span-2 md:col-span-3 h-[300px] sm:h-[400px] md:h-[500px]' : 'h-64'}`}>
+                      <img loading="lazy"
+                        src={img} 
+                        alt={`Gallery image ${idx + 1}`} 
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        style={{ filter: 'brightness(1.05) contrast(1.05) saturate(1.15)' }}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
