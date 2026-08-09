@@ -65,14 +65,12 @@ export default function Events() {
               onClick={() => setSelectedEvent(eventsData.find(e => e.id === event.id) ?? null)}
             >
               {/* Image */}
-              <div className="relative h-56 sm:h-60 overflow-hidden bg-secondary/10 flex items-center justify-center p-2">
+              <div className="relative h-48 sm:h-56 bg-white flex items-center justify-center p-2 rounded-t-3xl">
                 <img loading="lazy"
                   src={event.image}
                   alt={event.title}
                   className="w-full h-full object-contain rounded-xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-
               </div>
 
               {/* Content */}
@@ -129,14 +127,12 @@ export default function Events() {
             </button>
 
             {/* Image */}
-            <div className="relative h-52 sm:h-64">
+            <div className="relative h-52 sm:h-64 bg-white flex items-center justify-center p-2 rounded-t-3xl border-b border-border/50">
               <img loading="lazy"
                 src={selectedEvent.image}
                 alt={selectedEvent.title}
                 className="w-full h-full object-contain rounded-t-3xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent rounded-t-3xl" />
-
             </div>
 
             {/* Content */}
