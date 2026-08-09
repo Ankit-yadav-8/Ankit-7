@@ -43,7 +43,7 @@ export default function AlternatingCard({
         <img loading="lazy"
           src={image}
           alt={title}
-          className="w-full h-full md:max-h-full object-cover md:object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out"
+          className="w-full h-auto object-cover md:object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out"
         />
       </div>
 
