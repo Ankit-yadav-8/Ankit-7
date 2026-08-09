@@ -39,11 +39,11 @@ export default function AlternatingCard({
       }`}
     >
       {/* Image Section (48%) */}
-      <div className="w-full md:w-[48%] relative bg-white shrink-0 p-6 md:p-10 flex items-center justify-center border-b md:border-b-0 md:border-r border-border/50">
+      <div className="w-full md:w-[48%] relative bg-white shrink-0 flex items-center justify-center border-b md:border-b-0 md:border-r border-border/50 overflow-hidden">
         <img loading="lazy"
           src={image}
           alt={title}
-          className="w-full max-h-80 md:max-h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out drop-shadow-md"
+          className="w-full h-full md:max-h-full object-cover md:object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out"
         />
       </div>
 
