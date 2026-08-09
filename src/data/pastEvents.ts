@@ -1,6 +1,6 @@
 import tiranga1 from '@/assets/events/tiranga/DSC_2482.JPG';
 import tiranga3 from '@/assets/events/tiranga/DSC_2511.JPG';
-import tiranga4 from '@/assets/events/tiranga/DSC_2493.JPG';
+import tiranga4 from '@/assets/events/tiranga/DSC_2563.JPG';
 import tiranga5 from '@/assets/events/tiranga/DSC_2590.JPG';
 import tiranga6 from '@/assets/events/tiranga/DSC_2594.JPG';
 import tiranga7 from '@/assets/events/tiranga/DSC_2603.JPG';
