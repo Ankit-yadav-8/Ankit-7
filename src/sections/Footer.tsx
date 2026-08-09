@@ -2,8 +2,7 @@ import {
   Mail, Heart, ArrowUp,
   Phone, MapPin, Link,
   ArrowRight,
-  Sparkles,
-  Instagram, Facebook
+  Sparkles
 } from 'lucide-react';
 
 const teamHeads = [
@@ -19,9 +18,9 @@ const developers = [
 ];
 
 const socialLinks = [
-  { icon: Instagram, label: 'Instagram', handle: '@thinkindia_iitr',  href: '#', color: 'hover:text-pink-500', bg: 'hover:bg-pink-500/10', border: 'hover:border-pink-500/30' },
+  { icon: Link, label: 'Instagram', handle: '@thinkindia_iitr',  href: '#', color: 'hover:text-pink-500', bg: 'hover:bg-pink-500/10', border: 'hover:border-pink-500/30' },
   { icon: Mail,  label: 'Email',  handle: 'thinkindia@iitr.ac.in',  href: 'mailto:thinkindia@iitr.ac.in', color: 'hover:text-orange-500', bg: 'hover:bg-orange-500/10', border: 'hover:border-orange-500/30' },
-  { icon: Facebook,   label: 'Facebook',   handle: 'Think India IITR',   href: '#', color: 'hover:text-blue-600',  bg: 'hover:bg-blue-600/10', border: 'hover:border-blue-600/30'  },
+  { icon: Link,   label: 'Facebook',   handle: 'Think India IITR',   href: '#', color: 'hover:text-blue-600',  bg: 'hover:bg-blue-600/10', border: 'hover:border-blue-600/30'  },
   { icon: Phone,   label: 'Call',   handle: '+91 98765 43210', href: 'tel:+919876543210', color: 'hover:text-green-500',  bg: 'hover:bg-green-500/10', border: 'hover:border-green-500/30'  },
 ];
 
