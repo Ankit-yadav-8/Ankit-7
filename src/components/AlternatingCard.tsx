@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 interface AlternatingCardProps {
   image: string;
-  category: string;
   title: string;
   description: string;
   // Make metadata labels optional so we can support both simple and detailed views
@@ -14,7 +13,6 @@ interface AlternatingCardProps {
 
 export default function AlternatingCard({
   image,
-  category,
   title,
   description,
   metadata,
