@@ -34,6 +34,11 @@ import maatiNiti4 from '@/assets/events/maati_niti/Maati Niti/IMG20251015104849.
 import maatiNiti5 from '@/assets/events/maati_niti/Maati Niti/IMG_20251015_141527916.jpg';
 import maatiNiti6 from '@/assets/events/maati_niti/Maati Niti/PHOTO-2025-10-15-22-48-57.jpg';
 
+import posterBloodDonation from '@/assets/posters_extracted/Posters/Frame 1171277710.png';
+import posterMaatiNiti from '@/assets/posters_extracted/Posters/MaatiNiti.png';
+import posterVandeMataram from '@/assets/posters_extracted/Posters/vande Matram.jpeg';
+import posterShivaji from '@/assets/posters_extracted/Posters/Chhatrapati Shivaji Maharaj Jayanti 2025.png';
+
 export const eventsData: Event[] = [
   {
     id: 1,
@@ -119,7 +124,7 @@ export const eventsData: Event[] = [
     date: 'TBD',
     time: 'TBD',
     location: 'IIT Roorkee',
-    image: '/Ankit-7/images/blood-donation.jpg',
+    image: posterBloodDonation,
     description: 'Join us for a noble cause and donate blood to save lives. Please follow all Do\'s and Don\'ts before donating.',
     participants: 'Open for all',
     formLink: '#register',
@@ -133,7 +138,7 @@ export const eventsData: Event[] = [
     date: '15 October 2025',
     time: '9:00 AM – 9:00 PM',
     location: 'MAC, IIT Roorkee',
-    image: '/Ankit-7/images/maati-niti.jpg',
+    image: posterMaatiNiti,
     description: 'A day-long event featuring Maati-Mela, Clay Logue (Panel Discussion), and Kalpmitti Workshop.',
     participants: 'Open for all',
     formLink: '#register',
@@ -147,7 +152,7 @@ export const eventsData: Event[] = [
     date: '18 May 2026',
     time: '5:00 PM – 6:00 PM',
     location: 'MAC Auditorium, IIT Roorkee',
-    image: '/Ankit-7/images/vande-mataram.jpg',
+    image: posterVandeMataram,
     description: 'Proudly celebrating 150 years of Vande Mataram with a Guest Lecture, Interactive Quiz, and Recitation.',
     participants: '200 Limited Seats',
     formLink: '#register',
@@ -160,7 +165,7 @@ export const eventsData: Event[] = [
     date: '3 August 2025',
     time: '3:00 PM – 6:00 PM',
     location: 'SAC Building',
-    image: '/Ankit-7/images/painting-competition.jpg',
+    image: sacPainting1,
     description: 'Showcase your creativity and win exciting prizes in this Painting Competition.',
     participants: 'Limited Seats',
     formLink: '#register',
@@ -174,7 +179,7 @@ export const eventsData: Event[] = [
     date: '21st February',
     time: '5:30 PM',
     location: 'MAC Audi',
-    image: '/Ankit-7/images/shivaji-jayanti.jpg',
+    image: posterShivaji,
     description: 'Cultural program on the auspicious occasion of Chhatrapati Shivaji Maharaj Jayanti.',
     participants: 'Open for all',
     formLink: '#register',
