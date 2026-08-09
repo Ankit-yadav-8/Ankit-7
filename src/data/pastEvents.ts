@@ -1,4 +1,4 @@
-import tiranga1 from '@/assets/events/tiranga/DSC_2482.JPG';
+import tiranga1 from '@/assets/events/tiranga/DSC_2493.JPG';
 import tiranga3 from '@/assets/events/tiranga/DSC_2511.JPG';
 import tiranga4 from '@/assets/events/tiranga/DSC_2563.JPG';
 import tiranga5 from '@/assets/events/tiranga/DSC_2590.JPG';
@@ -92,6 +92,12 @@ export const pastEventsData: PastEvent[] = [
       convention1,
       convention2,
       convention3,
+    ],
+    contentBlocks: [
+      'The Think India National Convention 2024 was organised at IIT Roorkee from 21 to 23 December under the theme “Bharat 4.0: Crafting a Self-Resilient Future by 2047.” The convention brought together more than 280 students, faculty members, alumni, youth leaders, and distinguished speakers from across the country, creating an extraordinary gathering of minds dedicated to the nation’s progress. Discussions focused on building a future rooted in innovation, sustainability, cultural confidence, and national pride. The event set a powerful tone for intellectual discourse and actionable ideas that can propel India forward in its Amrit Kaal.',
+      'Throughout the three days, various engaging sessions addressed a wide spectrum of critical topics including legal reforms, media narratives, combating misinformation, global youth leadership, cybersecurity, economic resilience, and sustainable development. Renowned experts and visionaries shared their insights, sparking thought-provoking conversations among the youth. These interactive dialogues empowered participants to think critically about their role in shaping policies and driving societal transformation, making every session a profound learning experience.',
+      'A major highlight of the convention was the Ideathon, where students enthusiastically presented technology-driven solutions to real-world problems. Experts from prestigious institutions such as NITI Aayog, various IITs, Cisco Research, and i-Hub Gujarat meticulously evaluated the ideas, providing invaluable feedback to the young innovators. This platform not only fostered a spirit of entrepreneurship but also highlighted the immense potential of student-led technological interventions in addressing grassroots challenges.',
+      'Beyond academic and policy discussions, cultural performances celebrating Uttarakhand’s rich heritage added immense vibrancy and joy to the programme. Supported seamlessly by more than 100 dedicated student volunteers who worked tirelessly behind the scenes, the convention was a resounding success. It beautifully reflected the collective vision of a confident, responsible, and self-reliant Bharat, leaving an indelible mark on all attendees and inspiring them to work towards the vision of 2047.'
     ],
   },
   {
