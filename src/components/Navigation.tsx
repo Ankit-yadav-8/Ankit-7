@@ -90,7 +90,7 @@ export default function Navigation() {
               onClick={() => handleNavClick(navItems[0].path)}
               className={`nav-link flex items-center gap-1.5 ${isActive(navItems[0].path) ? 'nav-link-active' : ''}`}
             >
-              <span className="font-semibold">{navItems[0].label}</span>
+              <span className="font-light">{navItems[0].label}</span>
             </button>
 
             {/* Events Dropdown */}
@@ -98,7 +98,7 @@ export default function Navigation() {
               <button 
                 className={`nav-link flex items-center gap-1.5 ${isActive('/past-events') ? 'nav-link-active' : ''}`}
               >
-                <span className="font-semibold">Events</span>
+                <span className="font-light">Events</span>
                 <ChevronDown className="w-3 h-3 group-hover/events:rotate-180 transition-transform duration-200" />
               </button>
               
@@ -121,7 +121,7 @@ export default function Navigation() {
                 onClick={() => handleNavClick(path)}
                 className={`nav-link flex items-center gap-1.5 ${isActive(path) ? 'nav-link-active' : ''}`}
               >
-                <span className="font-semibold">{label}</span>
+                <span className="font-light">{label}</span>
               </button>
             ))}
           </div>
@@ -130,12 +130,12 @@ export default function Navigation() {
           <div className="hidden lg:flex items-center gap-4 shrink-0 ml-4">
             <button
               onClick={() => handleNavClick('/#history')}
-              className="btn-action flex items-center gap-1.5 font-semibold"
+              className="btn-action flex items-center gap-1.5 font-light"
             >
               History
             </button>
 
-            <button onClick={toggleTheme} className="btn-theme flex items-center gap-1.5 font-semibold">
+            <button onClick={toggleTheme} className="btn-theme flex items-center gap-1.5 font-light">
               <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
             </button>
           </div>
@@ -159,7 +159,7 @@ export default function Navigation() {
           <div className="px-4 py-4 flex flex-col gap-1">
             <button
               onClick={() => handleNavClick(navItems[0].path)}
-              className={`mobile-nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold animate-stagger-up ${
+              className={`mobile-nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-light animate-stagger-up ${
                 isActive(navItems[0].path) ? 'mobile-nav-link-active' : ''
               }`}
             >
@@ -170,7 +170,7 @@ export default function Navigation() {
             <div className="w-full flex flex-col animate-stagger-up" style={{ animationDelay: '0.05s' }}>
               <button
                 onClick={() => setMobileEventsOpen(!mobileEventsOpen)}
-                className={`mobile-nav-link w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold ${
+                className={`mobile-nav-link w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-light ${
                   isActive('/past-events') ? 'mobile-nav-link-active' : ''
                 }`}
               >
@@ -203,7 +203,7 @@ export default function Navigation() {
               <button
                 key={id}
                 onClick={() => handleNavClick(path)}
-                className={`mobile-nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold animate-stagger-up ${
+                className={`mobile-nav-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-light animate-stagger-up ${
                   isActive(path) ? 'mobile-nav-link-active' : ''
                 }`}
                 style={{ animationDelay: `${(i + 2) * 0.05}s` }}
@@ -216,14 +216,14 @@ export default function Navigation() {
             <div className="flex flex-col gap-3 pt-4 border-t border-border mt-2">
               <button
                 onClick={() => handleNavClick('/#history')}
-                className="btn-action w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl font-semibold"
+                className="btn-action w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl font-light"
               >
                 History
               </button>
               
               <button
                 onClick={toggleTheme}
-                className="btn-theme w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl font-semibold"
+                className="btn-theme w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl font-light"
               >
                 {theme === 'dark' ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
               </button>

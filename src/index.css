@@ -807,12 +807,12 @@
    OVERRIDES FOR SIMPLE WHITE NAV AND BUTTONS
 ----------------------------------------- */
 .nav-center-pill {
-  background: #ffffff !important;
+  background: transparent !important;
   border: none !important;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.03) !important;
+  box-shadow: none !important;
 }
 [data-theme="dark"] .nav-center-pill {
-  background: #1f2937 !important;
+  background: transparent !important;
   border: none !important;
 }
 
