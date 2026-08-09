@@ -38,8 +38,8 @@ export default function AlternatingCard({
         reverse ? 'md:flex-row-reverse' : ''
       }`}
     >
-      {/* Image Section (48%) */}
-      <div className="w-full md:w-[48%] relative bg-white shrink-0 flex items-center justify-center border-b md:border-b-0 md:border-r border-border/50 overflow-hidden">
+      {/* Image Section (35%) */}
+      <div className="w-full md:w-[35%] relative bg-white shrink-0 flex items-center justify-center border-b md:border-b-0 md:border-r border-border/50 overflow-hidden">
         <img loading="lazy"
           src={image}
           alt={title}
@@ -47,8 +47,8 @@ export default function AlternatingCard({
         />
       </div>
 
-      {/* Content Section (52%) */}
-      <div className="w-full md:w-[52%] p-8 md:p-12 flex flex-col bg-card relative justify-center">
+      {/* Content Section (65%) */}
+      <div className="w-full md:w-[65%] p-8 md:p-10 flex flex-col bg-card relative justify-center">
         
         <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
           {title}
