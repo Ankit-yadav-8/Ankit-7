@@ -41,24 +41,16 @@ export default function AlternatingCard({
       }`}
     >
       {/* Image Section (48%) */}
-      <div className="w-full md:w-[48%] relative h-64 md:h-auto overflow-hidden shrink-0">
-        <div className="w-full h-full md:absolute md:inset-0">
-          <img loading="lazy"
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
-          />
-          <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
-        </div>
+      <div className="w-full md:w-[48%] relative bg-white shrink-0 p-6 md:p-10 flex items-center justify-center border-b md:border-b-0 md:border-r border-border/50">
+        <img loading="lazy"
+          src={image}
+          alt={title}
+          className="w-full max-h-80 md:max-h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out drop-shadow-md"
+        />
       </div>
 
       {/* Content Section (52%) */}
-      <div className="w-full md:w-[52%] p-8 md:p-12 flex flex-col bg-card relative">
-        <div className="mb-4">
-          <span className="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full uppercase tracking-wider">
-            {category}
-          </span>
-        </div>
+      <div className="w-full md:w-[52%] p-8 md:p-12 flex flex-col bg-card relative justify-center">
         
         <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
           {title}

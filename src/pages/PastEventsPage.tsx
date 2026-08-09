@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/sections/Footer';
@@ -7,15 +6,8 @@ import { Calendar, MapPin, Users, Clock } from 'lucide-react';
 
 import { pastEventsData } from '@/data/pastEvents';
 
-const categories = ['All', ...Array.from(new Set(pastEventsData.map(e => e.category)))];
-
 export default function PastEventsPage() {
   const navigate = useNavigate();
-  const [filter, setFilter] = useState('All');
-
-  const filteredEvents = pastEventsData.filter(
-    (e) => filter === 'All' || e.category === filter
-  );
 
   return (
     <div className="min-h-screen bg-[#f4f1ea] text-[#1a1a1a] font-serif flex flex-col">
@@ -34,26 +26,9 @@ export default function PastEventsPage() {
             </p>
           </div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-16 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`px-5 py-2 rounded-sm text-sm font-bold uppercase tracking-wider transition-colors ${
-                  filter === cat
-                    ? 'bg-[#1a1a1a] text-[#f4f1ea] border-2 border-[#1a1a1a]'
-                    : 'bg-transparent border-2 border-gray-400 text-gray-600 hover:border-[#1a1a1a] hover:text-[#1a1a1a]'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
           {/* Events List */}
-          <div className="space-y-12">
-            {filteredEvents.map((event, index) => (
+          <div className="space-y-12 mt-12">
+            {pastEventsData.map((event, index) => (
               <div key={event.id} className="animate-slide-up" style={{ animationDelay: `${0.1 + index * 0.1}s` }}>
                 <AlternatingCard
                   image={event.image}
@@ -72,12 +47,6 @@ export default function PastEventsPage() {
                 />
               </div>
             ))}
-            
-            {filteredEvents.length === 0 && (
-              <div className="text-center py-20 bg-white rounded-sm border-2 border-gray-300">
-                <p className="text-gray-600 font-serif text-lg">No past events found for this category.</p>
-              </div>
-            )}
           </div>
 
         </div>
