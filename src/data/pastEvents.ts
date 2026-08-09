@@ -1,7 +1,7 @@
-import tiranga1 from '@/assets/events/tiranga/DSC_2490.JPG';
+import tiranga1 from '@/assets/events/tiranga/DSC_2493.JPG';
 import tiranga3 from '@/assets/events/tiranga/DSC_2511.JPG';
 import tiranga4 from '@/assets/events/tiranga/DSC_2563.JPG';
-import tiranga5 from '@/assets/events/tiranga/DSC_2582.JPG';
+import tiranga5 from '@/assets/events/tiranga/DSC_2482.JPG';
 import tiranga7 from '@/assets/events/tiranga/DSC_2603.JPG';
 
 import sansad3 from '@/assets/events/chhatrasansad/img3.jpg';
