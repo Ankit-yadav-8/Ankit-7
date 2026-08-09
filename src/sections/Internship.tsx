@@ -164,7 +164,7 @@ export default function Internship() {
             >
               {/* Image */}
               <div className="relative h-44 overflow-hidden">
-                <img src={item.image} alt={item.role} className="w-full h-full object-cover" />
+                <img loading="lazy" src={item.image} alt={item.role} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
                 <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-semibold ${item.categoryColor} text-white`}>
                   {item.category}
@@ -218,7 +218,7 @@ export default function Internship() {
             </button>
 
             <div className="relative h-52 sm:h-64">
-              <img src={selected.image} alt={selected.role} className="w-full h-full object-cover rounded-t-3xl" />
+              <img loading="lazy" src={selected.image} alt={selected.role} className="w-full h-full object-cover rounded-t-3xl" />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent rounded-t-3xl" />
               <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${selected.categoryColor} text-white`}>
                 {selected.category}

@@ -157,7 +157,7 @@ export default function Blog() {
             >
               {/* Image */}
               <div className="relative h-44 overflow-hidden">
-                <img
+                <img loading="lazy"
                   src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover"
@@ -212,7 +212,7 @@ export default function Blog() {
             </button>
 
             <div className="relative h-52 sm:h-64">
-              <img
+              <img loading="lazy"
                 src={selected.image}
                 alt={selected.title}
                 className="w-full h-full object-cover rounded-t-3xl"

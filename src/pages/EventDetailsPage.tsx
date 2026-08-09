@@ -37,10 +37,14 @@ export default function EventDetailsPage() {
       
       <main className="flex-grow pt-24 pb-24">
         {/* Hero Section */}
-        <div className="w-full h-[40vh] md:h-[60vh] relative mb-12">
-          <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-          <div className="absolute inset-0 flex items-end">
+        <div className="w-full h-[40vh] md:h-[60vh] relative mb-12 overflow-hidden bg-black/80">
+          <div 
+            className="absolute inset-0 bg-cover bg-center blur-2xl opacity-40 scale-110"
+            style={{ backgroundImage: `url(${event.image})` }}
+          />
+          <img loading="lazy" src={event.image} alt={event.title} className="w-full h-full object-contain relative z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-20" />
+          <div className="absolute inset-0 flex items-end z-30">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-12">
               <button 
                 onClick={() => navigate(-1)}
@@ -86,7 +90,7 @@ export default function EventDetailsPage() {
                   {hasImage && (
                     <div className={`mb-8 ${isEven ? 'md:float-left md:mr-8 md:w-[45%]' : 'md:float-right md:ml-8 md:w-[45%]'}`}>
                       <div className="rounded-xl overflow-hidden shadow-lg h-64 w-full">
-                        <img 
+                        <img loading="lazy"
                           src={event.gallery[imageIdx]} 
                           alt={`${event.title} - Image ${imageIdx + 1}`} 
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -112,7 +116,7 @@ export default function EventDetailsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {event.gallery.slice(textBlocks.length - 1).map((img: string, idx: number) => (
                   <div key={idx} className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-64 w-full">
-                    <img 
+                    <img loading="lazy"
                       src={img} 
                       alt={`Gallery image ${idx + 1}`} 
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"

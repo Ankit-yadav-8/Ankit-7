@@ -40,10 +40,10 @@ import bloodDonation2 from '@/assets/events/blood_donation/Blood Donation/IMG-20
 import bloodDonation3 from '@/assets/events/blood_donation/Blood Donation/IMG_20260123_112106.jpg';
 import bloodDonation4 from '@/assets/events/blood_donation/Blood Donation/IMG_20260123_151359.jpg';
 
-import posterNationalConvention from '@/assets/posters_extracted/Posters/93e25206-f776-4e9e-9273-73d57fc240fb.jpeg';
-import posterRamMandir from '@/assets/posters_extracted/Posters/Ceremonial Welcome.jpeg';
-import posterSansadMain from '@/assets/posters_extracted/Posters/Think_India_IITR_Chhatra Sansad.png';
-import posterSansad1 from '@/assets/posters_extracted/Posters/Instagram post - 932.png';
+import posterNationalConvention from '@/assets/posters_extracted/Posters/Ceremonial Welcome.jpeg';
+const posterRamMandir = 'https://images.unsplash.com/photo-1604823200712-ef4b1e6e0407?w=600&q=80';
+import posterSansadMain from '@/assets/posters_extracted/Posters/93e25206-f776-4e9e-9273-73d57fc240fb.jpeg';
+import posterSansad1 from '@/assets/posters_extracted/Posters/Think_India_IITR_Chhatra Sansad.png';
 import posterSansad2 from '@/assets/posters_extracted/Posters/Instagram post - 933.png';
 import posterSansad3 from '@/assets/posters_extracted/Posters/Chhatra Sansad 3.0 poster.jpg';
 import posterVoterAwareness from '@/assets/posters_extracted/Posters/Event Poster.png';
@@ -51,8 +51,8 @@ import posterDSTLecture from '@/assets/posters_extracted/Posters/rfo.png';
 import posterTirangaMain from '@/assets/posters_extracted/Posters/Tiranga yatra.png';
 import posterTirangaRoute from '@/assets/posters_extracted/Posters/Route_Map.jpeg';
 import posterRevivingBharat from '@/assets/posters_extracted/Posters/Reviving Bharat.jpeg';
-import posterNYDLecture from '@/assets/posters_extracted/Posters/National Youth Day.jpg';
-import posterMindsetMakeover from '@/assets/posters_extracted/Posters/IMG_7562.png';
+import posterNYDLecture from '@/assets/posters_extracted/Posters/Frame 1171277710.png';
+const posterMindsetMakeover = 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80';
 import posterShivaji from '@/assets/posters_extracted/Posters/Chhatrapati Shivaji Maharaj Jayanti 2025.png';
 import posterNegotiation from '@/assets/posters_extracted/Posters/workshop (1).png';
 import posterDesignWorkshop from '@/assets/posters_extracted/Posters/design workshop by Ar. Sehaj Singh.jpg';
@@ -60,9 +60,9 @@ import posterCorporateCompass from '@/assets/posters_extracted/Posters/Corporate
 import posterMasterYourMind from '@/assets/posters_extracted/Posters/MYM 2 (1).png';
 import posterMaatiNiti from '@/assets/posters_extracted/Posters/MaatiNiti.png';
 import posterMaatiNitiWorkshop from '@/assets/posters_extracted/Posters/KalpMitti Workshop poster .png';
-import posterNYDPainting from '@/assets/posters_extracted/Posters/Painting Post.png';
+import posterNYDPainting from '@/assets/posters_extracted/Posters/National Youth Day.jpg';
 import posterKhadiMela from '@/assets/posters_extracted/Posters/poster khadi.png';
-import posterBloodDonation from '@/assets/posters_extracted/Posters/Frame 1171277710.png';
+import posterBloodDonation from '@/assets/posters_extracted/Posters/IMG_7562.png';
 export interface PastEvent {
   id: number;
   title: string;

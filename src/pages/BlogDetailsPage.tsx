@@ -56,8 +56,12 @@ export default function BlogDetailsPage() {
           </div>
 
           {/* Hero Image */}
-          <div className="w-full h-[400px] rounded-[24px] overflow-hidden mb-12 shadow-sm">
-            <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+          <div className="w-full h-[400px] rounded-[24px] overflow-hidden mb-12 shadow-sm relative bg-black/80">
+            <div 
+              className="absolute inset-0 bg-cover bg-center blur-2xl opacity-40 scale-110"
+              style={{ backgroundImage: `url(${post.image})` }}
+            />
+            <img loading="lazy" src={post.image} alt={post.title} className="w-full h-full object-contain relative z-10" />
           </div>
 
           {/* Content */}

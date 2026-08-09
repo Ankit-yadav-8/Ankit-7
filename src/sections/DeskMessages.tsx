@@ -120,7 +120,7 @@ export default function DeskMessages() {
                 style={{ transitionDelay: `${0.05 + (i % messages.length) * 0.08}s` }}
               >
                 <div className="w-full aspect-[4/3] sm:aspect-square overflow-hidden flex-shrink-0 bg-secondary/10 relative">
-                  <img src={msg.image} alt={msg.name} className="w-full h-full object-cover object-top" />
+                  <img loading="lazy" src={msg.image} alt={msg.name} className="w-full h-full object-cover object-top" />
                 </div>
                 <div className="p-6 sm:p-8 flex flex-col items-center flex-grow">
                   <h3 className="text-xl font-bold text-foreground mb-1">{msg.name}</h3>
@@ -162,7 +162,7 @@ export default function DeskMessages() {
               </button>
               
               <div className="w-full h-64 sm:h-80 relative bg-secondary/10">
-                <img src={selectedMessage.image} alt={selectedMessage.name} className="w-full h-full object-contain" />
+                <img loading="lazy" src={selectedMessage.image} alt={selectedMessage.name} className="w-full h-full object-contain" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">{selectedMessage.name}</h3>

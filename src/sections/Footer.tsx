@@ -78,7 +78,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4 group cursor-default">
               <div className="relative shrink-0">
                 <div className="absolute inset-0 bg-orange-500/30 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <img
+                <img loading="lazy"
                   src="/Ankit-7/images/think-india.png"
                   alt="Think India"
                   className="h-11 w-11 object-contain relative z-10"
