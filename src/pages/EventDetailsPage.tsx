@@ -114,12 +114,14 @@ export default function EventDetailsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {event.gallery.slice(textBlocks.length - 1).map((img: string, idx: number) => {
                   const isChhatraSansad4thPhoto = event.id === 3 && idx === 3;
+                  const isTirangaYatraWidePhoto = event.id === 6 && idx === 0;
+                  const isWidePhoto = isChhatraSansad4thPhoto || isTirangaYatraWidePhoto;
                   return (
-                    <div key={idx} className={`rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 w-full ${isChhatraSansad4thPhoto ? 'sm:col-span-2 md:col-span-3 h-[300px] sm:h-[400px] md:h-[500px]' : 'h-64'}`}>
+                    <div key={idx} className={`rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 w-full ${isWidePhoto ? 'sm:col-span-2 md:col-span-3 h-[300px] sm:h-[400px] md:h-[500px]' : 'h-64'}`}>
                       <img loading="lazy"
                         src={img} 
                         alt={`Gallery image ${idx + 1}`} 
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        className={`w-full h-full hover:scale-105 transition-transform duration-500 ${isWidePhoto ? 'object-contain bg-black/5' : 'object-cover'}`}
                         style={{ filter: 'brightness(1.05) contrast(1.05) saturate(1.15)' }}
                       />
                     </div>
