@@ -111,13 +111,14 @@ export default function EventDetailsPage() {
           {event.gallery && event.gallery.length > (textBlocks.length - 1) && (
             <div className="mt-20 pt-10 border-t-2 border-dashed border-gray-300">
               <h3 className="text-3xl font-serif font-black mb-8 text-center text-[#1a1a1a] uppercase tracking-widest">More from the Event</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              <div className={`grid grid-cols-1 sm:grid-cols-2 ${event.id === 3 ? '' : 'md:grid-cols-3'} gap-6`}>
                 {event.gallery.slice(textBlocks.length - 1).map((img: string, idx: number) => {
                   const isChhatraSansadWidePhoto = event.id === 3 && idx === 0;
                   const isTirangaYatraWidePhoto = event.id === 6 && idx === 0;
                   const isWidePhoto = isChhatraSansadWidePhoto || isTirangaYatraWidePhoto;
+                  const colSpanClass = isChhatraSansadWidePhoto ? 'sm:col-span-2' : (isTirangaYatraWidePhoto ? 'sm:col-span-2 md:col-span-3' : '');
                   return (
-                    <div key={idx} className={`rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 w-full ${isWidePhoto ? 'sm:col-span-2 md:col-span-3 h-[300px] sm:h-[400px] md:h-[500px]' : 'h-64'}`}>
+                    <div key={idx} className={`rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 w-full ${isWidePhoto ? `${colSpanClass} h-[300px] sm:h-[400px] md:h-[500px]` : 'h-64'}`}>
                       <img loading="lazy"
                         src={img} 
                         alt={`Gallery image ${idx + 1}`} 
