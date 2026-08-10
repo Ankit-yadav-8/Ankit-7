@@ -29,13 +29,13 @@ function useReveal(threshold = 0.1) {
 
 const teamMembers = [
   { name: 'Arun Sharma', role: 'Community Outreach & Social Impact', image: arunImg },
-  { name: 'Vijay Solanki', role: 'Operations & Coordination', image: vijayImg },
-  { name: 'Saurabh Meena', role: 'Operations & Coordination', image: sauravImg },
-  { name: 'Ragita Ojha', role: 'Editorial', image: ragitaImg },
-  { name: 'Medhavi Lal', role: 'Design', image: medhaviImg },
-  { name: 'Megha Agrawal', role: 'Media & Public Relations', image: meghaImg },
-  { name: 'Jai Prakash', role: 'Web Development', image: jpImg },
   { name: 'Aarti Puri', role: 'Strategy, Policy & Initiatives', image: aartiImg },
+  { name: 'Saurabh Meena', role: 'Operations & Coordination', image: sauravImg },
+  { name: 'Vijay Solanki', role: 'Operations & Coordination', image: vijayImg },
+  { name: 'Jai Prakash', role: 'Web Development', image: jpImg },
+  { name: 'Medhavi Lal', role: 'Design', image: medhaviImg },
+  { name: 'Ragita Ojha', role: 'Editorial', image: ragitaImg },
+  { name: 'Megha Agrawal', role: 'Media & Public Relations', image: meghaImg },
 ];
 
 const convener = {
