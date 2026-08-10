@@ -70,7 +70,7 @@ export default function Events() {
                   loading="lazy"
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-fill"
                 />
               </div>
 

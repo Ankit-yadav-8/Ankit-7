@@ -64,7 +64,7 @@ export default function PastEvents() {
             >
               {/* Image */}
               <div className="relative h-48 sm:h-56 overflow-hidden rounded-t-3xl">
-                <img loading="lazy" src={event.image} alt={event.title} className="w-full h-full object-cover object-top" />
+                <img loading="lazy" src={event.image} alt={event.title} className="w-full h-full object-fill" />
               </div>
 
               {/* Content */}
