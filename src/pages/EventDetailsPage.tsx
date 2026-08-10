@@ -87,11 +87,11 @@ export default function EventDetailsPage() {
                 <div key={idx}>
                   {hasImage && (
                     <div className={`mb-8 ${isEven ? 'md:float-left md:mr-8 md:w-[45%]' : 'md:float-right md:ml-8 md:w-[45%]'}`}>
-                      <div className="rounded-xl overflow-hidden shadow-lg h-auto w-full bg-black/5 dark:bg-white/5 p-2">
+                      <div className="rounded-xl overflow-hidden shadow-lg h-auto w-full">
                         <img loading="lazy"
                           src={event.gallery[imageIdx]} 
                           alt={`${event.title} - Image ${imageIdx + 1}`} 
-                          className="w-full h-auto max-h-96 object-contain hover:scale-105 transition-transform duration-500"
+                          className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                           style={{ filter: 'brightness(1.05) contrast(1.05) saturate(1.15)' }}
                         />
                       </div>
