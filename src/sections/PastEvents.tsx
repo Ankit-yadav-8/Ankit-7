@@ -63,8 +63,8 @@ export default function PastEvents() {
               onClick={() => navigate(`/event/past-${event.id}`)}
             >
               {/* Image */}
-              <div className="relative w-full overflow-hidden rounded-t-3xl bg-secondary/10">
-                <img loading="lazy" src={event.image} alt={event.title} className="w-full h-auto object-contain" />
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-t-3xl bg-secondary/10">
+                <img loading="lazy" src={event.image} alt={event.title} className="w-full h-full object-cover object-top" />
               </div>
 
               {/* Content */}
