@@ -7,15 +7,15 @@ import {
 import { FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 
 const teamHeads = [
-  { name: 'Amit Sharma',  role: 'President'          },
-  { name: 'Priya Patel',  role: 'Vice President'     },
-  { name: 'Rahul Kumar',  role: 'Technical Head'     },
-  { name: 'Sneha Gupta',  role: 'Event Coordinator'  },
+  { name: 'Sonali Soni',  role: 'Convener'           },
+  { name: 'Arun Sharma',  role: 'Co-Convenor'        },
+  { name: 'Vijay Solanki',role: 'Co-Convenor'        },
+  { name: 'Saurabh Meena',role: 'Co-Convenor'        },
 ];
 
 const developers = [
-  { name: 'Dev Team',    role: 'Lead Developer' },
-  { name: 'Design Team', role: 'UI/UX Designer' },
+  { name: 'Jai Prakash', role: 'Web Dev. Convenor' },
+  { name: 'Ankit Kumar', role: 'Chief Developer' },
 ];
 
 const socialLinks = [
@@ -118,7 +118,7 @@ export default function Footer() {
             {/* Team Heads */}
             <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
               <h4 className="font-bold mb-5 text-xs tracking-widest uppercase text-foreground relative inline-block">
-                Team Heads
+                Convenors
                 <span className="absolute -bottom-2 left-1/2 sm:left-0 -translate-x-1/2 sm:translate-x-0 w-7 h-0.5 bg-orange-500 rounded-full"></span>
               </h4>
               <ul className="space-y-3.5">
