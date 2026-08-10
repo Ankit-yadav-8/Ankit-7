@@ -1,6 +1,6 @@
 import {
   Mail, Heart, ArrowUp,
-  Phone, MapPin, Link,
+  Phone, MapPin,
   ArrowRight,
   Sparkles
 } from 'lucide-react';
