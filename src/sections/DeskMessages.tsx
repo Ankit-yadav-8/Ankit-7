@@ -17,6 +17,7 @@ function useReveal(threshold = 0.1) {
   return { ref, revealed };
 }
 
+import naveenImg from '@/assets/desk/Naveen_Photo.png';
 import kkPantImg from '@/assets/desk/kkpant.jpg';
 import upSinghImg from '@/assets/desk/upsingh.jpg';
 import barjeevImg from '@/assets/desk/barjiv.jpg';
@@ -59,7 +60,7 @@ const messages = [
   {
     name: "Naveenkumar Sharma",
     role: "Founder, Think India IIT Roorkee",
-    image: "https://ui-avatars.com/api/?name=Naveenkumar+Sharma&background=random",
+    image: naveenImg,
     message: "Think India IIT Roorkee has grown as a part of the larger Think India movement, bringing together students who believe in leadership, dialogue, service and intellectual exploration rooted in national thought and social responsibility. Over the years, the chapter's initiatives have reflected the energy, creativity and commitment of students working towards meaningful engagement within the campus community. Through discussions, cultural activities, publications and service-oriented programmes, Think India continues to encourage students to think beyond themselves and participate in the larger journey of nation-building. The launch of Ritam represents another important milestone in documenting this journey. I hope the chapter continues to evolve as a platform that inspires reflection, responsible action and a deeper sense of purpose among generations of students."
   },
   {

@@ -16,6 +16,7 @@ import PastEventsPage from '@/pages/PastEventsPage';
 import BlogPage from '@/pages/BlogPage';
 import EventDetailsPage from '@/pages/EventDetailsPage';
 import BlogDetailsPage from '@/pages/BlogDetailsPage';
+import TeamPage from '@/pages/TeamPage';
 
 function HomePage() {
   return (
@@ -62,6 +63,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/team" element={<TeamPage />} />
       <Route path="/past-events" element={<PastEventsPage />} />
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/event/:id" element={<EventDetailsPage />} />

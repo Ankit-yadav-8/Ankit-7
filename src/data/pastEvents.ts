@@ -37,7 +37,7 @@ import bloodDonation3 from '@/assets/events/blood_donation/Blood Donation/IMG_20
 import bloodDonation4 from '@/assets/events/blood_donation/Blood Donation/IMG_20260123_151359.jpg';
 
 import posterNationalConvention from '@/assets/posters_extracted/Posters/Ceremonial Welcome.jpeg';
-const posterRamMandir = 'https://images.unsplash.com/photo-1604823200712-ef4b1e6e0407?w=600&q=80';
+import posterRamMandir from '@/assets/posters_extracted/Posters/WhatsApp Image 2026-08-10 at 1.26.16 AM.jpeg';
 import posterSansadMain from '@/assets/posters_extracted/Posters/93e25206-f776-4e9e-9273-73d57fc240fb.jpeg';
 import posterSansad1 from '@/assets/posters_extracted/Posters/Think_India_IITR_Chhatra Sansad.png';
 import posterSansad2 from '@/assets/posters_extracted/Posters/Instagram post - 933.png';
