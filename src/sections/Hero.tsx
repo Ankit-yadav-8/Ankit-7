@@ -1,6 +1,7 @@
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
+  const navigate = useNavigate();
   return (
     <section
       id="home"
@@ -117,7 +118,7 @@ export default function Hero() {
             Explore Events
           </button>
           <button
-            onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => navigate('/about')}
             className="btn-secondary flex items-center gap-2 text-base px-7 py-3.5"
           >
             Learn More

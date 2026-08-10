@@ -5,7 +5,7 @@ import 'lenis/dist/lenis.css';
 import { Routes, Route } from 'react-router-dom';
 import Navigation   from '@/components/Navigation';
 import Hero         from '@/sections/Hero';
-import About        from '@/sections/About';
+
 import Initiatives  from '@/sections/Initiatives';
 import PastEvents   from '@/sections/PastEvents';
 import Blog         from '@/sections/Blog';
@@ -17,6 +17,8 @@ import BlogPage from '@/pages/BlogPage';
 import EventDetailsPage from '@/pages/EventDetailsPage';
 import BlogDetailsPage from '@/pages/BlogDetailsPage';
 import TeamPage from '@/pages/TeamPage';
+import AboutPage from '@/pages/AboutPage';
+import ContactPage from '@/pages/ContactPage';
 
 function HomePage() {
   return (
@@ -24,7 +26,6 @@ function HomePage() {
       <Navigation />
       <main>
         <Hero />
-        <About />
         <Initiatives />
         <Events />
         <PastEvents />
@@ -63,6 +64,8 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/contact" element={<ContactPage />} />
       <Route path="/team" element={<TeamPage />} />
       <Route path="/past-events" element={<PastEventsPage />} />
       <Route path="/blog" element={<BlogPage />} />
