@@ -114,7 +114,6 @@ export default function Hero() {
             onClick={() => document.querySelector('#events')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-primary flex items-center gap-2 text-base px-7 py-3.5"
           >
-            <Sparkles className="w-4 h-4" />
             Explore Events
           </button>
           <button
@@ -128,16 +127,6 @@ export default function Hero() {
 
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce-subtle">
-        <button
-          onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
-          className="flex flex-col items-center gap-1.5 transition-colors group text-muted-foreground"
-        >
-          <span className="text-[10px] tracking-widest uppercase group-hover:text-orange-400 transition-colors">Scroll</span>
-          <ArrowDown className="w-4 h-4 group-hover:text-orange-400 transition-colors" />
-        </button>
-      </div>
     </section>
   );
 }
