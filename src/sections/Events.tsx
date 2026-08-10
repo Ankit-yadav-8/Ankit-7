@@ -65,12 +65,15 @@ export default function Events() {
               onClick={() => setSelectedEvent(eventsData.find(e => e.id === event.id) ?? null)}
             >
               {/* Image */}
-              <div className="relative aspect-square overflow-hidden rounded-t-3xl">
+              <div className="relative aspect-square overflow-hidden rounded-t-3xl bg-black/5">
+                {/* Blurred Background */}
+                <img src={event.image} alt="" className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-40 dark:opacity-30" />
+                {/* Actual Image */}
                 <img
                   loading="lazy"
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover object-top"
+                  className="relative w-full h-full object-contain drop-shadow-md z-10"
                 />
               </div>
 
