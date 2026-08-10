@@ -16,9 +16,9 @@ export interface Event {
 
 import sacPainting1 from '@/assets/events/sac_painting/Sac painting competetion/IMG-20250803-WA0018.jpg';
 import sacPainting2 from '@/assets/events/sac_painting/Sac painting competetion/IMG_20250802_105216.jpg';
-import sacPainting3 from '@/assets/events/sac_painting/Sac painting competetion/IMG_20250803_185530816.jpg';
+import sacPainting3 from '@/assets/events/sac_painting/Sac painting competetion/IMG_20250803_185530816-opt.jpg';
 import sacPainting4 from '@/assets/events/sac_painting/Sac painting competetion/IMG_20250803_192117.jpg';
-import sacPainting5 from '@/assets/events/sac_painting/Sac painting competetion/IMG_20250803_200110058.jpg';
+import sacPainting5 from '@/assets/events/sac_painting/Sac painting competetion/IMG_20250803_200110058-opt.jpg';
 
 import bloodDonation1 from '@/assets/events/blood_donation/Blood Donation/20260123_165543.jpg';
 import bloodDonation2 from '@/assets/events/blood_donation/Blood Donation/IMG-20260123-WA0161.jpg';

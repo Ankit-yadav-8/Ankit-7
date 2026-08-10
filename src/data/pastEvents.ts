@@ -15,7 +15,7 @@ import convention3 from '@/assets/events/national_convention/national convention
 import revivingBharat1 from '@/assets/events/reviving_bharat/Reviving Bharat/Photo from AMAN SWARAJ.jpg';
 import revivingBharat2 from '@/assets/events/reviving_bharat/Reviving Bharat/WhatsApp Image 2024-09-18 at 21.31.01.jpeg';
 
-import shivaji1 from '@/assets/events/shivaji_jayanti/Chhatrapati Shivaji Jayanti/IMG_4815.jpg';
+import shivaji1 from '@/assets/events/shivaji_jayanti/Chhatrapati Shivaji Jayanti/IMG_4815-opt.jpg';
 
 import negotiation1 from '@/assets/events/negotiation_workshop/Negotiation Workshop/IMG_20250222_182419.jpg';
 import negotiation2 from '@/assets/events/negotiation_workshop/Negotiation Workshop/IMG_20250222_182909.jpg';
@@ -24,7 +24,7 @@ import maatiNiti1 from '@/assets/events/maati_niti/Maati Niti/1760596583985.jpg'
 import maatiNiti2 from '@/assets/events/maati_niti/Maati Niti/20251015_115306.jpg';
 import maatiNiti3 from '@/assets/events/maati_niti/Maati Niti/20251015_170101.jpg';
 import maatiNiti4 from '@/assets/events/maati_niti/Maati Niti/IMG20251015104849.jpg';
-import maatiNiti5 from '@/assets/events/maati_niti/Maati Niti/IMG_20251015_141527916.jpg';
+import maatiNiti5 from '@/assets/events/maati_niti/Maati Niti/IMG_20251015_141527916-opt.jpg';
 import maatiNiti6 from '@/assets/events/maati_niti/Maati Niti/PHOTO-2025-10-15-22-48-57.jpg';
 
 import nydPainting1 from '@/assets/events/nyd_painting/National Youth Day Painting Competition/20260118_133524.jpg';
