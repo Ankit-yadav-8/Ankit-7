@@ -59,7 +59,7 @@ export default function PastEvents() {
           {allEvents.map((event, i) => (
             <div
               key={`${event.id}-${i}`}
-              className="flex-none w-72 sm:w-80 group cursor-pointer bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300"
+              className="flex-none w-[300px] sm:w-[360px] group cursor-pointer bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300"
               onClick={() => navigate(`/event/past-${event.id}`)}
             >
               {/* Image */}
