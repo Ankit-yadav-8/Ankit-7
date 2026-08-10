@@ -63,12 +63,8 @@ export default function PastEvents() {
               onClick={() => navigate(`/event/past-${event.id}`)}
             >
               {/* Image */}
-              <div className="relative aspect-[4/5] overflow-hidden rounded-t-3xl bg-secondary/20 flex items-center justify-center p-2">
-                <img loading="lazy" src={event.image} alt={event.title} className="w-full h-full object-contain drop-shadow-md rounded-xl" />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent pointer-events-none" />
-                <span className={`absolute top-4 left-4 px-3 py-1.5 rounded-full text-[10px] font-bold tracking-wider uppercase shadow-sm ${event.categoryColor} text-white`}>
-                  {event.category}
-                </span>
+              <div className="relative aspect-square overflow-hidden rounded-t-3xl">
+                <img loading="lazy" src={event.image} alt={event.title} className="w-full h-full object-cover object-top" />
               </div>
 
               {/* Content */}
