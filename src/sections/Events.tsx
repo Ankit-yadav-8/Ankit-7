@@ -61,16 +61,16 @@ export default function Events() {
           {allEvents.map((event, idx) => (
             <div
               key={`${event.id}-${idx}`}
-              className="flex-none w-[300px] sm:w-[360px] group cursor-pointer bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300"
+              className="flex-none w-72 sm:w-80 group cursor-pointer bg-card rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300"
               onClick={() => setSelectedEvent(eventsData.find(e => e.id === event.id) ?? null)}
             >
               {/* Image */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-t-3xl bg-secondary/10">
+              <div className="relative h-48 sm:h-56 overflow-hidden rounded-t-3xl">
                 <img
                   loading="lazy"
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
