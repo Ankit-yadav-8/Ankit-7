@@ -34,7 +34,7 @@ import maatiNiti4 from '@/assets/events/maati_niti/Maati Niti/IMG20251015104849.
 import maatiNiti5 from '@/assets/events/maati_niti/Maati Niti/IMG_20251015_141527916.jpg';
 import maatiNiti6 from '@/assets/events/maati_niti/Maati Niti/PHOTO-2025-10-15-22-48-57.jpg';
 
-import posterBloodDonation from '@/assets/posters_extracted/Posters/Frame 1171277710.png';
+import posterBloodDonation from '@/assets/posters_extracted/Posters/WhatsApp Image 2026-08-10 at 1.13.26 AM.jpeg';
 import posterMaatiNiti from '@/assets/posters_extracted/Posters/MaatiNiti.png';
 import posterVandeMataram from '@/assets/posters_extracted/Posters/vande Matram.jpeg';
 import posterShivaji from '@/assets/posters_extracted/Posters/Chhatrapati Shivaji Maharaj Jayanti 2025.png';

@@ -28,6 +28,7 @@ function useReveal(threshold = 0.1) {
 }
 
 const teamMembers = [
+  { name: 'Arun Sharma', role: 'Community Outreach & Social Impact', image: arunImg },
   { name: 'Vijay Solanki', role: 'Operations & Coordination', image: vijayImg },
   { name: 'Saurabh Meena', role: 'Operations & Coordination', image: sauravImg },
   { name: 'Ragita Ojha', role: 'Editorial', image: ragitaImg },
@@ -35,7 +36,6 @@ const teamMembers = [
   { name: 'Megha Agrawal', role: 'Media & Public Relations', image: meghaImg },
   { name: 'Jai Prakash', role: 'Web Development', image: jpImg },
   { name: 'Aarti Puri', role: 'Strategy, Policy & Initiatives', image: aartiImg },
-  { name: 'Arun Sharma', role: 'Community Outreach & Social Impact', image: arunImg },
 ];
 
 const convener = {
@@ -100,7 +100,7 @@ export default function Team() {
         </div>
 
         {/* Co-Convenors Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
           {teamMembers.map((member, index) => (
             <div
               key={member.name}
@@ -110,7 +110,7 @@ export default function Team() {
               style={{ transitionDelay: `${300 + index * 100}ms` }}
             >
               {/* Circular Photo */}
-              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden mb-5 relative shadow-lg border border-border/50 group-hover:shadow-orange-500/20 group-hover:border-orange-500/30 transition-all duration-500">
+              <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden mb-6 relative shadow-lg border-2 border-border/50 group-hover:shadow-orange-500/20 group-hover:border-orange-500/50 transition-all duration-500">
                 <img
                   loading="lazy"
                   src={member.image}

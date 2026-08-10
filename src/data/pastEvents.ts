@@ -58,7 +58,7 @@ import posterMaatiNiti from '@/assets/posters_extracted/Posters/MaatiNiti.png';
 import posterMaatiNitiWorkshop from '@/assets/posters_extracted/Posters/KalpMitti Workshop poster .png';
 import posterNYDPainting from '@/assets/posters_extracted/Posters/National Youth Day.jpg';
 import posterKhadiMela from '@/assets/posters_extracted/Posters/poster khadi.png';
-import posterBloodDonation from '@/assets/posters_extracted/Posters/IMG_7562.png';
+import posterBloodDonation from '@/assets/posters_extracted/Posters/WhatsApp Image 2026-08-10 at 1.13.26 AM.jpeg';
 export interface PastEvent {
   id: number;
   title: string;

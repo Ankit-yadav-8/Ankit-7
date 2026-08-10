@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Link } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Instagram, Youtube, Github } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/sections/Footer';
 
@@ -102,11 +102,17 @@ export default function ContactPage() {
                 <div className="pt-8 mt-8 border-t border-border">
                   <h4 className="text-sm font-semibold mb-4 uppercase tracking-wider text-muted-foreground">Follow Us</h4>
                   <div className="flex gap-4">
-                    <a href="https://www.instagram.com/thinkindia_iitr?igsh=MnBnZXA4cXRld241" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-pink-500 hover:text-white transition-colors shadow-sm">
-                      <Link className="w-4 h-4" />
+                    <a href="https://www.instagram.com/thinkindia_iitr?igsh=MnBnZXA4cXRld241" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-pink-500 hover:text-white transition-colors shadow-sm" title="Instagram">
+                      <Instagram className="w-4 h-4" />
                     </a>
-                    <a href="#" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-blue-600 hover:text-white transition-colors shadow-sm">
-                      <Link className="w-4 h-4" />
+                    <a href="https://www.youtube.com/@ThinkIndiaIITR" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-red-600 hover:text-white transition-colors shadow-sm" title="YouTube">
+                      <Youtube className="w-4 h-4" />
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-gray-800 hover:text-white transition-colors shadow-sm" title="GitHub">
+                      <Github className="w-4 h-4" />
+                    </a>
+                    <a href="mailto:tic@iitr.ac.in" className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-orange-500 hover:text-white transition-colors shadow-sm" title="Email">
+                      <Mail className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
