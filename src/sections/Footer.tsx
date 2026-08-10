@@ -2,9 +2,9 @@ import {
   Mail, Heart, ArrowUp,
   Phone, MapPin, Link,
   ArrowRight,
-  Sparkles,
-  Instagram, Youtube, Github
+  Sparkles
 } from 'lucide-react';
+import { FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 
 const teamHeads = [
   { name: 'Amit Sharma',  role: 'President'          },
@@ -19,9 +19,9 @@ const developers = [
 ];
 
 const socialLinks = [
-  { icon: Instagram, label: 'Instagram', handle: '@thinkindia_iitr',  href: 'https://www.instagram.com/thinkindia_iitr?igsh=MnBnZXA4cXRld241', color: 'hover:text-pink-500', bg: 'hover:bg-pink-500/10', border: 'hover:border-pink-500/30' },
-  { icon: Youtube, label: 'YouTube', handle: 'Think India IITR', href: 'https://www.youtube.com/@ThinkIndiaIITR', color: 'hover:text-red-600', bg: 'hover:bg-red-600/10', border: 'hover:border-red-600/30' },
-  { icon: Github, label: 'GitHub', handle: 'ThinkIndia', href: 'https://github.com', color: 'hover:text-gray-800', bg: 'hover:bg-gray-800/10', border: 'hover:border-gray-800/30' },
+  { icon: FaInstagram, label: 'Instagram', handle: '@thinkindia_iitr',  href: 'https://www.instagram.com/thinkindia_iitr?igsh=MnBnZXA4cXRld241', color: 'hover:text-pink-500', bg: 'hover:bg-pink-500/10', border: 'hover:border-pink-500/30' },
+  { icon: FaYoutube, label: 'YouTube', handle: 'Think India IITR', href: 'https://www.youtube.com/@ThinkIndiaIITR', color: 'hover:text-red-600', bg: 'hover:bg-red-600/10', border: 'hover:border-red-600/30' },
+  { icon: FaGithub, label: 'GitHub', handle: 'ThinkIndia', href: 'https://github.com', color: 'hover:text-gray-800', bg: 'hover:bg-gray-800/10', border: 'hover:border-gray-800/30' },
   { icon: Mail,  label: 'Email',  handle: 'tic@iitr.ac.in',  href: 'mailto:tic@iitr.ac.in', color: 'hover:text-orange-500', bg: 'hover:bg-orange-500/10', border: 'hover:border-orange-500/30' },
 ];
 
