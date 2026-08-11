@@ -34,7 +34,7 @@ const teamMembers = [
   { name: 'Vijay Solanki', role: 'Operations & Coordination', image: vijayImg },
   { name: 'Jai Prakash', role: 'Web Development', image: jpImg },
   { name: 'Medhavi Lal', role: 'Design', image: medhaviImg },
-  { name: 'Ragita Ojha', role: 'Editorial', image: ragitaImg },
+  { name: 'Ragita Ojha', role: 'Editorial', image: ragitaImg, imagePosition: 'center' },
   { name: 'Megha Agrawal', role: 'Media & Public Relations', image: meghaImg },
 ];
 
@@ -109,13 +109,13 @@ export default function Team() {
               }`}
               style={{ transitionDelay: `${300 + index * 100}ms` }}
             >
-              {/* Circular Photo */}
               <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden mb-6 relative shadow-lg border-2 border-border/50 group-hover:shadow-orange-500/20 group-hover:border-orange-500/50 transition-all duration-500">
                 <img
                   loading="lazy"
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  style={{ objectPosition: member.imagePosition || 'top' }}
                 />
               </div>
               

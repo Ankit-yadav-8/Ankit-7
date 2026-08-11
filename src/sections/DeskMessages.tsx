@@ -26,7 +26,7 @@ import sonaliImg from '@/assets/desk/sonali.jpg';
 import bhaveshImg from '@/assets/desk/bhavesh.jpg';
 import sumitImg from '@/assets/desk/sumit.jpg';
 
-const messages = [
+export const messages = [
   {
     name: "Prof. K. K. Pant",
     role: "Director, IIT Roorkee",

@@ -20,12 +20,15 @@ import TeamPage from '@/pages/TeamPage';
 import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
 
+import About from '@/sections/About';
+
 function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <main>
         <Hero />
+        <About />
         <Initiatives />
         <Events />
         <PastEvents />
