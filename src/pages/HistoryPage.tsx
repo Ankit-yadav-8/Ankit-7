@@ -26,27 +26,39 @@ export default function HistoryPage() {
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {pastEventsData.map((event) => {
-                // Use the first gallery image if available, else use the main event poster/image
-                const displayImage = event.gallery && event.gallery.length > 0 ? event.gallery[0] : event.image;
-                
-                return (
-                  <div key={event.id} className="relative aspect-square group overflow-hidden rounded-xl border border-border shadow-md">
+              {pastEventsData
+                .flatMap((event) => {
+                  // Find up to 2 images in gallery that look like real photos
+                  const photos = event.gallery?.filter(img => 
+                    img !== event.image && 
+                    !img.toLowerCase().includes('poster') && 
+                    !img.toLowerCase().includes('.png') &&
+                    !img.toLowerCase().includes('instagram') &&
+                    !img.toLowerCase().includes('think_india')
+                  ).slice(0, 2) || [];
+                  
+                  return photos.map((photo, index) => ({
+                    ...event,
+                    displayImage: photo,
+                    uniqueKey: `${event.id}-${index}`
+                  }));
+                })
+                .map((item) => (
+                  <div key={item.uniqueKey} className="relative aspect-square group overflow-hidden rounded-xl border border-border shadow-md">
                     <img
-                      src={displayImage}
-                      alt={event.title}
+                      src={item.displayImage}
+                      alt={item.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
                     />
                     {/* Hover overlay with title */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                       <p className="text-white font-medium text-sm leading-tight">
-                        {event.title}
+                        {item.title}
                       </p>
                     </div>
                   </div>
-                );
-              })}
+              ))}
             </div>
           </div>
         </section>
