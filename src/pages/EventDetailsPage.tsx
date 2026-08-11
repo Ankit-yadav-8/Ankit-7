@@ -109,11 +109,11 @@ export default function EventDetailsPage() {
 
           {/* Extra Gallery Images */}
           {event.gallery && event.gallery.length > (textBlocks.length - 1) && (
-            <div className={`mt-20 pt-10 ${event.id === 18 ? '' : 'border-t-2 border-dashed border-gray-300'}`}>
-              {event.id !== 18 && (
+            <div className={`mt-20 pt-10 ${event.id === 18 || event.id === 16 ? '' : 'border-t-2 border-dashed border-gray-300'}`}>
+              {event.id !== 18 && event.id !== 16 && (
                 <h3 className="text-3xl font-serif font-black mb-8 text-center text-[#1a1a1a] uppercase tracking-widest">More from the Event</h3>
               )}
-              <div className={`grid grid-cols-1 sm:grid-cols-2 ${event.id === 3 || event.id === 18 ? '' : 'md:grid-cols-3'} gap-6`}>
+              <div className={`grid grid-cols-1 sm:grid-cols-2 ${event.id === 3 || event.id === 18 || event.id === 16 ? '' : 'md:grid-cols-3'} gap-6`}>
                 {event.gallery.slice(textBlocks.length - 1).map((img: string, idx: number) => {
                   const isChhatraSansadWidePhoto = event.id === 3 && idx === 0;
                   const isTirangaYatraWidePhoto = event.id === 6 && idx === 0;

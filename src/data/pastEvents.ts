@@ -348,6 +348,10 @@ export const pastEventsData: PastEvent[] = [
       nydPainting2,
       nydPainting3,
     ],
+    contentBlocks: [
+      'Think India IIT Roorkee successfully organised a vibrant painting competition on 18 January 2026 to mark the occasion of National Youth Day, celebrating the birth anniversary of Swami Vivekananda. The event was held in the calm, serene, and naturally inspiring surroundings of the Old Horticulture Department Garden on campus. This open-air setting provided a tranquil environment, encouraging creativity, thoughtful observation, and a deep sense of connection with nature for all the participating artists.',
+      'Young artists from across the campus were invited to express their diverse ideas through compelling themes intricately connected with Indian culture, pristine nature, and rich history. Participants enthusiastically produced a wide array of stunning artworks inspired by indigenous folk traditions, majestic national heritage, breathtaking natural landscapes, and profoundly significant moments from India’s glorious past. Each intricate painting beautifully reflected a distinct artistic style and a unique personal interpretation, demonstrating the profound depth of thought among the students. Following the competition, the most outstanding creators were recognised and presented with well-deserved prizes for their exceptional artistic excellence. Ultimately, the event brilliantly demonstrated how art serves as a powerful medium to preserve memory, shape identity, uphold values, and ensure cultural continuity. It truly reflected Think India’s enduring commitment to nurturing young minds that are not only highly creative but also deeply connected to their roots and heritage.'
+    ]
   },
   {
     id: 17,
