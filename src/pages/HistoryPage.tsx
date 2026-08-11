@@ -26,24 +26,36 @@ export default function HistoryPage() {
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {pastEventsData
-                .flatMap((event) => {
-                  // Find up to 2 images in gallery that look like real photos
-                  const photos = event.gallery?.filter(img => 
-                    img !== event.image && 
-                    !img.toLowerCase().includes('poster') && 
-                    !img.toLowerCase().includes('.png') &&
-                    !img.toLowerCase().includes('instagram') &&
-                    !img.toLowerCase().includes('think_india')
-                  ).slice(0, 2) || [];
+              {(() => {
+                const priorityIds = [1, 6, 3, 18];
+                const sortedEvents = [...pastEventsData].sort((a, b) => {
+                  const aIndex = priorityIds.indexOf(a.id);
+                  const bIndex = priorityIds.indexOf(b.id);
                   
-                  return photos.map((photo, index) => ({
-                    ...event,
-                    displayImage: photo,
-                    uniqueKey: `${event.id}-${index}`
-                  }));
-                })
-                .map((item) => (
+                  if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+                  if (aIndex !== -1) return -1;
+                  if (bIndex !== -1) return 1;
+                  return 0;
+                });
+                
+                return sortedEvents
+                  .flatMap((event) => {
+                    // Find up to 3 images in gallery that look like real photos
+                    const photos = event.gallery?.filter(img => 
+                      img !== event.image && 
+                      !img.toLowerCase().includes('poster') && 
+                      !img.toLowerCase().includes('.png') &&
+                      !img.toLowerCase().includes('instagram') &&
+                      !img.toLowerCase().includes('think_india')
+                    ).slice(0, 3) || [];
+                    
+                    return photos.map((photo, index) => ({
+                      ...event,
+                      displayImage: photo,
+                      uniqueKey: `${event.id}-${index}`
+                    }));
+                  })
+                  .map((item) => (
                   <div key={item.uniqueKey} className="relative aspect-square group overflow-hidden rounded-xl border border-border shadow-md">
                     <img
                       src={item.displayImage}
@@ -58,7 +70,8 @@ export default function HistoryPage() {
                       </p>
                     </div>
                   </div>
-              ))}
+                ));
+              })()}
             </div>
           </div>
         </section>
