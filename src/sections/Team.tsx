@@ -34,7 +34,7 @@ const teamMembers = [
   { name: 'Vijay Solanki', role: 'Operations & Coordination', image: vijayImg },
   { name: 'Jai Prakash', role: 'Web Development', image: jpImg },
   { name: 'Medhavi Lal', role: 'Design', image: medhaviImg },
-  { name: 'Ragita Ojha', role: 'Editorial', image: ragitaImg, imagePosition: 'center' },
+  { name: 'Ragita Ojha', role: 'Editorial', image: ragitaImg, imagePosition: 'center', imageFit: 'contain' as const },
   { name: 'Megha Agrawal', role: 'Media & Public Relations', image: meghaImg },
 ];
 
@@ -114,7 +114,7 @@ export default function Team() {
                   loading="lazy"
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className={`w-full h-full transition-transform duration-700 group-hover:scale-110 ${member.imageFit === 'contain' ? 'object-contain bg-white/5' : 'object-cover'}`}
                   style={{ objectPosition: member.imagePosition || 'top' }}
                 />
               </div>

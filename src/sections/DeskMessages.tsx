@@ -19,7 +19,7 @@ function useReveal(threshold = 0.1) {
 
 import naveenImg from '@/assets/desk/Naveen_Photo.png';
 import kkPantImg from '@/assets/desk/kkpant.jpg';
-import upSinghImg from '@/assets/desk/upsingh.jpg';
+import praveenImg from '@/assets/desk/Praveen Kumar.jpeg';
 import barjeevImg from '@/assets/desk/barjiv.jpg';
 import { useAutoScroll } from '@/Hooks/useAutoScroll';
 import sonaliImg from '@/assets/desk/sonali.jpg';
@@ -34,9 +34,9 @@ export const messages = [
     message: "Think India IIT Roorkee represents the enthusiasm, creativity and sense of social responsibility that define student life at the Institute. Through its diverse initiatives, discussions and programmes, the chapter provides students with meaningful opportunities to learn, collaborate and contribute beyond the classroom. The publication Ritam reflects this same spirit by documenting the ideas, experiences and efforts of the student community. Such platforms play an important role in nurturing thoughtful and responsible young minds. I congratulate the entire Think India team for their commitment and dedication. May their initiatives continue to encourage constructive dialogue, responsible leadership and meaningful service to society and the nation."
   },
   {
-    name: "Prof. U. P. Singh",
+    name: "Prof. Praveen Kumar",
     role: "Deputy Director, IIT Roorkee",
-    image: upSinghImg,
+    image: praveenImg,
     message: "Institutions of higher education have a responsibility not only to develop academic excellence but also to nurture socially aware and intellectually engaged citizens. Think India IIT Roorkee contributes to this objective by providing students with opportunities to participate in discussions, workshops, cultural programmes and awareness initiatives. These activities encourage students to explore ideas beyond their academic disciplines and engage with questions that matter to society and the nation. Ritam captures this vibrant spirit of participation and provides a meaningful record of the chapter's activities. I appreciate the efforts of everyone associated with this initiative and hope Think India continues to encourage thoughtful participation and positive contribution within the IIT Roorkee community."
   },
   {
