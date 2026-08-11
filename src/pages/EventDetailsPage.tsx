@@ -109,14 +109,21 @@ export default function EventDetailsPage() {
 
           {/* Extra Gallery Images */}
           {event.gallery && event.gallery.length > (textBlocks.length - 1) && (
-            <div className="mt-20 pt-10 border-t-2 border-dashed border-gray-300">
-              <h3 className="text-3xl font-serif font-black mb-8 text-center text-[#1a1a1a] uppercase tracking-widest">More from the Event</h3>
-              <div className={`grid grid-cols-1 sm:grid-cols-2 ${event.id === 3 ? '' : 'md:grid-cols-3'} gap-6`}>
+            <div className={`mt-20 pt-10 ${event.id === 18 ? '' : 'border-t-2 border-dashed border-gray-300'}`}>
+              {event.id !== 18 && (
+                <h3 className="text-3xl font-serif font-black mb-8 text-center text-[#1a1a1a] uppercase tracking-widest">More from the Event</h3>
+              )}
+              <div className={`grid grid-cols-1 ${event.id === 18 ? '' : `sm:grid-cols-2 ${event.id === 3 ? '' : 'md:grid-cols-3'}`} gap-6`}>
                 {event.gallery.slice(textBlocks.length - 1).map((img: string, idx: number) => {
                   const isChhatraSansadWidePhoto = event.id === 3 && idx === 0;
                   const isTirangaYatraWidePhoto = event.id === 6 && idx === 0;
-                  const isWidePhoto = isChhatraSansadWidePhoto || isTirangaYatraWidePhoto;
-                  const colSpanClass = isChhatraSansadWidePhoto ? 'sm:col-span-2' : (isTirangaYatraWidePhoto ? 'sm:col-span-2 md:col-span-3' : '');
+                  const isBloodDonationWidePhoto = event.id === 18;
+                  const isWidePhoto = isChhatraSansadWidePhoto || isTirangaYatraWidePhoto || isBloodDonationWidePhoto;
+                  
+                  let colSpanClass = '';
+                  if (isChhatraSansadWidePhoto) colSpanClass = 'sm:col-span-2';
+                  else if (isTirangaYatraWidePhoto) colSpanClass = 'sm:col-span-2 md:col-span-3';
+                  
                   return (
                     <div key={idx} className={`rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 w-full ${isWidePhoto ? `${colSpanClass} h-[300px] sm:h-[400px] md:h-[500px]` : 'h-64'}`}>
                       <img loading="lazy"

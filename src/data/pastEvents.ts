@@ -383,8 +383,7 @@ export const pastEventsData: PastEvent[] = [
     contentBlocks: [
       'Think India IIT Roorkee organised a Blood Donation Camp on 23 January 2026 to commemorate Parakram Diwas and the birth anniversary of Netaji Subhas Chandra Bose. The camp was conducted at the Student Activity Centre with the support of government and private blood banks.',
       'Nearly 400 students, faculty members, staff, and professors participated in the initiative. Senior institute officials attended the programme and encouraged donors and volunteers. Despite heavy rainfall, the IIT Roorkee community responded with determination and enthusiasm.',
-      'Medical teams ensured that the collection process remained safe, systematic, and efficient. Donors received mementos and gift bags as tokens of gratitude for their contribution.',
-      'Volunteers played an important role in coordinating registrations, assisting participants, and maintaining an organised environment. The camp transformed the ideals of courage, compassion, service, and collective responsibility into meaningful action.'
+      'Medical teams ensured that the collection process remained safe, systematic, and efficient. Donors received mementos and gift bags as tokens of gratitude for their contribution. Volunteers played an important role in coordinating registrations, assisting participants, and maintaining an organised environment. The camp transformed the ideals of courage, compassion, service, and collective responsibility into meaningful action.'
     ]
   }
 ];
