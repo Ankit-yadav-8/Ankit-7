@@ -19,6 +19,7 @@ import BlogDetailsPage from '@/pages/BlogDetailsPage';
 import TeamPage from '@/pages/TeamPage';
 import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
+import HistoryPage from '@/pages/HistoryPage';
 
 import About from '@/sections/About';
 
@@ -68,6 +69,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
+      <Route path="/history" element={<HistoryPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/team" element={<TeamPage />} />
       <Route path="/past-events" element={<PastEventsPage />} />

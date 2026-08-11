@@ -130,7 +130,7 @@ export default function Navigation() {
           {/* ── Right buttons (desktop) ── */}
           <div className="hidden lg:flex items-center gap-4 shrink-0 ml-4">
             <button
-              onClick={() => handleNavClick('/#history')}
+              onClick={() => handleNavClick('/history')}
               className="btn-action flex items-center gap-1.5 font-light"
             >
               History
@@ -216,7 +216,7 @@ export default function Navigation() {
             {/* Mobile right buttons */}
             <div className="flex flex-col gap-3 pt-4 border-t border-border mt-2">
               <button
-                onClick={() => handleNavClick('/#history')}
+                onClick={() => handleNavClick('/history')}
                 className="btn-action w-full flex items-center justify-center gap-2 text-sm py-3 rounded-xl font-light"
               >
                 History
