@@ -47,7 +47,7 @@ export default function HistoryPage() {
                       !img.toLowerCase().includes('.png') &&
                       !img.toLowerCase().includes('instagram') &&
                       !img.toLowerCase().includes('think_india')
-                    ).slice(0, 3) || [];
+                    ).slice(0, 5) || [];
                     
                     return photos.map((photo, index) => ({
                       ...event,
