@@ -9,8 +9,12 @@ import { FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa';
 const teamHeads = [
   { name: 'Sonali Soni',  role: 'Convener'           },
   { name: 'Arun Sharma',  role: 'Co-Convenor'        },
-  { name: 'Vijay Solanki',role: 'Co-Convenor'        },
+  { name: 'Aarti Puri',   role: 'Co-Convenor'        },
   { name: 'Saurabh Meena',role: 'Co-Convenor'        },
+  { name: 'Vijay Solanki',role: 'Co-Convenor'        },
+  { name: 'Medhavi Lal',  role: 'Co-Convenor'        },
+  { name: 'Ragita Ojha',  role: 'Co-Convenor'        },
+  { name: 'Megha Agrawal',role: 'Co-Convenor'        },
 ];
 
 const developers = [
