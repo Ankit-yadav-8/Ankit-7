@@ -210,6 +210,11 @@ export const pastEventsData: PastEvent[] = [
       revivingBharat1,
       revivingBharat2,
     ],
+    contentBlocks: [
+      'Think India IIT Roorkee proudly organised an insightful and thought-provoking lecture titled “Reviving Bharat: A Scientific Civilization and Its Relevance in Present Times” on 18 September 2024. The highly anticipated session drew an enthusiastic audience of students, researchers, and faculty members keen to explore the deep intersections between India’s ancient heritage and modern scientific progress. The event was held at the prestigious IIT Roorkee campus, providing a fitting academic backdrop for a discussion on civilizational roots and technological advancement.',
+      'The keynote speaker for the evening was Mr Aditya Jha, a distinguished Senior Application Engineer at Oracle and an esteemed alumnus of IIT Roorkee. Drawing upon his extensive professional experience and deep cultural understanding, Mr Jha passionately explored India’s rich scientific, philosophical, and spiritual heritage. He articulated how ancient Indian knowledge systems—often dismissed as mere mythology—actually hold profound scientific relevance and can provide meaningful, practical perspectives on solving modern social and professional challenges. He strongly emphasized the timeless values of discipline, self-awareness, continuous innovation, holistic personal development, and responsible leadership.',
+      'Throughout the interactive session, students were consistently encouraged to harmonize their personal growth with meaningful contributions toward national development and societal well-being. Senior faculty members who attended the programme warmly appreciated the initiative and strongly reinforced the importance of culturally rooted education in shaping well-rounded engineers. An engaging question-and-answer segment concluded the event, enabling participants to openly discuss their future aspirations, career concerns, and philosophical questions. Ultimately, the lecture succeeded in offering a deeply thoughtful perspective on seamlessly reconnecting modern technological progress with Bharat’s enduring civilizational foundations.'
+    ]
   },
   {
     id: 8,
@@ -252,6 +257,10 @@ export const pastEventsData: PastEvent[] = [
     gallery: [
       shivaji1,
     ],
+    contentBlocks: [
+      'Think India IIT Roorkee proudly celebrated Chhatrapati Shivaji Maharaj Jayanti on 21 February 2025 with great enthusiasm and patriotic fervour. The vibrant programme honoured the unparalleled life and enduring legacy of one of India’s most admired warrior-kings and visionary leaders. Students, faculty members, and history enthusiasts gathered in exceptionally large numbers for a grand celebration deeply rooted in history, culture, visionary leadership, and national pride. The event commenced with the solemn lighting of a ceremonial diya, paying heartfelt tribute to the indomitable spirit, strategic genius, and unmatched bravery of Shivaji Maharaj.',
+      'The cultural segment of the evening was truly spectacular, featuring traditional Maharashtrian folk dances that flawlessly brought the raw courage, vibrant energy, and martial spirit of his era back to life on stage. A powerful, highly emotive Powada recital passionately narrated inspiring stories of bravery, unyielding sacrifice, and extraordinary leadership. In addition to the cultural performances, students and esteemed professors thoughtfully reflected on the continuing relevance of Shivaji Maharaj’s timeless ideals in the modern world. The celebration strongly highlighted core values such as courage, unwavering integrity, far-sighted strategic vision, good governance, and an unshakeable commitment to Swarajya (self-rule). It served as a powerful source of inspiration, encouraging young people to deeply imbibe these noble values while actively contributing toward building a stronger, more united, and self-reliant India.'
+    ]
   },
   {
     id: 11,
@@ -269,6 +278,11 @@ export const pastEventsData: PastEvent[] = [
       negotiation1,
       negotiation2,
     ],
+    contentBlocks: [
+      'Think India IIT Roorkee successfully organised a highly interactive and intellectually stimulating two-hour Policy Negotiation Workshop on 22 February 2025. The intensive session was expertly conducted under the expert guidance of Mr Nikhil Arya, an esteemed Community Manager at the renowned Rashtram School of Public Leadership. The primary objective of the workshop was to introduce ambitious students to the fundamental intricacies of public policy formulation, effective stakeholder dialogue, and the art of structured, diplomatic negotiation in real-world scenarios.',
+      'During the immersive workshop, participants were thoughtfully divided into diverse small groups and assigned a highly realistic and complex policy simulation. The core exercise involved meticulously planning the establishment of an ethanol plant while simultaneously addressing a myriad of conflicting factors. Students had to carefully navigate strict environmental regulations, pressing employment concerns, complex government financing structures, stringent labour laws, and the deeply rooted interests of the local community. Each student enthusiastically represented a distinctly different stakeholder, negotiating fiercely yet diplomatically to find balanced, mutually beneficial, and practical solutions.',
+      'This hands-on, dynamic activity brilliantly demonstrated how impactful policy decisions in the real world require clear communication, extensive research, strategic compromise, and visionary long-term thinking. Through rigorous debate and collaborative problem-solving, participants significantly strengthened their teamwork, critical-thinking abilities, and persuasive communication skills. Ultimately, the engaging workshop proved to be an outstanding success, effectively bridging the gap between theoretical classroom learning and the highly complex, multifaceted real-world challenges of effective governance and sustainable nation-building.'
+    ]
   },
   {
     id: 12,
